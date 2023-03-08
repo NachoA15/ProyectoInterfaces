@@ -1,0 +1,71 @@
+div {
+    width: 100%;
+    margin: 0px;
+}
+
+div#navbarLocation {
+    height: 56px;
+}
+
+div#inicio {
+    height: 500px;
+    background-image: url('../images/pedalboard.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+div#anuncios {
+    height: 500px;
+    background-image: url('../images/synth.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+div#interactua {
+    height: 500px;
+    background-image: url('../images/monitors.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+div#sobre-nosotros {
+    height: 500px;
+    background-image: url('../images/mixer.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+div.textLeft {
+    position: relative;
+    float: left;
+    left: 2%;
+    top: 5%;
+    width: 35%;
+    text-align: center;
+}
+
+div.textRight {
+    position: relative;
+    float: right;
+    right: 2%;
+    top: 10%;
+    width: 35%;
+    text-align: center;
+}
+
+h1 {
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: white;  
+}
+
+p {
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 20px;
+    color: white;
+}
+
+button#volver-arriba {
+    
+}
+
+
