@@ -9,7 +9,7 @@ export default function Login() {
             <NavbarIntroPage />
         </div>
         <div class="my-form bg-white">
-  <h1>Accede a tu cuenta</h1>
+  <h1 id='loginTitle'>Accede a tu cuenta</h1>
   <form>
     <div class="mb-3 mt-4">
       <label for="exampleInputEmail1" class="form-label">Email</label>
