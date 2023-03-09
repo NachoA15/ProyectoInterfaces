@@ -1,0 +1,48 @@
+.my-form {
+    padding: 2em;
+    color: #fff;
+    max-width: 55vh;
+    margin-inline: auto;
+    margin-left: 50px;
+  }
+  h1 {
+    font-weight: bold;
+    text-align: center;
+    font-size: 2.5em;
+    color: black;
+  }
+  .form-control {
+    background-color: gray;
+    color: white;
+    border: none;
+    border-bottom: 1px solid gray;
+    border-radius: 0;
+    padding-left: 0;
+  }
+  .form-control:focus {
+    background-color: gray;
+    color: white;
+    box-shadow: none;
+    border-color: gray;
+  }
+  .btn {
+    border-radius: 0;
+    width: 100%;
+    font-weight: bold;
+  }
+  .my-form p {
+    color: gray;
+    text-align: center;
+  }
+  
+  .my-form p a {
+    color: #e1e1e1;
+    text-decoration: none;
+  }
+  .my-form p a:hover {
+    color: black
+  }
+  .form-label {
+    color: black;
+  }
+  
