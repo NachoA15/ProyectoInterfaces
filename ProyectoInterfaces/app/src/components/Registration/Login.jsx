@@ -21,7 +21,7 @@ export default function Login() {
     </div>
     <button type="submit" class="btn btn-light mt-3">Login</button>
   </form>
-  <p class="mt-4">¿No tienes cuenta todavía? <a href="#">¡Regístrate ahora!</a></p>
+  <p class="mt-4">¿No tienes cuenta todavía? <a href="/signUp">¡Regístrate ahora!</a></p>
 </div>
 
         </>
