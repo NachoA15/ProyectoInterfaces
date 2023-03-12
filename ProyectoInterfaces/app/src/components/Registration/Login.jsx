@@ -1,12 +1,12 @@
 import React from 'react';
-import NavbarIntroPage from '../IntroPage/NavbarIntroPage';
+import NavbarRegistration from './NavBarLogin';
 import '../../assets/css/login.css'
 
 export default function Login() {
     return(
         <>
         <div id='navbarLocation'>
-            <NavbarIntroPage />
+            <NavbarRegistration />
         </div>
         <div class="my-form bg-white">
   <h1 id='loginTitle'>Accede a tu cuenta</h1>

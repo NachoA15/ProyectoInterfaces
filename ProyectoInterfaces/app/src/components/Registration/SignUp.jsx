@@ -1,5 +1,5 @@
 import React from 'react';
-import NavbarRegistration from './NavbarRegistration'
+import NavbarRegistration from './NavBarRegistration'
 import {TextField} from '@mui/material'
 import '../../assets/css/signUp.css'
 
