@@ -10,7 +10,7 @@ export default function NavbarIntroPage() {
                     <div className="collapse navbar-collapse" id="navbarResponsive">
                         <ul className="navbar-nav ms-auto">
                             <li className="nav-item"><a className="nav-link" href="#inicio">Inicio</a></li>
-                            <li className="nav-item"><a className="nav-link" href="#anuncios">Compra/vende equipo</a></li>
+                            <li className="nav-item"><a className="nav-link" href="/products">Compra/vende equipo</a></li>
                             <li className="nav-item"><a className="nav-link" href="#interactua">Interactúa</a></li>
                             <li className="nav-item"><a className="nav-link" href="#sobre-nosotros">Sobre nosotros</a></li>
                             <li className="nav-item"><a className="nav-link" href="/signUp">Regístrate</a></li>

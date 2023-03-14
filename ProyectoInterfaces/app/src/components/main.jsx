@@ -5,6 +5,7 @@ import IntroPage from './IntroPage/IntroPage.jsx'
 import SignUp from './Registration/SignUp.jsx';
 import Login from './Registration/Login.jsx';
 import '../assets/css/index.css'
+import Products from './ProductPage/productsPage.jsx';
 
 const router = createBrowserRouter([
   {
@@ -18,7 +19,12 @@ const router = createBrowserRouter([
   {
     path: '/login',
     element: <Login />
+  },
+  {
+    path: '/products',
+    element: <Products/>
   }
+
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
