@@ -25,10 +25,10 @@ export default function SignUp() {
                             <div class="row text-center">
                                 <h4 id="registrarTitulo" class="card-title" >Regístrate:</h4>
                             </div>
-                            
                             <div class="row text-center">
-                                <h5>---------------- o ----------------</h5>
+                                <h6 id="obligatorio" class="card-body">Los campos obligatorios se muestran con un asterisco (*).</h6>
                             </div>
+                            
                             <div class="row text-left">
                                 <div class="col-md-2"></div>
                                 <div class="col-md-8">
