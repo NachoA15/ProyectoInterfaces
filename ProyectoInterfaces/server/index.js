@@ -56,4 +56,5 @@ app.post("/getUsuario", (req, res) => {
 	let password = req.body.password;
 
 	dbQuery("SELECT * FROM USUARIO WHERE username = '" + username + "' and password = '" + password + "';", req, res);
+	console.log('OK');
 })
