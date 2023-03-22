@@ -1,7 +1,8 @@
 import React from 'react'
 import NavbarIntroPage from './NavbarIntroPage'
 import '../../assets/css/IntroPage.css'
-import { useState } from "react";
+import appServices from '../../services/appServices';
+import { useState } from 'react';
 
 export default function IntroPage() {
 
@@ -37,6 +38,10 @@ export default function IntroPage() {
                 <p>Desde comprar el material que buscas o vender el tuyo propio 
                     hasta interactuar con el resto de usuarios. Comparte tus gustos, tu equipo, tu propia música... 
                     ¡Lo que quieras!</p>
+                <div id='intro-buttons-section'>
+                    <button className='button-intro' onClick={() => appServices.moveToSignUp()}>Regístrate</button>
+                    <button className='button-intro' onClick={() => appServices.moveToLogin()}>Login</button>
+                </div>
             </div>
         </div>
         <div id='anuncios'>
@@ -70,10 +75,10 @@ export default function IntroPage() {
                     a los que, como tú, nos apasiona el mundo de la música.</p>
             </div>
         </div>
-        {/*botonVisible?
+        {botonVisible?
             <button id='volver-arriba' onClick={volverArriba}>Volver arriba</button>
             :
-            <></>*/
+            <></>
         }
         </>
     )
