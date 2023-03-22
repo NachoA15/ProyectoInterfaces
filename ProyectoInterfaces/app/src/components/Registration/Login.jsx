@@ -1,5 +1,6 @@
 import React from 'react';
 import NavbarRegistration from './NavBarLogin';
+import {TextField} from '@mui/material'
 import '../../assets/css/login.css'
 
 export default function Login() {
@@ -8,21 +9,79 @@ export default function Login() {
         <div id='navbarLocation'>
             <NavbarRegistration />
         </div>
-        <div class="my-form bg-white">
-  <h1 id='loginTitle'>Accede a tu cuenta</h1>
-  <form>
-    <div class="mb-3 mt-4">
-      <label for="exampleInputEmail1" class="form-label">Email</label>
-      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
-    </div>
-    <div class="mb-3 mt-4">
-      <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-      <input type="password" class="form-control" id="exampleInputPassword1"/>
-    </div>
-    <button type="submit" class="btn btn-light mt-3">Login</button>
-  </form>
-  <p class="mt-4">¿No tienes cuenta todavía? <a href="/signUp">¡Regístrate ahora!</a></p>
-</div>
+        
+        <div id='loginForm'>
+            <form method='post' action=''>
+                
+                <div class='container center' style={{ maxWidth: 450 }}>
+                    <div class='card bg-light'>
+                        <div class="card-body">
+                            <div class="row text-center">
+                                <h3 class="card-title" >Accede a tu cuenta</h3>
+                            </div>
+                            
+                            <div class="row text-left">
+                                <div class="col-md-2"></div>
+                                <div class="col-md-8">
+                                    <div>
+                                        <TextField
+                                        
+                                        id="usuario"
+                                        label="Usuario"
+                                        variant="standard"
+                                        size="small"
+                                        
+                                        />
+                                        
+                                    </div>
+                                </div>
+                                <div class="col-md-2"></div>
+                            </div>
+
+                            <br/>
+
+                            <div class="row text-left">
+                                <div class="col-md-2"></div>
+                                <div class="col-md-8">
+                                    <div>
+                                        <TextField
+                                        
+                                        id="password"
+                                        label="Contraseña"
+                                        type="password"
+                                        variant="standard"
+                                        size="small"
+                                        />
+                                    </div>
+                                </div>
+                                <div class="col-md-2"></div>
+                            </div>
+
+                            <br/>
+                        </div> 
+                        
+                    </div>
+                </div>
+
+                
+                <br/>
+                <div class='container' style={{ maxWidth: 150 }}>
+                    <button type="submit" class="btn btn-outline-primary">Confirmar</button>
+                </div>
+                
+            </form>
+            <br/>
+
+            <div class='container ' style={{ maxWidth: 300}}>
+                <h6>
+                    ¿Aun no tienes una cuenta?
+                    <a href="/signUp"> Regístrate</a>
+                </h6>
+            </div>
+            
+            
+        </div>
+        
 
         </>
     )
