@@ -72,10 +72,16 @@ export default function Login() {
             </form>
             <br/>
 
-            <div class='container ' style={{ maxWidth: 300}}>
+            <div class='container center' style={{ maxWidth: 350}}>
                 <h6>
                     ¿Aun no tienes una cuenta?
                     <a href="/signUp"> Regístrate</a>
+                </h6>
+            </div>
+            <div class='container ' style={{ maxWidth: 300}}>
+                <h6>
+                    
+                    <a href="#"> ¿Has olvidado tu constraseña?</a>
                 </h6>
             </div>
             
