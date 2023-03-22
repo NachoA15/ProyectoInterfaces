@@ -1,6 +1,7 @@
 import React from 'react';
 import NavbarRegistration from './NavBarRegistration'
 import {TextField} from '@mui/material'
+import userServices from '../../services/userServices';
 import '../../assets/css/signUp.css'
 
 
@@ -12,46 +13,58 @@ export default function SignUp() {
         </div>
         
         <div id='signUpForm'>
-            <form method='post' action=''>
+            <form onSubmit={(e) => {
+                const username = document.getElementById('usuario').value;
+                const password = document.getElementById('password').value;
+                const confirmedPassword = document.getElementById('confirmarPassword').value;
+                const nombre = document.getElementById('nombreCompleto').value;
+                const correo = document.getElementById('correo').value;
+                const telefono = document.getElementById('telefono').value;
+                
+                if (username !== '' && password !== '' && confirmedPassword !== '') {
+                    e.preventDefault();
+                    const usuario = [username,password,confirmedPassword,nombre,correo,telefono]
+                    userServices.addUsuario(usuario);
+                }
+            }}>
                 <br/>
                 <br/>
                 <br/>
-                <div class='container center' style={{ maxWidth: 450 }}>
-                    <div class='card bg-light'>
-                        <div class="card-body">
-                            <div class="row text-center">
-                                <h3 class="card-title" >Aquí el nombre o el logo</h3>
+                <div className='container center' style={{ maxWidth: 450 }}>
+                    <div className='card bg-light'>
+                        <div className="card-body">
+                            <div className="row text-center">
+                                <h3 className="card-title" >Aquí el nombre o el logo</h3>
                             </div>
-                            <div class="row text-center">
-                                <h4 id="registrarTitulo" class="card-title" >Regístrate:</h4>
+                            <div className="row text-center">
+                                <h4 id="registrarTitulo" className="card-title" >Regístrate:</h4>
                             </div>
-                            <div class="row text-center">
-                                <h6 id="obligatorio" class="card-body">Los campos obligatorios se muestran con un asterisco (*).</h6>
+                            <div className="row text-center">
+                                <h6 id="obligatorio" className="card-body">Los campos obligatorios se muestran con un asterisco (*).</h6>
                             </div>
                             
-                            <div class="row text-left">
-                                <div class="col-md-2"></div>
-                                <div class="col-md-8">
+                            <div className="row text-left">
+                                <div className="col-md-2"></div>
+                                <div className="col-md-8">
                                     <div>
                                         <TextField
                                         required
                                         id="usuario"
                                         label="Usuario"
                                         variant="standard"
-                                        size="small"
-                                        
+                                        size="small" 
                                         />
                                         
                                     </div>
                                 </div>
-                                <div class="col-md-2"></div>
+                                <div className="col-md-2"></div>
                             </div>
 
                             <br/>
 
-                            <div class="row text-left">
-                                <div class="col-md-2"></div>
-                                <div class="col-md-8">
+                            <div className="row text-left">
+                                <div className="col-md-2"></div>
+                                <div className="col-md-8">
                                     <div>
                                         <TextField
                                         required
@@ -63,14 +76,14 @@ export default function SignUp() {
                                         />
                                     </div>
                                 </div>
-                                <div class="col-md-2"></div>
+                                <div className="col-md-2"></div>
                             </div>
 
                             <br/>
 
-                            <div class="row text-left">
-                                <div class="col-md-2"></div>
-                                <div class="col-md-8">
+                            <div className="row text-left">
+                                <div className="col-md-2"></div>
+                                <div className="col-md-8">
                                     <div>
                                         <TextField
                                         required
@@ -82,14 +95,14 @@ export default function SignUp() {
                                         />
                                     </div>
                                 </div>
-                                <div class="col-md-2"></div>
+                                <div className="col-md-2"></div>
                             </div>
 
                             <br/>
 
-                            <div class="row text-left">
-                                <div class="col-md-2"></div>
-                                <div class="col-md-8">
+                            <div className="row text-left">
+                                <div className="col-md-2"></div>
+                                <div className="col-md-8">
                                     <div>
                                         <TextField
                                         id="nombreCompleto"
@@ -99,14 +112,14 @@ export default function SignUp() {
                                         />
                                     </div>
                                 </div>
-                                <div class="col-md-2"></div>
+                                <div className="col-md-2"></div>
                             </div>
 
                             <br/>
 
-                            <div class="row text-left">
-                                <div class="col-md-2"></div>
-                                <div class="col-md-8">
+                            <div className="row text-left">
+                                <div className="col-md-2"></div>
+                                <div className="col-md-8">
                                     <div>
                                         <TextField
                                         id="correo"
@@ -116,14 +129,14 @@ export default function SignUp() {
                                         />
                                     </div>
                                 </div>
-                                <div class="col-md-2"></div>
+                                <div className="col-md-2"></div>
                             </div>
 
                             <br/>
 
-                            <div class="row text-left">
-                                <div class="col-md-2"></div>
-                                <div class="col-md-8">
+                            <div className="row text-left">
+                                <div className="col-md-2"></div>
+                                <div className="col-md-8">
                                     <div>
                                         <TextField
                                         id="telefono"
@@ -133,24 +146,24 @@ export default function SignUp() {
                                         />
                                     </div>
                                 </div>
-                                <div class="col-md-2"></div>
+                                <div className="col-md-2"></div>
                             </div>
                             <br/>
                         </div> 
                         
                     </div>
                 </div>
-
-                
                 <br/>
-                <div class='container' style={{ maxWidth: 150 }}>
-                    <button type="submit" class="btn btn-outline-primary">Confirmar</button>
-                </div>
                 
+                <div className='container' style={{ maxWidth: 150 }}>
+                        <button className="btn btn-outline-primary" type='submit'>Confirmar</button>
+                </div>
             </form>
+
+
             <br/>
 
-            <div class='container ' style={{ maxWidth: 300}}>
+            <div className='container ' style={{ maxWidth: 300}}>
                 <h6>
                     ¿Tienes una cuenta?
                     <a href="/login"> Entrar</a>
