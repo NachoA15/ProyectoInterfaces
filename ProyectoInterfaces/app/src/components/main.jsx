@@ -6,6 +6,7 @@ import SignUp from './Registration/SignUp.jsx';
 import Login from './Registration/Login.jsx';
 import '../assets/css/index.css'
 import Products from './ProductPage/productsPage.jsx';
+import Profile from './Profile/Profile.jsx';
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
   {
     path: '/products',
     element: <Products/>
+  },
+  {
+    path: '/profile',
+    element: <Profile/>
   }
 
 ])
