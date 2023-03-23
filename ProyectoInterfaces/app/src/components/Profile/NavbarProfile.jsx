@@ -11,6 +11,7 @@ export default function NavbarProfile() {
                         <ul className="navbar-nav ms-auto">
                             <li className="nav-item"><a className="nav-link" href="/">Inicio</a></li>
                             <li className="nav-item"><a className="nav-link" href="/products">Productos</a></li>
+                            <li className="nav-item"><a className="nav-link active" href="#">Perfil</a></li>
                         </ul>
                     </div>
                 </div>
