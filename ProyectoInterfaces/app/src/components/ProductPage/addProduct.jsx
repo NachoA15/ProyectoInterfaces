@@ -1,5 +1,6 @@
 import React from 'react';
 import NavbarRegistration from './NavBarProductsPage'
+import {TextField} from '@mui/material'
 
 
 export default function addProduct() {
@@ -12,13 +13,13 @@ export default function addProduct() {
         <div class="container">
 
           <section class="panel panel-default">
-            <div class="panel-heading">
+            {/*<div class="panel-heading">
               <h3 class="panel-title">Panel heading</h3>
-            </div>
+            </div>*/}
 
-            <div class="panel-body">
+            <div id="addProductForm">
 
-              <form action="designer-finish.html" class="form-horizontal" role="form">
+              <form action="" method="post">
 
                 {/** 
                  *
@@ -36,8 +37,95 @@ export default function addProduct() {
                 </div>
                   
                 */}
+                <div class='container center' style={{ maxWidth: 450 }}>
+                    <div class='card bg-light'>
+                        <div class="card-body">
+                            <div class="row text-center">
+                                <h3 class="card-title" >Introduzca la información del producto:</h3>
+                            </div>
+                            <br/>
+                            <div class="row text-left">
+                                <div class="col-md-2"></div>
+                                <div class="col-md-8">
+                                    <div>
+                                        <TextField
+                                        
+                                        id="nombreProducto"
+                                        label="Nombre del producto"
+                                        variant="standard"
+                                        size="small"
+                                        
+                                        />
+                                        
+                                    </div>
+                                </div>
+                                <div class="col-md-2"></div>
+                            </div>
 
-                <div class="form-group">
+                            <br/>
+
+                            <div class="row text-left">
+                                <div class="col-md-2"></div>
+                                <div class="col-md-8">
+                                    <div>
+                                        <TextField
+                                        
+                                        id="categoria"
+                                        label="Categoría"
+                                        variant="standard"
+                                        size="small"
+                                        />
+                                    </div>
+                                </div>
+                                <div class="col-md-2"></div>
+                            </div>
+
+                            <br/>
+
+                            <div class="row text-left">
+                                <div class="col-md-2"></div>
+                                <div class="col-md-8">
+                                    <div>
+                                        <TextField
+                                        
+                                        id="descripcion"
+                                        label="Descripción del producto"
+                                        variant="standard"
+                                        size="small"
+
+                                        />
+                                    </div>
+                                </div>
+                                <div class="col-md-2"></div>
+                            </div>
+
+                            <br/>
+
+                            <div class="row text-left">
+                                <div class="col-md-2"></div>
+                                <div class="col-md-8">
+                                    <div>
+                                      <label class="control-label small" for="file_img">Imagen del producto (.jpg/.png):</label> <input type="file" name="file_img"/>
+                                    </div>
+                                </div>
+                                <div class="col-md-2"></div>
+                            </div>
+
+                            <br/>
+
+                        </div> 
+                        
+                    </div>
+
+                    <br/>
+
+                    <div class='container' style={{ maxWidth: 150 }}>
+                          <button type="submit" class="btn btn-outline-primary">Confirmar</button>
+                    </div>
+                    
+                </div>
+
+                {/*<div class="form-group">
                   <label for="name" class="col-sm-3 control-label">Nombre del producto</label>
                   <div class="col-sm-9">
                     <input type="text" class="form-control" name="name" id="name" placeholder="Nombre del producto"/>
@@ -85,7 +173,7 @@ export default function addProduct() {
                   <div class="col-sm-offset-3 col-sm-9">
                     <button type="submit" class="btn btn-primary">Enviar</button>
                   </div>
-                </div>
+              </div> */}
               </form>
 
             </div>
