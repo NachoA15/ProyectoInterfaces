@@ -9,7 +9,7 @@ export default function Products() {
             <NavbarRegistration />
         </div>
 
-        
+        <br/>
         <br/>
         <div class="row">
             <div class="col-md-12">
@@ -144,66 +144,7 @@ export default function Products() {
                             </div>						
                         </div>
                     </div>
-                    <div class="item">
-                        <div class="row">
-                            <div class="col-sm-3">
-                                <div class="thumb-wrapper">
-                                    <span class="wish-icon"><i class="fa fa-heart-o"></i></span>
-                                    <div class="img-box">
-                                        <img src="/examples/images/products/iphone.jpg" class="img-responsive" alt=""/>
-                                    </div>
-                                    <div class="thumb-content">
-                                        <h4>Apple iPhone</h4>
-                                        <p class="item-price"><strike>$369.00</strike> <span>$349.00</span></p>
-                                       
-                                        <a href="#" class="btn btn-primary">Add to Cart</a>
-                                    </div>						
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="thumb-wrapper">
-                                    <span class="wish-icon"><i class="fa fa-heart-o"></i></span>
-                                    <div class="img-box">
-                                        <img src="/examples/images/products/canon.jpg" class="img-responsive" alt=""/>
-                                    </div>
-                                    <div class="thumb-content">
-                                        <h4>Canon DSLR</h4>
-                                        <p class="item-price"><strike>$315.00</strike> <span>$250.00</span></p>
-                                        
-                                        <a href="#" class="btn btn-primary">Add to Cart</a>
-                                    </div>						
-                                </div>
-                            </div>
-                            <div class="col-sm-3">
-                                <div class="thumb-wrapper">
-                                    <span class="wish-icon"><i class="fa fa-heart-o"></i></span>
-                                    <div class="img-box">
-                                        <img src="/examples/images/products/pixel.jpg" class="img-responsive" alt=""/>
-                                    </div>
-                                    <div class="thumb-content">
-                                        <h4>Google Pixel</h4>
-                                        <p class="item-price"><strike>$450.00</strike> <span>$418.00</span></p>
-                                        
-                                        <a href="#" class="btn btn-primary">Add to Cart</a>
-                                    </div>						
-                                </div>
-                            </div>	
-                            <div class="col-sm-3">
-                                <div class="thumb-wrapper">
-                                    <span class="wish-icon"><i class="fa fa-heart-o"></i></span>
-                                    <div class="img-box">
-                                        <img src="/examples/images/products/watch.jpg" class="img-responsive" alt=""/>
-                                    </div>
-                                    <div class="thumb-content">
-                                        <h4>Apple Watch</h4>
-                                        <p class="item-price"><strike>$350.00</strike> <span>$330.00</span></p>
-                                       
-                                        <a href="#" class="btn btn-primary">Add to Cart</a>
-                                    </div>						
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    
                 </div>
                 
                 <a class="carousel-control left" href="#myCarousel" data-slide="prev">

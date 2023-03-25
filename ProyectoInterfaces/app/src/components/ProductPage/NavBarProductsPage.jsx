@@ -13,7 +13,7 @@ export default function NavbarProductsPage() {
                         <ul className="navbar-nav ms-auto">
                             <li className="nav-item"><a className="nav-link" href="/">Inicio</a></li>
                             <li className="nav-item"><a className="nav-link active" href="#">Perfil</a></li>
-                            <a href="/"><i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i></a>
+                            <i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i>
                         </ul>
                     </div>
                 </div>
