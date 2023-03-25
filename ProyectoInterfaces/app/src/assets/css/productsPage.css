@@ -8,6 +8,8 @@ h2 {
 	position: relative;
 	margin: 30px 0 60px;
 }
+
+
 h2::after {
 	content: "";
 	width: 100px;
@@ -32,7 +34,7 @@ h2::after {
 }
 .carousel .thumb-wrapper {
 	padding: 25px 15px;
-	background: #fff;
+	background: #faf5f5;
 	border-radius: 6px;
 	text-align: center;
 	position: relative;
@@ -108,6 +110,7 @@ h2::after {
     font-weight: bold;
 }
 .carousel .item-price {
+	color: #000;
 	font-size: 13px;
 	padding: 2px 0;
 }
@@ -149,4 +152,10 @@ h2::after {
 .carousel .wish-icon .fa-heart {
 	color: #ff6161;
 }
+
+.wish-icon .fa-heart {
+	color: #ff6161;
+}
+
+
 

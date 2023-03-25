@@ -1,0 +1,23 @@
+
+.carrito {
+	cursor: pointer;
+    top: 20px;
+	font-size: 16px;
+	color: black;
+    
+}
+
+.addProducts {
+	top: 20px;
+    z-index: 99;
+	cursor: pointer;
+	color: white;
+    font-size: 8px;
+    font-weight: bold;
+    background:  #c40000;
+    padding: 6px 14px;
+    margin-top: 10px;
+  
+    border-radius: 20px;
+}
+
