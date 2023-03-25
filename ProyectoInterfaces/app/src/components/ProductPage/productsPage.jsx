@@ -53,11 +53,11 @@ export default function Products() {
                                             
                                             <p class="item-price"><b>$369.00</b></p>
                                             <div class="row">
-                                                <div class="col-sm-7">
-                                                    <a href="#" class="btn btn-primary">Añadir al carrito</a>
+                                                <div class="col-sm-6">
+                                                    <a href="#" class="btn btn-primary">Contactar con el vendedor</a>
                                                 </div>
-                                                <div class="col-sm-5">
-                                                    <a href="#" class="btn btn-primary">Chatear</a>
+                                                <div class="col-sm-6">
+                                                    <a href="#" class="btn btn-primary">Más información</a>
                                                 </div>  
                                                 
                                                 
@@ -77,11 +77,11 @@ export default function Products() {
                                             
                                             <p class="item-price"><b>$23.99</b></p>
                                             <div class="row">
-                                                <div class="col-sm-7">
-                                                    <a href="#" class="btn btn-primary">Añadir al carrito</a>
+                                                <div class="col-sm-6">
+                                                    <a href="#" class="btn btn-primary">Contactar con el vendedor</a>
                                                 </div>
-                                                <div class="col-sm-5">
-                                                    <a href="#" class="btn btn-primary">Chatear</a>
+                                                <div class="col-sm-6">
+                                                    <a href="#" class="btn btn-primary">Más información</a>
                                                 </div>  
                                                 
                                                 
@@ -100,13 +100,13 @@ export default function Products() {
                                         <div class="thumb-content">
                                             <h4>Flauta travesera</h4>									
                                             
-                                            <p class="item-price">$649.00</p>
+                                            <p class="item-price"><b>$649.00</b></p>
                                             <div class="row">
-                                                <div class="col-sm-7">
-                                                    <a href="#" class="btn btn-primary">Añadir al carrito</a>
+                                                <div class="col-sm-6">
+                                                    <a href="#" class="btn btn-primary">Contactar con el vendedor</a>
                                                 </div>
-                                                <div class="col-sm-5">
-                                                    <a href="#" class="btn btn-primary">Chatear</a>
+                                                <div class="col-sm-6">
+                                                    <a href="#" class="btn btn-primary">Más información</a>
                                                 </div>  
                                                 
                                                 
@@ -124,7 +124,7 @@ export default function Products() {
                                         <div class="thumb-content">
                                             <h4>Nikon DSLR</h4>									
                                             
-                                            <p class="item-price"><strike>$315.00</strike> <b>$250.00</b></p>
+                                            <p class="item-price"><b>$250.00</b></p>
                                             <div class="row">
                                                 <div class="col-sm-7">
                                                     <a href="#" class="btn btn-primary">Añadir al carrito</a>
@@ -151,7 +151,7 @@ export default function Products() {
                                         </div>
                                         <div class="thumb-content">
                                             <h4>Sony Play Station</h4>
-                                            <p class="item-price"><strike>$289.00</strike> <span>$269.00</span></p>
+                                            <p class="item-price"><span>$269.00</span></p>
                                             
                                             <a href="#" class="btn btn-primary">Add to Cart</a>
                                         </div>						
@@ -165,7 +165,7 @@ export default function Products() {
                                         </div>
                                         <div class="thumb-content">
                                             <h4>Macbook Pro</h4>
-                                            <p class="item-price"><strike>$1099.00</strike> <span>$869.00</span></p>
+                                            <p class="item-price"><span>$869.00</span></p>
                                             
                                             <a href="#" class="btn btn-primary">Add to Cart</a>
                                         </div>						
@@ -179,7 +179,7 @@ export default function Products() {
                                         </div>
                                         <div class="thumb-content">
                                             <h4>Bose Speaker</h4>
-                                            <p class="item-price"><strike>$109.00</strike> <span>$99.00</span></p>
+                                            <p class="item-price"><span>$99.00</span></p>
                                         
                                             <a href="#" class="btn btn-primary">Add to Cart</a>
                                         </div>						
@@ -193,7 +193,7 @@ export default function Products() {
                                         </div>
                                         <div class="thumb-content">
                                             <h4>Samsung Galaxy S8</h4>
-                                            <p class="item-price"><strike>$599.00</strike> <span>$569.00</span></p>
+                                            <p class="item-price"><span>$569.00</span></p>
                                             
                                             <a href="#" class="btn btn-primary">Add to Cart</a>
                                         </div>						

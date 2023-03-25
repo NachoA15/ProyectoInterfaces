@@ -105,6 +105,25 @@ export default function addProduct() {
                                 <div class="col-md-2"></div>
                                 <div class="col-md-8">
                                     <div>
+                                        <TextField
+                                        
+                                        id="precio"
+                                        label="Precio del producto"
+                                        variant="standard"
+                                        size="small"
+
+                                        />
+                                    </div>
+                                </div>
+                                <div class="col-md-2"></div>
+                            </div>
+
+                            <br/>
+
+                            <div class="row text-left">
+                                <div class="col-md-2"></div>
+                                <div class="col-md-8">
+                                    <div>
                                       <label class="control-label small" for="file_img">Imagen del producto (.jpg/.png):</label> <input type="file" name="file_img"/>
                                     </div>
                                 </div>
