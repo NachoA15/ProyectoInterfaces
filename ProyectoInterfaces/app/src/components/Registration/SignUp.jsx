@@ -163,13 +163,14 @@ export default function SignUp() {
 
             <br/>
 
-            <div className='container ' style={{ maxWidth: 300}}>
+            <div className='container text-center' style={{ maxWidth: 300}}>
                 <h6>
-                    ¿Tienes una cuenta?
+                    ¿Ya tienes una cuenta?
                     <a href="/login"> Entrar</a>
                 </h6>
             </div>
             
+            <br/>
             
         </div>
         

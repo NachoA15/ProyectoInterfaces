@@ -40,6 +40,8 @@ export default function IntroPage() {
                     ¡Lo que quieras!</p>
                 <div id='intro-buttons-section'>
                     <button className='button-intro' onClick={() => appServices.moveToSignUp()}>Regístrate</button>
+                    <br/>
+                    <br/>
                     <button className='button-intro' onClick={() => appServices.moveToLogin()}>Login</button>
                 </div>
             </div>

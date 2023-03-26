@@ -54,10 +54,10 @@ export default function Products() {
                                             <p class="item-price"><b>$369.00</b></p>
                                             <div class="row">
                                                 <div class="col-sm-6">
-                                                    <a href="#" class="btn btn-primary">Contactar con el vendedor</a>
+                                                    <a href="#" class="btn btn-primary" style={{height: 60}}>Contactar con el vendedor</a>
                                                 </div>
                                                 <div class="col-sm-6">
-                                                    <a href="#" class="btn btn-primary">Más información</a>
+                                                    <a href="#" class="btn btn-primary" style={{height: 60}}>Más información</a>
                                                 </div>  
                                                 
                                                 
@@ -78,10 +78,10 @@ export default function Products() {
                                             <p class="item-price"><b>$23.99</b></p>
                                             <div class="row">
                                                 <div class="col-sm-6">
-                                                    <a href="#" class="btn btn-primary">Contactar con el vendedor</a>
+                                                    <a href="#" class="btn btn-primary" style={{height: 60}}>Contactar con el vendedor</a>
                                                 </div>
                                                 <div class="col-sm-6">
-                                                    <a href="#" class="btn btn-primary">Más información</a>
+                                                    <a href="#" class="btn btn-primary" style={{height: 60}}>Más información</a>
                                                 </div>  
                                                 
                                                 
@@ -103,10 +103,10 @@ export default function Products() {
                                             <p class="item-price"><b>$649.00</b></p>
                                             <div class="row">
                                                 <div class="col-sm-6">
-                                                    <a href="#" class="btn btn-primary">Contactar con el vendedor</a>
+                                                    <a href="#" class="btn btn-primary" style={{height: 60}}>Contactar con el vendedor</a>
                                                 </div>
                                                 <div class="col-sm-6">
-                                                    <a href="#" class="btn btn-primary">Más información</a>
+                                                    <a href="#" class="btn btn-primary" style={{height: 60}}>Más información</a>
                                                 </div>  
                                                 
                                                 
@@ -114,7 +114,8 @@ export default function Products() {
                                             
                                         </div>						
                                     </div>
-                                </div>								
+                                </div>			
+                                {/*					
                                 <div class="col-sm-3">
                                     <div class="thumb-wrapper">
                                         <span class="wish-icon"><i class="fa fa-heart-o"></i></span>
@@ -139,8 +140,10 @@ export default function Products() {
                                         </div>						
                                     </div>
                                 </div>
+                                */}
                             </div>
                         </div>
+                        {/*
                         <div class="item">
                             <div class="row">
                                 <div class="col-sm-3">
@@ -201,6 +204,7 @@ export default function Products() {
                                 </div>						
                             </div>
                         </div>
+                        */}
                         
                     </div>
                     

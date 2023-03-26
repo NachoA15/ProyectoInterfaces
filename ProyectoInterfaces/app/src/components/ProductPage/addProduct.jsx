@@ -3,6 +3,7 @@ import NavbarRegistration from './NavBarProductsPage'
 import {TextField} from '@mui/material'
 
 
+
 export default function addProduct() {
     return(
         <>
@@ -19,7 +20,7 @@ export default function addProduct() {
 
             <div id="addProductForm">
 
-              <form action="" method="post">
+              <form action='' method='post'>
 
                 {/** 
                  *
@@ -64,7 +65,7 @@ export default function addProduct() {
 
                             <br/>
 
-                            <div class="row text-left">
+                            {/*<div class="row text-left">
                                 <div class="col-md-2"></div>
                                 <div class="col-md-8">
                                     <div>
@@ -78,7 +79,7 @@ export default function addProduct() {
                                     </div>
                                 </div>
                                 <div class="col-md-2"></div>
-                            </div>
+                            </div>*/}
 
                             <br/>
 
