@@ -34,6 +34,11 @@ app.get('/usuarios', (req, res) => {
 	dbQuery('SELECT * FROM USUARIO', req, res);
 })
 
+app.post('/getUsuario', (req, res) => {
+	let username = req.body.username;
+	dbQuery("SELECT * FROM USUARIO WHERE username = '" + username + "';",req, res);
+})
+
 app.post('/addUsuario', (req, res) => {
 	let username = req.body.username;
 	let password = req.body.password;
@@ -42,16 +47,20 @@ app.post('/addUsuario', (req, res) => {
 	let telefono = req.body.telefono;
 	let valoracion = req.body.valoracion;
 
-	db.query('INSERT INTO USUARIO (username, password, nombre, correo, telefono, valoracion) VALUES (?,?,?,?,?,?);', [username,password,nombre,correo,telefono,valoracion], (err,res,f) => {
-		if (err) {
-			console.log(err);
-			res.send();
-		}
-		else console.log('Usuario ' + username + ' insertado exitosamente');
-	})
+		db.query('INSERT INTO USUARIO (username, password, nombre, correo, telefono, valoracion) VALUES (?,?,?,?,?,?);', [username,password,nombre,correo,telefono,valoracion], (err,a,f) => {
+			if (err) {
+				if (err.sqlMessage.endsWith("for key 'usuario.username'")) {
+					res.send('duplicated_username');
+				} else if (err.sqlMessage.endsWith("for key 'usuario.correo'")) {
+					res.send('duplicated_correo');
+				}
+				console.log(err.sqlMessage);
+			}
+			else console.log('Usuario ' + username + ' insertado exitosamente');
+		})
 })
 
-app.post("/getUsuario", (req, res) => {
+app.post("/checkUsuario", (req, res) => {
 	let username = req.body.username;
 	let password = req.body.password;
 

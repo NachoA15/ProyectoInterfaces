@@ -1,9 +1,16 @@
 import React from 'react';
 import NavbarRegistration from './NavBarLogin';
 import {TextField} from '@mui/material'
+import { useState, useEffect } from "react";
+import userServices from '../../services/userServices';
 import '../../assets/css/login.css'
 
 export default function Login() {
+    //const [username, setUsername] = useState("");
+    //const [password, setPassword] = useState("");
+
+    const [usuarioRegistrado, setUsuarioRegistrado] = useState(null);
+
     return(
         <>
         <div id='navbarLocation'>
@@ -11,38 +18,48 @@ export default function Login() {
         </div>
         
         <div id='loginForm'>
-            <form method='post' action=''>
+            <form onSubmit={(e) => {
+                e.preventDefault();
+                const username = document.getElementById('usuario').value;
+                const password = document.getElementById('password').value;
                 
-                <div class='container center' style={{ maxWidth: 450 }}>
-                    <div class='card bg-light'>
-                        <div class="card-body">
-                            <div class="row text-center">
-                                <h3 class="card-title" >Accede a tu cuenta</h3>
+                console.log(username);
+                console.log(password);
+
+                userServices.checkUsuario(username, password, setUsuarioRegistrado);
+                
+                console.log(usuarioRegistrado);
+            }}>
+                
+                <div className='container center' style={{ maxWidth: 450 }}>
+                    <div className='card bg-light'>
+                        <div className="card-body">
+                            <div className="row text-center">
+                                <h3 className="card-title" >Accede a tu cuenta</h3>
                             </div>
                             
-                            <div class="row text-left">
-                                <div class="col-md-2"></div>
-                                <div class="col-md-8">
+                            <div className="row text-left">
+                                <div className="col-md-2"></div>
+                                <div className="col-md-8">
                                     <div>
                                         <TextField
-                                        
                                         id="usuario"
                                         label="Usuario"
                                         variant="standard"
                                         size="small"
-                                        
+                                        //onChange={(e) => setUsername(e.target.value)}
                                         />
                                         
                                     </div>
                                 </div>
-                                <div class="col-md-2"></div>
+                                <div className="col-md-2"></div>
                             </div>
 
                             <br/>
 
-                            <div class="row text-left">
-                                <div class="col-md-2"></div>
-                                <div class="col-md-8">
+                            <div className="row text-left">
+                                <div className="col-md-2"></div>
+                                <div className="col-md-8">
                                     <div>
                                         <TextField
                                         
@@ -51,10 +68,11 @@ export default function Login() {
                                         type="password"
                                         variant="standard"
                                         size="small"
+                                        //onChange={(e) => setPassword(e.target.value)}
                                         />
                                     </div>
                                 </div>
-                                <div class="col-md-2"></div>
+                                <div className="col-md-2"></div>
                             </div>
 
                             <br/>
@@ -65,21 +83,21 @@ export default function Login() {
 
                 
                 <br/>
-                <div class='container' style={{ maxWidth: 150 }}>
-                    <button type="submit" class="btn btn-outline-primary">Confirmar</button>
+                <div className='container' style={{ maxWidth: 150 }}>
+                    <button type="submit" className="btn btn-outline-primary">Confirmar</button>
                 </div>
                 
             </form>
             <br/>
         
-            <div class='container text-center' style={{ maxWidth: 350}}>
+            <div className='container text-center' style={{ maxWidth: 350}}>
                 <h6>
                     ¿Aun no tienes una cuenta?
                     <a href="/signUp"> Regístrate</a>
                 </h6>
             </div>
             <br/>
-            <div class='container text-center' style={{ maxWidth: 300}}>
+            <div className='container text-center' style={{ maxWidth: 300}}>
                 <h6>
                     
                     <a href="#"> ¿Has olvidado tu constraseña?</a>
