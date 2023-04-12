@@ -29,7 +29,7 @@ const dbQuery = (query, req, res) => {
 
 
 /** =========================================================================
- *  Consultas de las tablas
+ *  Usuarios
  *  =========================================================================
  */
 
@@ -59,17 +59,30 @@ app.post('/addUsuario', (req, res) => {
 				}
 				console.log(err.sqlMessage);
 			}
-			else console.log('Usuario ' + username + ' insertado exitosamente');
+			else {
+				console.log('Usuario ' + username + ' insertado exitosamente')
+				res.send('OK');
+			};
 		})
 })
 
-app.post("/checkUsuario", (req, res) => {
+app.post("/getUsuario", (req, res) => {
 	let username = req.body.username;
 	let password = req.body.password;
 
 	dbQuery("SELECT * FROM USUARIO WHERE username = '" + username + "' and password = '" + password + "';", req, res);
-	console.log('OK');
 })
+
+app.post("/getUsuarioByUsername", (req, res) => {
+	let username = req.body.username;
+
+	dbQuery("SELECT * FROM USUARIO WHERE username = '" + username + "';", req, res);
+})
+
+/** =========================================================================
+ *  Chats
+ *  =========================================================================
+ */
 
 app.post("/saveChat", (req,res) => {
 	let logChat = req.body.logChat;

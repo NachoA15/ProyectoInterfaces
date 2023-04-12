@@ -22,13 +22,8 @@ export default function Login() {
                 e.preventDefault();
                 const username = document.getElementById('usuario').value;
                 const password = document.getElementById('password').value;
-                
-                console.log(username);
-                console.log(password);
 
-                userServices.checkUsuario(username, password, setUsuarioRegistrado);
-                
-                console.log(usuarioRegistrado);
+                userServices.checkUsuarioLogin(username, password, setUsuarioRegistrado);
             }}>
                 
                 <div className='container center' style={{ maxWidth: 450 }}>
@@ -106,8 +101,6 @@ export default function Login() {
             
             
         </div>
-        
-
         </>
     )
 }
