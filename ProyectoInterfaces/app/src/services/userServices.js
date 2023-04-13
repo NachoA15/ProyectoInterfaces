@@ -11,6 +11,7 @@ const addUsuario = (usuario) => {
             nombre: usuario[3],
             correo: usuario[4],
             telefono: usuario[5],
+            localizacion: usuario[6],
             valoracion: undefined
         }).then((res) => {
             if (res.data === 'duplicated_username') {

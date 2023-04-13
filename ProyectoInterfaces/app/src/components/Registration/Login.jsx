@@ -6,8 +6,6 @@ import userServices from '../../services/userServices';
 import '../../assets/css/login.css'
 
 export default function Login() {
-    //const [username, setUsername] = useState("");
-    //const [password, setPassword] = useState("");
 
     const [usuarioRegistrado, setUsuarioRegistrado] = useState(null);
 
@@ -42,7 +40,6 @@ export default function Login() {
                                         label="Usuario"
                                         variant="standard"
                                         size="small"
-                                        //onChange={(e) => setUsername(e.target.value)}
                                         />
                                         
                                     </div>
@@ -63,7 +60,6 @@ export default function Login() {
                                         type="password"
                                         variant="standard"
                                         size="small"
-                                        //onChange={(e) => setPassword(e.target.value)}
                                         />
                                     </div>
                                 </div>

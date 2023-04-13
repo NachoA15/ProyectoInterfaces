@@ -20,10 +20,11 @@ export default function SignUp() {
                 const nombre = document.getElementById('nombreCompleto').value;
                 const correo = document.getElementById('correo').value;
                 const telefono = document.getElementById('telefono').value;
+                const localizacion = document.getElementById('localizacion').value;
                 
                 if (username !== '' && password !== '' && confirmedPassword !== '') {
                     e.preventDefault();
-                    const usuario = [username,password,confirmedPassword,nombre,correo,telefono]
+                    const usuario = [username,password,confirmedPassword,nombre,correo,telefono,localizacion]
                     userServices.addUsuario(usuario);
                 }
             }}>
@@ -90,6 +91,24 @@ export default function SignUp() {
                                         id="confirmarPassword"
                                         label="Confirmar Contraseña"
                                         type="password"
+                                        variant="standard"
+                                        size="small"
+                                        />
+                                    </div>
+                                </div>
+                                <div className="col-md-2"></div>
+                            </div>
+
+                            <br/>
+
+                            <div className="row text-left">
+                                <div className="col-md-2"></div>
+                                <div className="col-md-8">
+                                    <div>
+                                        <TextField
+                                        required
+                                        id="localizacion"
+                                        label="Localización"
                                         variant="standard"
                                         size="small"
                                         />
