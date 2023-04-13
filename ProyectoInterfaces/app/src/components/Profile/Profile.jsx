@@ -1,6 +1,7 @@
 import { TextField } from '@mui/material';
 import React from 'react';
 import NavbarProfile from './NavbarProfile'
+import '../../assets/css/Profile.css'
 
 export default function(){
     return(
@@ -27,7 +28,7 @@ export default function(){
                     <div class="mt-3">
                         <div class="row">
                             <div class="col-md-4"></div>
-                            <div class="col-md-4"><TextField id="usuario" label="Usuario" variant="standard" size="small"/></div>
+                            <div class="col-md-4"><TextField id="usuario" label="Usuario" variant="standard" size="small" value={document.get}/></div>
                             <div class="col-md-4"></div>
                         </div>
                         <br/>
@@ -53,7 +54,7 @@ export default function(){
                     <div class="mt-3">
                         <div class="row">
                             <div class="col-md-5"></div>
-                            <div class="col-md-2 text-center"><button class="btn btn-primary profile-button" type="button">Guardar cambios</button></div>
+                            <div class="col-md-2 text-center"><button class="btn btn-danger profile-button" type="button">Guardar cambios</button></div>
                             <div class="col-md-5"></div>
                         </div>
                     </div>      
