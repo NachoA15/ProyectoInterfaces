@@ -1,4 +1,4 @@
-/*@import url(https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css);
+@import url(https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css);
 h2 {
 	color: #000;
 	font-size: 26px;
@@ -9,6 +9,9 @@ h2 {
 	margin: 30px 0 60px;
 }
 
+body {
+	background-color: whitesmoke;
+}
 
 h2::after {
 	content: "";
@@ -157,5 +160,5 @@ h2::after {
 	color: #ff6161;
 }
 
-*/
+
 
