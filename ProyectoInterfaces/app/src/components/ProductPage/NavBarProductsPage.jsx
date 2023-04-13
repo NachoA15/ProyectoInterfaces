@@ -15,7 +15,7 @@ export default function NavbarProductsPage() {
                     <div className="collapse navbar-collapse" id="navbarResponsive">
                         <ul className="navbar-nav ms-auto">
                             <li className="nav-item"><a className="nav-link active" href="#">Productos</a></li>
-                            <li className="nav-item"> <a className="nav-link" href={"/profile/" + usuarioRegistrado}>Perfil</a></li>  
+                            <li className="nav-item"> <a className="nav-link" href={"/profile/" + usuarioRegistrado}>Mi perfil</a></li>  
                             {/*<li className="nav-item"> <a href="/" class="carrito"><i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i></a> </li> */}
                             <li className="nav-item"> <a href="/addProduct" class="addProducts nav-link"><i class="fa fa-plus-square fa-2x" aria-hidden="true"> Subir producto</i></a></li>
                         </ul>
