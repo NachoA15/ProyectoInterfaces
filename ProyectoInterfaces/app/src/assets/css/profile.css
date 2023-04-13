@@ -25,6 +25,10 @@ p.location {
     font-size: 15px;
 }
 
+p.descripcion {
+    color: black;
+}
+
 body {
     background-color: rgb(168, 168, 168);
     min-height: 100vh;

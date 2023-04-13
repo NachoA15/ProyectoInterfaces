@@ -4,6 +4,7 @@ import {TextField} from '@mui/material'
 import { useState, useEffect } from "react";
 import userServices from '../../services/userServices';
 import '../../assets/css/login.css'
+import Profile from '../Profile/Profile';
 
 export default function Login() {
 
@@ -21,7 +22,7 @@ export default function Login() {
                 const username = document.getElementById('usuario').value;
                 const password = document.getElementById('password').value;
 
-                userServices.checkUsuarioLogin(username, password, setUsuarioRegistrado);
+                userServices.checkUsuarioLogin(username, password);
             }}>
                 
                 <div className='container center' style={{ maxWidth: 450 }}>

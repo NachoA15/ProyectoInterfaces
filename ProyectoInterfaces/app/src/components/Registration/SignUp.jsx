@@ -18,7 +18,10 @@ export default function SignUp() {
                 const password = document.getElementById('password').value;
                 const confirmedPassword = document.getElementById('confirmarPassword').value;
                 const nombre = document.getElementById('nombreCompleto').value;
-                const correo = document.getElementById('correo').value;
+                let correo = document.getElementById('correo').value;
+
+                if (correo === "") correo = null;
+
                 const telefono = document.getElementById('telefono').value;
                 const localizacion = document.getElementById('localizacion').value;
                 
