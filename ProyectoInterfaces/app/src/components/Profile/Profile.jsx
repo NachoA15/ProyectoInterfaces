@@ -1,9 +1,7 @@
 
 import React from 'react';
 import NavbarProfile from './NavbarProfile'
-<<<<<<< HEAD
 import '../../assets/css/Profile.css'
-=======
 import { useParams } from 'react-router-dom';
 import appServices from '../../services/appServices';
 import { useEffect, useState } from 'react';
