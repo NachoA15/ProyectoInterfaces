@@ -1,4 +1,4 @@
-/*@import url(https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css);
+@import url(https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css);
 h2 {
 	color: #000;
 	font-size: 26px;
@@ -156,6 +156,4 @@ h2::after {
 .wish-icon .fa-heart {
 	color: #ff6161;
 }
-
-*/
 

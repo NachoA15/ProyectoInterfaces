@@ -1,6 +1,6 @@
 import React from 'react';
 import NavbarRegistration from './NavBarProductsPage'
-import {TextField} from '@mui/material'
+import {FormControl, InputLabel, NativeSelect, Select, TextField} from '@mui/material'
 
 
 
@@ -63,8 +63,6 @@ export default function addProduct() {
                                 <div class="col-md-2"></div>
                             </div>
 
-                            <br/>
-
                             {/*<div class="row text-left">
                                 <div class="col-md-2"></div>
                                 <div class="col-md-8">
@@ -101,6 +99,33 @@ export default function addProduct() {
                             </div>
 
                             <br/>
+
+                            <div class="row text-left">
+                               <div class="col-md-2"></div>
+                               <div class="col-md-8">
+                                <div>
+                                  <FormControl size="small">
+                                    <InputLabel id="categoria"> Categoria </InputLabel>
+                                    <NativeSelect
+                                      id="categoria"
+                                      label="Categoria"
+                                      autoWidth
+                                      variant="standard"  
+                                    >
+                                      <option value="viento">Viento</option>
+                                      <option value="cuerda">Cuerda</option>
+                                      <option value="percusion">Percusión</option>
+                                      <option value="teclado">Teclado</option>
+                                      <option value="accesorios">Accesorios</option>
+                                      <option value="equipo">Equipo de Sonido</option>
+                                    </NativeSelect>
+                                  </FormControl>
+                                </div>
+                              </div>
+                            </div>
+
+                            <br/>
+
 
                             <div class="row text-left">
                                 <div class="col-md-2"></div>
