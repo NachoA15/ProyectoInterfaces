@@ -86,12 +86,12 @@ export default function addProduct() {
                                 <div class="col-md-8">
                                     <div>
                                         <TextField
-                                        
-                                        id="descripcion"
-                                        label="Descripción del producto"
-                                        variant="standard"
-                                        size="small"
-
+                                          id="descripcion"
+                                          label="Descripción del producto"
+                                          variant="standard"
+                                          size="small"
+                                          multiline
+                                          maxRows={5}
                                         />
                                     </div>
                                 </div>
@@ -105,11 +105,10 @@ export default function addProduct() {
                                <div class="col-md-8">
                                 <div>
                                   <FormControl size="small">
-                                    <InputLabel id="categoria"> Categoria </InputLabel>
+                                    <InputLabel variant="standard" id="categoria"> Categoria </InputLabel>
                                     <NativeSelect
                                       id="categoria"
                                       label="Categoria"
-                                      autoWidth
                                       variant="standard"  
                                     >
                                       <option value="viento">Viento</option>
@@ -133,10 +132,11 @@ export default function addProduct() {
                                     <div>
                                         <TextField
                                         
-                                        id="precio"
-                                        label="Precio del producto"
-                                        variant="standard"
-                                        size="small"
+                                          id="precio"
+                                          label="Precio del producto"
+                                          variant="standard"
+                                          size="small"
+                                          type="number"
 
                                         />
                                     </div>
@@ -150,7 +150,7 @@ export default function addProduct() {
                                 <div class="col-md-2"></div>
                                 <div class="col-md-8">
                                     <div>
-                                      <label class="control-label small" for="file_img">Imagen del producto (.jpg/.png):</label> <input type="file" name="file_img"/>
+                                      <label for="file_img">Imagen del producto (.jpg/.png):</label> <input type="file" name="file_img"/>
                                     </div>
                                 </div>
                                 <div class="col-md-2"></div>
@@ -158,8 +158,7 @@ export default function addProduct() {
 
                             <br/>
 
-                        </div> 
-                        
+                        </div>                        
                     </div>
 
                     <br/>
@@ -169,56 +168,6 @@ export default function addProduct() {
                     </div>
                     
                 </div>
-
-                {/*<div class="form-group">
-                  <label for="name" class="col-sm-3 control-label">Nombre del producto</label>
-                  <div class="col-sm-9">
-                    <input type="text" class="form-control" name="name" id="name" placeholder="Nombre del producto"/>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="name" class="col-sm-3 control-label">Categoría</label>
-                  <div class="col-sm-9">
-                    <input type="text" class="form-control" name="name" id="name" placeholder="Categoría"/>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="about" class="col-sm-3 control-label">Descripción</label>
-                  <div class="col-sm-9">
-                    <textarea class="form-control"></textarea>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="qty" class="col-sm-3 control-label">Modelo</label>
-                  <div class="col-sm-3">
-                    <input type="text" class="form-control"/>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label class="col-sm-3 control-label">Edad del producto</label>
-                  <div class="col-sm-3">
-                    <label class="control-label small" for="date_start">Indicar fecha o año de compra: </label>
-                    <input type="text" class="form-control" name="date_start" id="date_start" placeholder="Fecha de compra"/>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="name" class="col-sm-3 control-label">Imagen del producto</label>
-                  <div class="col-sm-3">
-                    <label class="control-label small" for="file_img">Imagen (jpg/png):</label> <input type="file" name="file_img"/>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="tech" class="col-sm-3 control-label">Motivo de venta</label>
-                  <div class="col-sm-3">
-                    <input type="text" class="form-control"/>
-                  </div>
-                </div>
-                <hr/>
-                <div class="form-group">
-                  <div class="col-sm-offset-3 col-sm-9">
-                    <button type="submit" class="btn btn-primary">Enviar</button>
-                  </div>
-              </div> */}
               </form>
 
             </div>
