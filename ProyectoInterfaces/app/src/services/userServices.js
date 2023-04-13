@@ -14,33 +14,46 @@ const addUsuario = (usuario) => {
             valoracion: undefined
         }).then((res) => {
             if (res.data === 'duplicated_username') {
-                Swal.fire({
-                    title: 'No se puede crear el usuario',
+                swal({
+                    title: 'Nombre de usuario duplicado',
                     text: 'Ya existe un usuario con el mismo nombre. Por favor, cámbielo e inténtelo de nuevo.',
                     icon: 'info',
-                    confirmButtonText: 'Ok',
                 })
             } else if (res.data === 'duplicated_correo') {
-                Swal.fire({
-                    title: 'No se puede crear el usuario',
+                swal({
+                    title: 'Correo duplicado',
                     text: 'Ya existe un usuario con el mismo correo. Por favor, cámbielo e inténtelo de nuevo.',
                     icon: 'info',
-                    confirmButtonText: 'Ok',
                 })
             } else {
-                Swal.fire({
+                swal({
                     title: 'Usuario creado con éxito',
                     text: '¡Ahora puedes iniciar sesión con tu cuenta!',
                     icon: 'success',
-                    confirmButtonText: 'Ve al login',
-                }).then(() => {
-                    appServices.moveToLogin();
+                    buttons: {
+                        login: {
+                            text: "Ve al login",
+                            value: "login",
+                        },
+                        volver: {
+                            text: "Volver a la página principal",
+                        }
+                    }
+                }).then((value) => {
+
+                    switch (value) {
+                        case "login":
+                            appServices.moveToLogin();
+                            break;
+
+                        default:
+                            appServices.moveToMainPage();
+                    }
                 })
             }
         })
 
     } else {
-
         swal({
             title: 'Upsss!!',
             text: 'Las contraseñas no coinciden. Por favor, inténtelo de nuevo.',
@@ -49,15 +62,24 @@ const addUsuario = (usuario) => {
     }
 };
 
-const checkUsuario = (username, password, setUsuarioRegistrado) => {
-    Axios.post("http://localhost:3001/checkUsuario", {
+const checkUsuarioLogin = (username, password, setUsuarioRegistrado) => {
+    Axios.post("http://localhost:3001/getUsuario", {
         username: username,
         password: password
     }).then((u) => {
-        setUsuarioRegistrado(u.data);
+        if (u.data.length <= 0) {
+            swal({
+                title: 'El usuario no existe.',
+                text: 'El usuario introducido no se ha encontrado. Por favor, pruebe otra vez o cree una cuenta si no tiene una.',
+                icon: 'error'
+            })  
+        } else {
+            setUsuarioRegistrado(u.data);
+            appServices.moveToProfile(u.data.username)
+        }
     })
 }
 
-const userServices = {addUsuario, checkUsuario};
+const userServices = {addUsuario, checkUsuarioLogin};
 
 export default userServices;

@@ -1,13 +1,14 @@
-  import React from 'react'
+import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import IntroPage from './IntroPage/IntroPage.jsx'
 import SignUp from './Registration/SignUp.jsx';
 import Login from './Registration/Login.jsx';
-import '../assets/css/index.css'
 import Products from './ProductPage/productsPage.jsx';
 import AddProduct from './ProductPage/addProduct.jsx';
 import Profile from './Profile/Profile.jsx';
+import '../assets/css/index.css';
+
 
 const router = createBrowserRouter([
   {
@@ -20,7 +21,7 @@ const router = createBrowserRouter([
   },
   {
     path: '/login',
-    element: <Login />
+    element: <Login/>
   },
   {
     path: '/products',
@@ -31,7 +32,7 @@ const router = createBrowserRouter([
     element:<AddProduct/>
   },
   {
-    path: '/profile',
+    path: '/profile/:username',
     element: <Profile/>
   }
 
