@@ -12,10 +12,6 @@
   margin-top: 2%;  
 }
 
-.profile-pic-placement {
-    
-}
-
 .username-placement {
     margin-top: 10%;
 }
@@ -26,11 +22,7 @@ h4 {
 }
 
 p.location {
-    font-size: 17px;
-}
-
-p.descripcion {
-    color: black;
+    font-size: 15px;
 }
 
 body {

@@ -76,7 +76,7 @@ const checkUsuarioLogin = (username, password, setUsuarioRegistrado) => {
             })  
         } else {
             setUsuarioRegistrado(u.data);
-            appServices.moveToProfile(u.data[0].username)
+            appServices.moveToProfile(u.data.username)
         }
     })
 }
