@@ -175,13 +175,6 @@ export default function Products() {
                         */}
                         
                     </div>
-                    
-                    <a className="carousel-control left" href="#myCarousel" data-slide="prev">
-                        <i className="fa fa-angle-left"></i>
-                    </a>
-                    <a className="carousel-control right" href="#myCarousel" data-slide="next">
-                        <i className="fa fa-angle-right"></i>
-                    </a>
                 </div>
                 </div>
             </div>
