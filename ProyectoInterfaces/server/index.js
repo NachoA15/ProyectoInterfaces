@@ -145,3 +145,7 @@ app.get("/getMessages", (req, res) => {
 		res.send("202 NOT OK");
 	}
 })
+
+app.get("/anuncios", (req,res) => {
+	dbQuery("SELECT * FROM ANUNCIO;", req, res);
+})
