@@ -11,6 +11,7 @@ import Profile from './Profile/Profile.jsx';
 import InfoProductPage from './ProductPage/infoProductoPage.jsx';
 import EditProfile from './Profile/EditProfile.jsx';
 import ErrorPage from './ErrorPage.jsx';
+import Chat from './Chat/chat.jsx';
 import '../assets/css/index.css';
 
 ReactSession.setStoreType("localStorage");
@@ -57,7 +58,13 @@ const router = createBrowserRouter([
     path: '/profile/:username/edit',
     element: <EditProfile />,
     errorElement: <ErrorPage />
+  }, 
+  {
+    path: '/chat',
+    element:<Chat/>,
+    errorElement: <ErrorPage />
   }
+
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(

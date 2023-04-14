@@ -70,7 +70,7 @@ export default function Products() {
                                             <p class="item-price"><b>${element.price}</b></p>
                                             <div class="row">
                                                 <div class="col-sm-6">
-                                                    <a href="#" class="btn btn-primary" style={{height: 60}}>Contactar con el vendedor</a>
+                                                    <a href="/chat" class="btn btn-primary" style={{height: 60}}>Contactar con el vendedor</a>
                                                 </div>
                                                 <div class="col-sm-6">
                                                     <a href="#" class="btn btn-primary" style={{height: 60}}>Más información</a>
