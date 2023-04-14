@@ -6,26 +6,6 @@ import { useState } from 'react';
 
 export default function IntroPage() {
 
-    const [botonVisible, setVisibilidadBoton] = useState(false);
-
-    const toggleVisible = () => {
-        const scrolled = document.documentElement.scrollTop;
-        if (scrolled > 100) {
-            setVisibilidadBoton(true);
-        } else {
-            setVisibilidadBoton(false);
-        }
-    }
-
-    const volverArriba = () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        })
-    }
-
-    window.addEventListener('scroll', toggleVisible);
-
     return (
         <>
         <div id='navbarLocation'>
@@ -77,11 +57,6 @@ export default function IntroPage() {
                     a los que, como tú, nos apasiona el mundo de la música.</p>
             </div>
         </div>
-        {botonVisible?
-            <button id='volver-arriba' onClick={volverArriba}>Volver arriba</button>
-            :
-            <></>
-        }
         </>
     )
 }

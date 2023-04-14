@@ -5,8 +5,13 @@ import axios from 'axios';
 
 
 export default function Products() {
-    //let anuncios = axios.get(process.env.API_URL + "/getAnuncios")
-    let anuncios = [
+    let anuncios;
+    axios.get("http://127.0.0.1:3001/anuncios")
+    .then(response => {
+        anuncios = response.data;
+    })
+    console.log("Datos de anuncios:" + anuncios)
+    /*let anuncios = [
         {
             name: "Juanjo",
             price: 356.00,
@@ -17,7 +22,7 @@ export default function Products() {
             price: 123.00,
             src: "1234"
         }
-    ];
+    ];*/
 
     function favorito(identificador){
         var element = document.getElementById(identificador);
