@@ -8,6 +8,7 @@ import Login from './Registration/Login.jsx';
 import Products from './ProductPage/productsPage.jsx';
 import AddProduct from './ProductPage/addProduct.jsx';
 import Profile from './Profile/Profile.jsx';
+import InfoProductPage from './ProductPage/infoProductoPage.jsx';
 import EditProfile from './Profile/EditProfile.jsx';
 import ErrorPage from './ErrorPage.jsx';
 import '../assets/css/index.css';
@@ -33,7 +34,7 @@ const router = createBrowserRouter([
   {
     path: '/products',
     element: <Products/>,
-    errorElement: <ErrorPage />
+    //errorElement: <ErrorPage />
   },
   {
     path: '/addProduct',
@@ -42,6 +43,13 @@ const router = createBrowserRouter([
   },
   {
     path: '/profile/:username',
+    element: <Profile/>
+  },
+  {
+    path: '/products/:id',
+    element: <InfoProductPage/>
+  },
+  {
     element: <Profile/>,
     errorElement: <ErrorPage />
   },
