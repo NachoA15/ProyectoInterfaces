@@ -7,6 +7,7 @@ import Login from './Registration/Login.jsx';
 import Products from './ProductPage/productsPage.jsx';
 import AddProduct from './ProductPage/addProduct.jsx';
 import Profile from './Profile/Profile.jsx';
+import InfoProductPage from './ProductPage/infoProductoPage.jsx';
 import '../assets/css/index.css';
 
 
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
   {
     path: '/profile/:username',
     element: <Profile/>
+  },
+  {
+    path: '/products/:id',
+    element: <InfoProductPage/>
   }
 
 ])

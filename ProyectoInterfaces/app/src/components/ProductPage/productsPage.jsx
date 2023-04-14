@@ -1,8 +1,24 @@
 import React from 'react';
 import NavbarRegistration from './NavBarProductsPage'
 import '../../assets/css/productsPage.css'
+import axios from 'axios';
+
 
 export default function Products() {
+    //let anuncios = axios.get(process.env.API_URL + "/getAnuncios")
+    let anuncios = [
+        {
+            name: "Juanjo",
+            price: 356.00,
+            src: "1234"
+        },
+        {
+            name: "Pepe",
+            price: 123.00,
+            src: "1234"
+        }
+    ];
+
     function favorito(identificador){
         var element = document.getElementById(identificador);
         console.log(element);
@@ -38,20 +54,20 @@ export default function Products() {
                         <li data-target="#myCarousel" data-slide-to="1"></li>
                         <li data-target="#myCarousel" data-slide-to="2"></li>
                     </ol>   
-                    
                     <div class="carousel-inner">
                         <div class="item active">
                             <div class="row">
-                                <div class="col-sm-3">
+                                {anuncios.map(element => {
+                                    return( <div class="col-sm-3">
                                     <div class="thumb-wrapper">
                                         <span class="wish-icon" ><i id="corazon" class="fa fa-heart-o"  onClick={() => favorito("corazon")}></i></span>
                                         <div class="img-box">
-                                            <img src="./src/assets/images/guitarraElectrica.jpg" class="img-responsive" alt=""/>									
+                                            <img src={element.src} class="img-responsive" alt=""/>									
                                         </div>
                                         <div class="thumb-content">
-                                            <h4>Guitarra eléctrica</h4>									
+                                            <h4>{element.name}</h4>									
                                             
-                                            <p class="item-price"><b>$369.00</b></p>
+                                            <p class="item-price"><b>${element.price}</b></p>
                                             <div class="row">
                                                 <div class="col-sm-6">
                                                     <a href="#" class="btn btn-primary" style={{height: 60}}>Contactar con el vendedor</a>
@@ -65,56 +81,8 @@ export default function Products() {
                                             
                                         </div>						
                                     </div>
-                                </div>
-                                <div class="col-sm-3">
-                                    <div class="thumb-wrapper">
-                                        <span class="wish-icon"><i id="corazon1" class="fa fa-heart-o"  onClick={() => favorito("corazon1")} ></i></span>
-                                        <div class="img-box">
-                                            <img src="./src/assets/images/teclado.jpg" class="img-responsive" alt=""/>
-                                        </div>
-                                        <div class="thumb-content">
-                                            <h4>Teclado</h4>									
-                                            
-                                            <p class="item-price"><b>$23.99</b></p>
-                                            <div class="row">
-                                                <div class="col-sm-6">
-                                                    <a href="#" class="btn btn-primary" style={{height: 60}}>Contactar con el vendedor</a>
-                                                </div>
-                                                <div class="col-sm-6">
-                                                    <a href="#" class="btn btn-primary" style={{height: 60}}>Más información</a>
-                                                </div>  
-                                                
-                                                
-                                            </div>
-                                            
-                                        </div>						
-                                    </div>
-                                </div>		
-                                <div class="col-sm-3">
-                                    <div class="thumb-wrapper">
-                                        <span class="wish-icon"><i id="corazon2" class="fa fa-heart-o"  onClick={() => favorito("corazon2")}></i></span>
-                                        
-                                        <div class="img-box">
-                                            <img src="./src/assets/images/flautaTravesera.jpg" class="img-responsive" alt=""/>
-                                        </div>
-                                        <div class="thumb-content">
-                                            <h4>Flauta travesera</h4>									
-                                            
-                                            <p class="item-price"><b>$649.00</b></p>
-                                            <div class="row">
-                                                <div class="col-sm-6">
-                                                    <a href="#" class="btn btn-primary" style={{height: 60}}>Contactar con el vendedor</a>
-                                                </div>
-                                                <div class="col-sm-6">
-                                                    <a href="#" class="btn btn-primary" style={{height: 60}}>Más información</a>
-                                                </div>  
-                                                
-                                                
-                                            </div>
-                                            
-                                        </div>						
-                                    </div>
-                                </div>			
+                                </div>)
+                                })}
                                 {/*					
                                 <div class="col-sm-3">
                                     <div class="thumb-wrapper">

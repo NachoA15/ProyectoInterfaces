@@ -1,9 +1,7 @@
 
 import React from 'react';
 import NavbarProfile from './NavbarProfile'
-<<<<<<< HEAD
 import '../../assets/css/Profile.css'
-=======
 import { useParams } from 'react-router-dom';
 import appServices from '../../services/appServices';
 import { useEffect, useState } from 'react';
@@ -28,7 +26,6 @@ export default function Profile() {
     useEffect(() => {
         getUsuario()
     }, [])*/
->>>>>>> cc2f2ee99c16c9cf0c45acd3ed73ac8fed19b0c1
 
     return(
         <>
