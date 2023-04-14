@@ -1,10 +1,49 @@
 import React from 'react';
 import '../../assets/css/chat.css'
 import {TextField} from '@mui/material'
+import axios from 'axios';
 
 export default function Chat() {
+    let myMessages;
+    let userMessages;
+    axios.get("http://127.0.0.1:3001/getMessages", {
+        user: "Juanjo",
+        logChat: "JuanjoPepe.txt"
+    })
+    .then(res => {
+        myMessages = res.data;
+    })
+
+    axios.get("http://127.0.0.1:3001/getMessages", {
+        user: "Pepe",
+        logChat: "JuanjoPepe.txt"
+    })
+    .then(res => {
+        userMessages = res.data;
+    })
+
+    
+
+    console.log("Mis mensajes: " + myMessages);
+    console.log("Mensajes del otro usuario: " + userMessages);
+
     return(
         <>
+
+        <div id='sentMessageForm'>
+            <form onSubmit={(e) => {
+                const message = document.getElementById('mensaje').value;
+                axios.post("http://127.0.0.1:3001/saveChat", {
+                    message: message,
+                    user: "Juanjo",
+                    logChat: "JuanjoPepe.txt"
+                }).then(res => {
+                    console.log(res.data);
+                })
+            }}>
+
+            
+        
         <div class="container-fluid">
             <div class="row clearfix">
             <div class="col-md-1">
@@ -55,7 +94,7 @@ export default function Chat() {
                                 <div class="input-group mb-0">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="fa fa-send"></i><TextField
-                                        id="usuario"
+                                        id="mensaje"
                                         name='nombre de usuario'
                                         
                                         variant="standard"
@@ -69,7 +108,8 @@ export default function Chat() {
                         </div>
                     </div>
                 </div>
-            
+                </form>
+            </div>
         
         </>
     )
