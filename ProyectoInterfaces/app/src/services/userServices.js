@@ -1,7 +1,7 @@
 import Axios from 'axios';
 import swal from 'sweetalert'
-import Swal from 'sweetalert2'
 import appServices from './appServices';
+import { ReactSession } from "react-client-session";
 
 const addUsuario = (usuario) => {
     if (usuario[1] === usuario[2]) {    // Comprueba las contraseñas
@@ -11,6 +11,7 @@ const addUsuario = (usuario) => {
             nombre: usuario[3],
             correo: usuario[4],
             telefono: usuario[5],
+            localizacion: usuario[6],
             valoracion: undefined
         }).then((res) => {
             if (res.data === 'duplicated_username') {
@@ -62,7 +63,7 @@ const addUsuario = (usuario) => {
     }
 };
 
-const checkUsuarioLogin = (username, password, setUsuarioRegistrado) => {
+const checkUsuarioLogin = (username, password) => {
     Axios.post("http://localhost:3001/getUsuario", {
         username: username,
         password: password
@@ -74,8 +75,10 @@ const checkUsuarioLogin = (username, password, setUsuarioRegistrado) => {
                 icon: 'error'
             })  
         } else {
-            setUsuarioRegistrado(u.data);
-            appServices.moveToProfile(u.data.username)
+            // setUsuarioRegistrado(u.data);
+            ReactSession.set("username", u.data[0].username);
+
+            appServices.moveToProfile(u.data[0].username);
         }
     })
 }

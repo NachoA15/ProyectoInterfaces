@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { ReactSession } from "react-client-session";
 import IntroPage from './IntroPage/IntroPage.jsx'
 import SignUp from './Registration/SignUp.jsx';
 import Login from './Registration/Login.jsx';
@@ -8,29 +9,37 @@ import Products from './ProductPage/productsPage.jsx';
 import AddProduct from './ProductPage/addProduct.jsx';
 import Profile from './Profile/Profile.jsx';
 import InfoProductPage from './ProductPage/infoProductoPage.jsx';
+import EditProfile from './Profile/EditProfile.jsx';
+import ErrorPage from './ErrorPage.jsx';
 import '../assets/css/index.css';
 
+ReactSession.setStoreType("localStorage");
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <IntroPage />
+    element: <IntroPage />,
+    errorElement: <ErrorPage />
   },
   {
     path: '/signUp',
-    element: <SignUp />
+    element: <SignUp />,
+    errorElement: <ErrorPage />
   },
   {
     path: '/login',
-    element: <Login/>
+    element: <Login/>,
+    errorElement: <ErrorPage />
   },
   {
     path: '/products',
-    element: <Products/>
+    element: <Products/>,
+    errorElement: <ErrorPage />
   },
   {
     path: '/addProduct',
-    element:<AddProduct/>
+    element:<AddProduct/>,
+    errorElement: <ErrorPage />
   },
   {
     path: '/profile/:username',
@@ -39,8 +48,16 @@ const router = createBrowserRouter([
   {
     path: '/products/:id',
     element: <InfoProductPage/>
+  },
+  {
+    element: <Profile/>,
+    errorElement: <ErrorPage />
+  },
+  {
+    path: '/profile/:username/edit',
+    element: <EditProfile />,
+    errorElement: <ErrorPage />
   }
-
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(

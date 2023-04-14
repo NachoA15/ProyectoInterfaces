@@ -18,12 +18,16 @@ export default function SignUp() {
                 const password = document.getElementById('password').value;
                 const confirmedPassword = document.getElementById('confirmarPassword').value;
                 const nombre = document.getElementById('nombreCompleto').value;
-                const correo = document.getElementById('correo').value;
+                let correo = document.getElementById('correo').value;
+
+                if (correo === "") correo = null;
+
                 const telefono = document.getElementById('telefono').value;
+                const localizacion = document.getElementById('localizacion').value;
                 
                 if (username !== '' && password !== '' && confirmedPassword !== '') {
                     e.preventDefault();
-                    const usuario = [username,password,confirmedPassword,nombre,correo,telefono]
+                    const usuario = [username,password,confirmedPassword,nombre,correo,telefono,localizacion]
                     userServices.addUsuario(usuario);
                 }
             }}>
@@ -50,6 +54,7 @@ export default function SignUp() {
                                         <TextField
                                         required
                                         id="usuario"
+                                        name='nombre de usuario'
                                         label="Usuario"
                                         variant="standard"
                                         size="small" 
@@ -69,6 +74,7 @@ export default function SignUp() {
                                         <TextField
                                         required
                                         id="password"
+                                        name='contraseña'
                                         label="Contraseña"
                                         type="password"
                                         variant="standard"
@@ -88,6 +94,7 @@ export default function SignUp() {
                                         <TextField
                                         required
                                         id="confirmarPassword"
+                                        name='confirmar contraseña'
                                         label="Confirmar Contraseña"
                                         type="password"
                                         variant="standard"
@@ -105,7 +112,27 @@ export default function SignUp() {
                                 <div className="col-md-8">
                                     <div>
                                         <TextField
+                                        required
+                                        id="localizacion"
+                                        name='localización'
+                                        label="Localización"
+                                        variant="standard"
+                                        size="small"
+                                        />
+                                    </div>
+                                </div>
+                                <div className="col-md-2"></div>
+                            </div>
+
+                            <br/>
+
+                            <div className="row text-left">
+                                <div className="col-md-2"></div>
+                                <div className="col-md-8">
+                                    <div>
+                                        <TextField
                                         id="nombreCompleto"
+                                        name='nombre completo'
                                         label="Nombre Completo"
                                         variant="standard"
                                         size="small"
@@ -123,6 +150,7 @@ export default function SignUp() {
                                     <div>
                                         <TextField
                                         id="correo"
+                                        name='correo electrónico'
                                         label="Correo Electrónico"
                                         variant="standard"
                                         size="small"
@@ -140,6 +168,7 @@ export default function SignUp() {
                                     <div>
                                         <TextField
                                         id="telefono"
+                                        name='teléfono'
                                         label="Teléfono"
                                         variant="standard"
                                         size="small"

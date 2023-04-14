@@ -49,8 +49,9 @@ app.post('/addUsuario', (req, res) => {
 	let correo = req.body.correo;
 	let telefono = req.body.telefono;
 	let valoracion = req.body.valoracion;
+	let localizacion = req.body.localizacion;
 
-		db.query('INSERT INTO USUARIO (username, password, nombre, correo, telefono, valoracion) VALUES (?,?,?,?,?,?);', [username,password,nombre,correo,telefono,valoracion], (err,a,f) => {
+		db.query('INSERT INTO USUARIO (username, password, nombre, correo, telefono, valoracion, localizacion) VALUES (?,?,?,?,?,?,?);', [username,password,nombre,correo,telefono,valoracion,localizacion], (err,a,f) => {
 			if (err) {
 				if (err.sqlMessage.endsWith("for key 'usuario.username'")) {
 					res.send('duplicated_username');
