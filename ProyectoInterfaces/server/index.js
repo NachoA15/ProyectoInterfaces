@@ -117,8 +117,7 @@ app.post("/saveChat", (req,res) => {
 })
 
 app.get("/getMessages", (req, res) => {
-	let user = req.body.user;
-	let logChat = req.body.logChat;
+	let logChat = req.body.logChat; 
 	rutaArchivo = `logChats/${logChat}`;
 	if(fs.existsSync(rutaArchivo)){
 		fs.readFile(rutaArchivo, 'utf-8', (err, data) => {
@@ -126,18 +125,14 @@ app.get("/getMessages", (req, res) => {
 				console.log(err);
 				res.send("202 NOT OK");
 			}else{
-				const messages = data.split("\n");
-
-				const myMessages = messages.filter((message) => message.startsWith(`${user}:`)) 
-
-				const myMessagesWithoutUser = myMessages.map(message => message.replace(`${user}: `, ''));
+				const messages = data.split("\n"); 
 				
-				console.log(myMessagesWithoutUser);
+				console.log(messages);
 
-				myMessagesWithoutUser.forEach((linea, index) => {
+				messages.forEach((linea, index) => {
 					console.log(`Linea ${index+1}: ${linea}`)
 				})
-				res.send("200 OK");
+				res.send(messages);
 			}
 		})
 	}else{
