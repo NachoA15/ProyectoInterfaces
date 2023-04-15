@@ -34,7 +34,6 @@ export default function Products() {
 
     return(
         <>
-        {console.log(anuncios)}
         <div id='productsNav'>
             <NavbarRegistration />
         </div>
