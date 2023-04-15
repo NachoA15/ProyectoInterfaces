@@ -117,7 +117,7 @@ app.post("/saveChat", (req,res) => {
 })
 
 app.get("/getMessages", (req, res) => {
-	let logChat = req.body.logChat; 
+	let logChat = req.query.logChat; 
 	rutaArchivo = `logChats/${logChat}`;
 	if(fs.existsSync(rutaArchivo)){
 		fs.readFile(rutaArchivo, 'utf-8', (err, data) => {
@@ -143,4 +143,9 @@ app.get("/getMessages", (req, res) => {
 
 app.get("/anuncios", (req,res) => {
 	dbQuery("SELECT * FROM ANUNCIO;", req, res);
+})
+
+app.get("/favoritos", (req,res) => {
+	let user = req.body.user;
+	dbQuery("SELECT a.id, a.fecha_subida, a.reservado, a.nombre, a.precio, a.descripcion, a.vendedor FROM ANUNCIO a JOIN FAVORITOS f ON f.usuario = a.id WHERE f.usuario = " + user, req, res);
 })
