@@ -1,31 +1,34 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import '../../assets/css/chat.css'
 import {TextField} from '@mui/material'
 import axios from 'axios';
 
 export default function Chat() {
-    let myMessages;
-    let userMessages;
-    axios.get("http://127.0.0.1:3001/getMessages", {
-        user: "Juanjo",
-        logChat: "JuanjoPepe.txt"
-    })
-    .then(res => {
-        myMessages = res.data;
-    })
+    const [messages, setMessages] = useState([]);
 
-    axios.get("http://127.0.0.1:3001/getMessages", {
-        user: "Pepe",
-        logChat: "JuanjoPepe.txt"
-    })
-    .then(res => {
-        userMessages = res.data;
-    })
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('http://127.0.0.1:3001/getMessages', {
+          params: {
+            logChat: 'JuanjoPepe.txt',
+          },
+        });
+        setMessages(response.data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
 
+    // Ejecutar fetchData cada 10 segundos (10000 ms)
+    const intervalId = setInterval(fetchData, 7000);
+
+    // Limpiar el intervalo cuando el componente se desmonte o cuando se cambie la dependencia
+    return () => {
+      clearInterval(intervalId);
+    };
+  }, []);
     
-
-    console.log("Mis mensajes: " + myMessages);
-    console.log("Mensajes del otro usuario: " + userMessages);
 
     return(
         <>
@@ -61,7 +64,6 @@ export default function Chat() {
                                         </a>
                                         <div class="chat-about">
                                             <h6 class="m-b-0">Aiden Chavez</h6>
-                                            <small>Last seen: 2 hours ago</small>
                                         </div>
                                     </div>
                                     
@@ -69,25 +71,26 @@ export default function Chat() {
                             </div>
                             <div class="chat-history">
                                 <ul class="m-b-0">
+                                    {messages.map((message, key) => {
+                                        if(message.startsWith("Juanjo:")){
+                                            return(
                                     <li class="clearfix">
                                         <div class="message-data text-right">
-                                            <span class="message-data-time">10:10 AM, Today</span>
                                             
                                         </div>
-                                        <div class="message other-message float-right"> Hi Aiden, how are you? How is the project coming along? </div>
+                                        <div class="message other-message float-right"> {message.replace("Juanjo:","")} </div>
                                     </li>
-                                    <li class="clearfix">
-                                        <div class="message-data">
-                                            <span class="message-data-time">10:12 AM, Today</span>
-                                        </div>
-                                        <div class="message my-message">Are we meeting today?</div>                                    
-                                    </li>                               
-                                    <li class="clearfix">
-                                        <div class="message-data">
-                                            <span class="message-data-time">10:15 AM, Today</span>
-                                        </div>
-                                        <div class="message my-message">Project has been already finished and I have results to show you.</div>
-                                    </li>
+                                            )
+                                        }else{
+                                            return(
+                                                <li class="clearfix">
+                                                <div class="message-data">
+                                                </div>
+                                                <div class="message my-message">{message.replace("Pepe:", "")}</div>                                    
+                                            </li> 
+                                            )
+                                        }
+                                    })}
                                 </ul>
                             </div>
                             <div class="chat-message clearfix">

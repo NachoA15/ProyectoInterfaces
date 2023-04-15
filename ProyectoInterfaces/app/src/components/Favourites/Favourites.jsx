@@ -6,15 +6,16 @@ import '../../assets/css/productsPage.css'
 
 export default function Favourites() {
 
-    const [favoritos, setFavoritos] = useState([]);
+    //const [favoritos, setFavoritos] = useState([]);
 
+    const favoritos = [];
 
-    useEffect(() => {
+    /*useEffect(() => {
         Axios.get("http://127.0.0.1:3001/favoritos")
         .then((res) => {
             setFavoritos(res.data)
         })
-    }, [])
+    }, [])*/
 
     function favorito(identificador) {
         var element = document.getElementById(identificador);
