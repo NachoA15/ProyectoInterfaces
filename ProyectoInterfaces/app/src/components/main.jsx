@@ -13,6 +13,7 @@ import EditProfile from './Profile/EditProfile.jsx';
 import ErrorPage from './ErrorPage.jsx';
 import Chat from './Chat/chat.jsx';
 import '../assets/css/index.css';
+import Favourites from './Favourites/Favourites.jsx';
 
 ReactSession.setStoreType("localStorage");
 
@@ -62,6 +63,11 @@ const router = createBrowserRouter([
   {
     path: '/chat',
     element:<Chat/>,
+    //errorElement: <ErrorPage />
+  },
+  {
+    path: '/favourites/:username',
+    element: <Favourites />,
     //errorElement: <ErrorPage />
   }
 

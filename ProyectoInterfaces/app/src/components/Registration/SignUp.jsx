@@ -38,7 +38,7 @@ export default function SignUp() {
                     <div className='card bg-light'>
                         <div className="card-body">
                             <div className="row text-center">
-                                <h3 className="card-title" >Aquí el nombre o el logo</h3>
+                                <h3 className="card-title" >Piezzo</h3>
                             </div>
                             <div className="row text-center">
                                 <h4 id="registrarTitulo" className="card-title" >Regístrate:</h4>

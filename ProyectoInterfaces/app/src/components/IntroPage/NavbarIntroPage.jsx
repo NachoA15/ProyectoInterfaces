@@ -13,7 +13,7 @@ export default function NavbarIntroPage() {
 
     return (
         <>
-            <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top" id="mainNav">
+            <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
                 <div className="container px-4">
                     <a className="navbar-brand" href="#intro">Piezzo</a>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span className="navbar-toggler-icon"></span></button>

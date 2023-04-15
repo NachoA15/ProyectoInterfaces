@@ -144,3 +144,8 @@ app.get("/getMessages", (req, res) => {
 app.get("/anuncios", (req,res) => {
 	dbQuery("SELECT * FROM ANUNCIO;", req, res);
 })
+
+app.get("/favoritos", (req,res) => {
+	let user = req.body.user;
+	dbQuery("SELECT a.id, a.fecha_subida, a.reservado, a.nombre, a.precio, a.descripcion, a.vendedor FROM ANUNCIO a JOIN FAVORITOS f ON f.usuario = a.id WHERE f.usuario = " + user, req, res);
+})
