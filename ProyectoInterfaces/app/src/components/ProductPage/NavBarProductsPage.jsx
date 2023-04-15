@@ -15,8 +15,9 @@ export default function NavbarProductsPage() {
                     <div className="collapse navbar-collapse" id="navbarResponsive">
                         <ul className="navbar-nav ms-auto">
                             <li className="nav-item"><a className="nav-link active" href="#">Productos</a></li>
+                            <li className="nav-item"> <a className="nav-link" href={"/favourites/" + usuarioRegistrado} >Mis favoritos</a></li> 
                             <li className="nav-item"> <a className="nav-link" href={"/profile/" + usuarioRegistrado}>Mi perfil</a></li>  
-                            {/*<li className="nav-item"> <a href="/" class="carrito"><i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i></a> </li> */}
+                            <li className="nav-item"><a className="nav-link" href="/" onClick={() => ReactSession.set("username",null)}>Cerrar sesión</a></li>
                             <li className="nav-item"> <a href="/addProduct" className="addProducts nav-link"><i className="fa fa-plus-square fa-2x" aria-hidden="true"> Subir producto</i></a></li>
                         </ul>
                     </div>

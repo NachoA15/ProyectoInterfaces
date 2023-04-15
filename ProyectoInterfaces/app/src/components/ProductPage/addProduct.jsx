@@ -14,35 +14,16 @@ export default function addProduct() {
         <div class="container">
 
           <section class="panel panel-default">
-            {/*<div class="panel-heading">
-              <h3 class="panel-title">Panel heading</h3>
-            </div>*/}
 
             <div id="addProductForm">
 
               <form action='' method='post'>
-
-                {/** 
-                 *
-                 *  
-                <div class="form-group">
-                  <label for="name" class="col-sm-3 control-label">FORMULARIO</label>
-                  <div class="col-sm-9">
-                    <label class="radio-inline">
-                      <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"/>
-                    </label>
-                    <label class="radio-inline">
-                      <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"/>
-                    </label>
-                  </div>
-                </div>
-                  
-                */}
                 <div class='container center' style={{ maxWidth: 450 }}>
                     <div class='card bg-light'>
                         <div class="card-body">
                             <div class="row text-center">
                                 <h3 class="card-title" >Introduzca la información del producto:</h3>
+                                <h6>Los campos obligatorios se muestran con un asterisco (*)</h6>
                             </div>
                             <br/>
                             <div class="row text-left">
@@ -50,7 +31,7 @@ export default function addProduct() {
                                 <div class="col-md-8">
                                     <div>
                                         <TextField
-                                        
+                                        required
                                         id="nombreProducto"
                                         label="Nombre del producto"
                                         variant="standard"
@@ -62,22 +43,6 @@ export default function addProduct() {
                                 </div>
                                 <div class="col-md-2"></div>
                             </div>
-
-                            {/*<div class="row text-left">
-                                <div class="col-md-2"></div>
-                                <div class="col-md-8">
-                                    <div>
-                                        <TextField
-                                        
-                                        id="categoria"
-                                        label="Categoría"
-                                        variant="standard"
-                                        size="small"
-                                        />
-                                    </div>
-                                </div>
-                                <div class="col-md-2"></div>
-                            </div>*/}
 
                             <br/>
 
@@ -131,7 +96,7 @@ export default function addProduct() {
                                 <div class="col-md-8">
                                     <div>
                                         <TextField
-                                        
+                                          required
                                           id="precio"
                                           label="Precio del producto"
                                           variant="standard"
