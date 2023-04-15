@@ -62,7 +62,7 @@ export default function Products() {
                                             <div className="thumb-wrapper">
                                                 <span className="wish-icon" ><i id="corazon" className="fa fa-heart-o"  onClick={() => favorito("corazon")}></i></span>
                                                 <div className="img-box">
-                                                    <img src={anuncio.src} className="img-responsive" alt=""/>									
+                                                    <img src={anuncio.imageurl} className="img-responsive" alt=""/>									
                                                 </div>
                                                 <div className="thumb-content">
                                                     <h4>{anuncio.nombre}</h4>									

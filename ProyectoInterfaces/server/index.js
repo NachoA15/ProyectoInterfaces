@@ -117,7 +117,7 @@ app.post("/saveChat", (req,res) => {
 })
 
 app.get("/getMessages", (req, res) => {
-	let logChat = req.body.logChat; 
+	let logChat = req.query.logChat; 
 	rutaArchivo = `logChats/${logChat}`;
 	if(fs.existsSync(rutaArchivo)){
 		fs.readFile(rutaArchivo, 'utf-8', (err, data) => {
