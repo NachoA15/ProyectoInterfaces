@@ -68,6 +68,7 @@ const checkUsuarioLogin = (username, password) => {
         username: username,
         password: password
     }).then((u) => {
+        console.log(u.data)
         if (u.data.length <= 0) {
             swal({
                 title: 'El usuario no existe.',
@@ -75,7 +76,6 @@ const checkUsuarioLogin = (username, password) => {
                 icon: 'error'
             })  
         } else {
-            // setUsuarioRegistrado(u.data);
             ReactSession.set("username", u.data[0].username);
             ReactSession.set("id", u.data[0].id);
 

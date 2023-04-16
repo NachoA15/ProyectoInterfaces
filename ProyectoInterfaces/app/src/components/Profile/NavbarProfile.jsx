@@ -13,7 +13,10 @@ export default function NavbarProfile() {
                             <li className="nav-item"><a className="nav-link" href="/products">Productos</a></li>
                             <li className="nav-item"> <a className="nav-link" href={"/favourites/" + ReactSession.get("username")} >Mis favoritos</a></li> 
                             <li className="nav-item"><a className="nav-link active" href={"/profile/" + ReactSession.get("username")}>Mi perfil</a></li>
-                            <li className="nav-item"><a className="nav-link" href="/" onClick={() => ReactSession.set("username",null)}>Cerrar sesión</a></li>
+                            <li className="nav-item"><a className="nav-link" href="/" onClick={() => {
+                                ReactSession.set("username",null);
+                                ReactSession.set("id",null);
+                            }}>Cerrar sesión</a></li>
                         </ul>
                     </div>
                 </div>

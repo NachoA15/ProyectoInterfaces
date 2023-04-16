@@ -1,0 +1,9 @@
+div#placement-info {
+    position: absolute;
+    top: 10%;
+}
+
+p {
+    font-size: x-large;
+    text-align: justify;
+}

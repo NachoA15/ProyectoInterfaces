@@ -14,6 +14,10 @@ const moveToProfile = (username) => {
     window.location.href = "/profile/" + username
 }
 
-const appServices = {moveToMainPage, moveToSignUp, moveToLogin, moveToProfile}
+const openChat = (idAnuncio) => {
+    window.location.href = "/chat/" + idAnuncio
+}
+
+const appServices = {moveToMainPage, moveToSignUp, moveToLogin, moveToProfile, openChat}
 
 export default appServices

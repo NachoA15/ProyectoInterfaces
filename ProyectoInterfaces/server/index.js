@@ -37,7 +37,7 @@ app.get('/usuarios', (req, res) => {
 	dbQuery('SELECT * FROM USUARIO', req, res);
 })
 
-app.post('/getUsuario', (req, res) => {
+app.post('/getUsuarioByUsername', (req, res) => {
 	let username = req.body.username;
 	dbQuery("SELECT * FROM USUARIO WHERE username = '" + username + "';",req, res);
 })
@@ -103,10 +103,33 @@ app.post("/addToFavoritos", (req, res) => {
 	})
 })
 
+app.post("/deleteFavorito", (req, res) => {
+	let userId = req.body.user;
+	let anuncioId = req.body.anuncio;
+	db.query("DELETE FROM FAVORITOS WHERE user_id = ? AND anuncio_id = ?;", [userId, anuncioId], (err,a,f) => {
+		if (err) {
+			console.log(err.sqlMessage);
+		}
+		else {
+			console.log('Borrado anuncio ' + anuncioId + ' de favoritos del usuario ' + userId + ' exitosamente')
+			res.send('OK');
+		};
+	})
+})
+
+
+app.post("/getIdFavoritos", (req, res) => {
+	let userId = req.body.user;
+	dbQuery("SELECT anuncio_id FROM FAVORITOS WHERE user_id = " + userId + ";", req, res);
+})
+
 app.post("/getFavoritos", (req, res) => {
 	let userId = req.body.user;
-	dbQuery("SELECT anuncio_id 'anuncioId' FROM FAVORITOS WHERE user_id = " + userId + ";");
+	dbQuery("SELECT a.id 'idAnuncio', a.fecha_subida, a.reservado, a.nombre, a.precio, a.imagen, u.id 'idUsuario', u.username FROM FAVORITOS f JOIN ANUNCIO a ON (f.anuncio_id = a.id) JOIN USUARIO u on (a.vendedor = u.id) WHERE f.user_id = " + userId + ";", req, res);
 })
+
+
+
 
 /** =========================================================================
  *  Chats
@@ -179,22 +202,3 @@ app.get("/getMessages", (req, res) => {
 	}
 })
 
-<<<<<<< HEAD
-=======
-app.get("/anuncios", (req,res) => {
-	let id = req.query.id;
-	if(id == null){
-		dbQuery("SELECT * FROM ANUNCIO;", req, res);
-	}else{
-		dbQuery("SELECT * FROM ANUNCIO WHERE id =" + id + ";", req, res);
-	}
-
-	
-})
-
-
-app.get("/favoritos", (req,res) => {
-	let user = req.body.user;
-	dbQuery("SELECT a.id, a.fecha_subida, a.reservado, a.nombre, a.precio, a.descripcion, a.vendedor FROM ANUNCIO a JOIN FAVORITOS f ON f.usuario = a.id WHERE f.usuario = " + user, req, res);
-})
->>>>>>> a96f7f6915de6100eaf6115ee9260577d15fb26a

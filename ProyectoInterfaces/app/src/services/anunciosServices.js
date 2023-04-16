@@ -7,6 +7,13 @@ const addToFavoritos = (userId, anuncioId) => {
     })
 }
 
-const anunciosServices = {addToFavoritos}
+const deleteFavorito = (userId, anuncioId) => {
+    Axios.post("http://localhost:3001/deleteFavorito", {
+        user: userId,
+        anuncio: anuncioId
+    })
+}
+
+const anunciosServices = {addToFavoritos, deleteFavorito}
 
 export default anunciosServices;
