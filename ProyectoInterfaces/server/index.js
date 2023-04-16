@@ -116,10 +116,17 @@ app.post("/getFavoritos", (req, res) => {
 app.post("/saveChat", (req,res) => {
 	let logChat = req.body.logChat;
 	let message = req.body.message;
-	let user = req.body.user;
+	let id = req.body.user;
+	let user;
+
+	console.log(id);
+	db.query("SELECT * FROM USUARIO WHERE id ="+id+";", (error, results) => {
+		if (error) throw error;
+		user = results;
+		console.log(user)
 
 	rutaArchivo = `logChats/${logChat}`;
-	message = `\n${user}: ${message}`;
+	message = `\n${user[0].id}: ${message}`;
 
 	if(!fs.existsSync("logChats/")){
 		fs.mkdir('logChats', (err) => {
@@ -142,6 +149,9 @@ app.post("/saveChat", (req,res) => {
 			res.send("Codigo 200");
 		}
 	}))
+	});
+
+	
 })
 
 app.get("/getMessages", (req, res) => {
@@ -169,3 +179,22 @@ app.get("/getMessages", (req, res) => {
 	}
 })
 
+<<<<<<< HEAD
+=======
+app.get("/anuncios", (req,res) => {
+	let id = req.query.id;
+	if(id == null){
+		dbQuery("SELECT * FROM ANUNCIO;", req, res);
+	}else{
+		dbQuery("SELECT * FROM ANUNCIO WHERE id =" + id + ";", req, res);
+	}
+
+	
+})
+
+
+app.get("/favoritos", (req,res) => {
+	let user = req.body.user;
+	dbQuery("SELECT a.id, a.fecha_subida, a.reservado, a.nombre, a.precio, a.descripcion, a.vendedor FROM ANUNCIO a JOIN FAVORITOS f ON f.usuario = a.id WHERE f.usuario = " + user, req, res);
+})
+>>>>>>> a96f7f6915de6100eaf6115ee9260577d15fb26a

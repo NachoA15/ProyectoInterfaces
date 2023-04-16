@@ -2,32 +2,80 @@ import React, { useEffect, useState } from 'react';
 import '../../assets/css/chat.css'
 import {TextField} from '@mui/material'
 import axios from 'axios';
+import { useParams } from 'react-router-dom';
+import { ReactSession } from "react-client-session";
 
 export default function Chat() {
     const [messages, setMessages] = useState([]);
+    const [anuncio, setAnuncio] = useState([]);
+    const [rutaArchivo, setRutaArchivo] = useState([]);
 
-  useEffect(() => {
+    let params = useParams();
+    let idProduct = params.id;
+    let myId = ReactSession.get("id");
+
+    console.log(idProduct);
+    
     const fetchData = async () => {
-      try {
-        const response = await axios.get('http://127.0.0.1:3001/getMessages', {
-          params: {
-            logChat: 'JuanjoPepe.txt',
-          },
-        });
-        setMessages(response.data);
-      } catch (error) {
-        console.error(error);
-      }
+        try {
+            const response = await axios.get('http://127.0.0.1:3001/anuncios', {
+                params: {
+                    id: idProduct,
+                },
+            });
+            setAnuncio(response.data);
+        } catch (error) {
+            console.error(error);
+        }
     };
+    
+    useEffect(() => {
+        fetchData();
+    }, []);
+    
+    useEffect(() => {
+        if (anuncio.length > 0) {
+            if (myId < anuncio[0].vendedor) {
+                setRutaArchivo("" + myId+"-" + anuncio[0].vendedor+"-" + anuncio[0].id + "");
+            } else {
+                setRutaArchivo("" + anuncio[0].vendedor+"-" + myId+"-" + anuncio[0].id + "");
+            }
+        }
+    }, [anuncio]);
+    
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await axios.get('http://127.0.0.1:3001/getMessages', {
+                    params: {
+                        logChat: "chat" + rutaArchivo + ".txt",
+                    },
+                });
+                setMessages(response.data);
+            } catch (error) {
+                console.error(error);
+            }
+        };
+    
+        // Ejecutar fetchData cada 10 segundos (10000 ms)
+        const intervalId = setInterval(fetchData, 3000);
+    
+        // Limpiar el intervalo cuando el componente se desmonte o cuando se cambie la dependencia
+        return () => {
+            clearInterval(intervalId);
+        };
+    }, [rutaArchivo]);
 
-    // Ejecutar fetchData cada 10 segundos (10000 ms)
-    const intervalId = setInterval(fetchData, 7000);
+    console.log(rutaArchivo);
+    console.log(anuncio[0]);
 
-    // Limpiar el intervalo cuando el componente se desmonte o cuando se cambie la dependencia
-    return () => {
-      clearInterval(intervalId);
-    };
-  }, []);
+    
+    
+
+    console.log(messages);
+
+    console.log(anuncio)
+
     
 
     return(
@@ -38,8 +86,8 @@ export default function Chat() {
                 const message = document.getElementById('mensaje').value;
                 axios.post("http://127.0.0.1:3001/saveChat", {
                     message: message,
-                    user: "Juanjo",
-                    logChat: "JuanjoPepe.txt"
+                    user: myId,
+                    logChat: "chat" + rutaArchivo+".txt"
                 }).then(res => {
                     console.log(res.data);
                 })
@@ -63,7 +111,7 @@ export default function Chat() {
                                             
                                         </a>
                                         <div class="chat-about">
-                                            <h6 class="m-b-0">Aiden Chavez</h6>
+                                            <h6 class="m-b-0">{}</h6>
                                         </div>
                                     </div>
                                     
@@ -71,26 +119,34 @@ export default function Chat() {
                             </div>
                             <div class="chat-history">
                                 <ul class="m-b-0">
-                                    {messages.map((message, key) => {
-                                        if(message.startsWith("Juanjo:")){
-                                            return(
-                                    <li class="clearfix">
-                                        <div class="message-data text-right">
-                                            
-                                        </div>
-                                        <div class="message other-message float-right"> {message.replace("Juanjo:","")} </div>
-                                    </li>
-                                            )
-                                        }else{
-                                            return(
-                                                <li class="clearfix">
-                                                <div class="message-data">
+                                    {
+                                        
+                                            messages.map((message, key) => {
+                                                if(message.startsWith(myId+":")){
+                                                    return(
+                                            <div key={key}>
+                                            <li class="clearfix">
+                                                <div class="message-data text-right">
+                                                    
                                                 </div>
-                                                <div class="message my-message">{message.replace("Pepe:", "")}</div>                                    
-                                            </li> 
-                                            )
+                                                <div class="message other-message float-right"> {message.replace(myId+":","")} </div>
+                                            </li>
+                                            </div>
+                                                    )
+                                                }else{
+                                                    return(
+                                                        <div key={key}> 
+                                                        <li class="clearfix">
+                                                        <div class="message-data">
+                                                        </div>
+                                                        <div class="message my-message">{message.replace(anuncio[0].vendedor+":", "")}</div>                                    
+                                                    </li> 
+                                                    </div>
+                                                    )
+                                                }
+                                            })
                                         }
-                                    })}
+                                    
                                 </ul>
                             </div>
                             <div class="chat-message clearfix">

@@ -60,9 +60,25 @@ export default function Products() {
                                                         <i id={anuncio.idAnuncio} className="fa fa-heart-o" onClick={() => addToFavoritos(anuncio.idUsuario, anuncio.idAnuncio)}></i>
                                                     </span>
                                                 </div>
+<<<<<<< HEAD
                                                 <div className='card-body anuncio-thumbnail'>
                                                     <div className='placement-imagen'>
                                                         <img src={anuncio.imagen}/>
+=======
+                                                <div className="thumb-content">
+                                                    <h4>{anuncio.nombre}</h4>									
+                                                    
+                                                    <p className="item-price"><b>{anuncio.precio}€</b></p>
+                                                    <div className="row">
+                                                        <div className="col-sm-6">
+                                                            <a href={"/chat/"+anuncio.id} className="btn btn-primary" style={{height: 60}}>Contactar</a>
+                                                        </div>
+                                                        <div className="col-sm-6">
+                                                            <a href="#" className="btn btn-primary" style={{height: 60}}>+ info</a>
+                                                        </div>  
+                                                        
+                                                        
+>>>>>>> a96f7f6915de6100eaf6115ee9260577d15fb26a
                                                     </div>
                                                     <div className='anuncio-info'>
                                                         <p className='nombre-anuncio'>{anuncio.nombre}</p>
