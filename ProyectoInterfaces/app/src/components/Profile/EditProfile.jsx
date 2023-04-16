@@ -2,6 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import {TextField} from '@mui/material'
 import NavbarProfile from "./NavbarProfile";
+import '../../assets/css/editProfile.css'
 
 export default function EditProfile({usuarioPerfil}) {
 
@@ -13,64 +14,51 @@ export default function EditProfile({usuarioPerfil}) {
         <div id='NavbarProfile'>
             <NavbarProfile />
         </div>
+        <br/>
+        
 
-        <div className="container rounded bg-white mt-5 mb-5">
-            <div className="row">
-                <div className="col-md-12 border-right">
-                    <div className="p-3 py-5">
-                        <div className="d-flex row text-center justify-content-between align-items-center mb-3">
+        <div class="container mt-4 mb-4 p-3 d-flex justify-content-center"> 
+            <div class="card p-4"> 
+            <div className="d-flex row text-center justify-content-between align-items-center mb-3">
                             <h4 className="text-right">Editar perfil</h4>
-                        </div>
-                        <div className="d-flex justify-content-between align-items-center mb-3">
-                            <div className="d-flex flex-column align-items-center text-center p-3 py-5">
-                                <img className="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"/>
-                                <label className="control-label small" htmlFor="file_img">Cambiar foto de perfil (.jpg/.png):</label> <input type="file" name="file_img"/>
-                            </div>
-
-                        </div>
-                        <div className="mt-3">
-                            <div className="row">
-                                <div className="col-md-4"></div>
-                                <div className="col-md-4"><TextField id="usuario" name="nombre de usuario" label="Usuario" variant="standard" size="small" value={usuarioPerfil.username}/></div>
-                                <div className="col-md-4"></div>
-                            </div>
-                            <br/>
-                            <div className="row">
-                                <div className="col-md-4"></div>
-                                <div className="col-md-4"><TextField id="nombre" name="nombre completo" label="Nombre Completo" variant="standard" size="small" value={usuarioPerfil.nombre}/></div>
-                                <div className="col-md-4"></div>
-                            </div>
-                            <br/>
-                            <div className="row">
-                                <div className="col-md-4"></div>
-                                <div className="col-md-4"><TextField id="localizacion" name="localizacion" label="Localizacion" variant="standard" size="small" value={usuarioPerfil.localizacion}/></div>
-                                <div className="col-md-4"></div>
-                            </div>
-                            <br/>
-                            <div className="row">
-                                <div className="col-md-4"></div>
-                                <div className="col-md-4"><TextField id="email" name="correo electrónico" label="Correo Electrónico" variant="standard" size="small" value={usuarioPerfil.correo}/></div>
-                                <div className="col-md-4"></div>
-                            </div>
-                            <br/>
-                            <div className="row">
-                                <div className="col-md-4"></div>
-                                <div className="col-md-4"><TextField id="teléfono" name="teléfono" label="Número de Teléfono" variant="standard" size="small" value={usuarioPerfil.telefono}/></div>
-                                <div className="col-md-4"></div>
-                            </div>
-                            <br/>
-                        </div>
-                        <div className="mt-3">
-                            <div className="row">
-                                <div className="col-md-5"></div>
-                                <div className="col-md-2 text-center"><button className="btn btn-primary profile-button" type="button">Guardar cambios</button></div>
-                                <div className="col-md-5"></div>
-                            </div>
-                        </div>      
-                    </div>
-                </div>
             </div>
-        </div> 
+                <div class=" image d-flex flex-column justify-content-center align-items-center"> 
+                    <button class="boton btn btn-secondary" > <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80" height="100" width="100" /> </button> 
+                    <br/>
+                    <label className="control-label small" htmlFor="file_img">Cambiar foto de perfil (.jpg/.png):</label> <input type="file" name="file_img"/>
+                    <br/>
+                    <div class="d-flex flex-row justify-content-center align-items-center gap-2">
+                    <span><TextField id="usuario" name="nombre de usuario" label="Usuario" variant="standard" size="small" defaultValue={usuarioPerfil.username}/></span> 
+                    </div>
+                    <br/>
+                    <div class="d-flex flex-row justify-content-center align-items-center gap-2">
+                    <span ><TextField id="nombre" name="nombre completo" label="Nombre Completo" variant="standard" size="small" defaultValue={usuarioPerfil.nombre}/></span> 
+                
+                    </div>
+                    <br/>
+                    <div class="d-flex flex-row justify-content-center align-items-center gap-2"> 
+                        <span ><TextField id="localizacion" name="localizacion" label="Localizacion" variant="standard" size="small" defaultValue={usuarioPerfil.localizacion}/></span>
+                    </div> 
+                    <br/>
+                    <div class="d-flex flex-row justify-content-center align-items-center gap-2"> 
+                        <span ><TextField id="email" name="correo electrónico" label="Correo Electrónico" variant="standard" size="small" defaultValue={usuarioPerfil.correo}/></span> 
+                    </div> 
+                    <br/>
+                    <div class="d-flex flex-row justify-content-center align-items-center gap-2"> 
+                        <span><TextField id="teléfono" name="teléfono" label="Número de Teléfono" variant="standard" size="small" defaultValue={usuarioPerfil.telefono}/></span>
+                    </div> 
+                    <br/>
+                    <div class="d-flex flex-row justify-content-center align-items-center gap-2"> 
+                        <span><TextField id="descripcion" name="descripcion" label="Descripción" variant="standard" size="small" defaultValue={usuarioPerfil.descripcion} multiline/></span>
+                    </div> 
+                    <br/>
+                    <div class=" d-flex mt-2"> 
+                        <button className="btn btn-dark profile-button" type="button">Guardar cambios</button>
+                    </div> 
+                         
+                </div> 
+            </div>
+        </div>
         </>
     )
 }
