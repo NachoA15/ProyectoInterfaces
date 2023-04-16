@@ -77,6 +77,7 @@ const checkUsuarioLogin = (username, password) => {
         } else {
             // setUsuarioRegistrado(u.data);
             ReactSession.set("username", u.data[0].username);
+            ReactSession.set("id", u.data[0].id);
 
             appServices.moveToProfile(u.data[0].username);
         }

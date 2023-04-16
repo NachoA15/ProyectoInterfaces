@@ -63,7 +63,7 @@ export default function Products() {
                                                     <p className="item-price"><b>{anuncio.precio}€</b></p>
                                                     <div className="row">
                                                         <div className="col-sm-6">
-                                                            <a href="#" className="btn btn-primary" style={{height: 60}}>Contactar</a>
+                                                            <a href={"/chat/"+anuncio.id} className="btn btn-primary" style={{height: 60}}>Contactar</a>
                                                         </div>
                                                         <div className="col-sm-6">
                                                             <a href="#" className="btn btn-primary" style={{height: 60}}>+ info</a>
