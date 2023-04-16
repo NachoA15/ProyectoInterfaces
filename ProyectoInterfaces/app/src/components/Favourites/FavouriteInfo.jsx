@@ -1,7 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import "../../assets/css/favouriteinfo.css";
 
 export default function FavouriteInfo() {
+
+    const [marcado, setMarcado] = useState(false)
+
+    const cambiarIcono = () => {
+        let element = document.getElementById("prueba");
+
+        if(element.classList.contains("fa-heart-o")){
+            element.classList.remove("fa-heart-o");
+            element.classList.add("fa-heart");
+            element.classList.add("fa-solid");
+            element.classList.add("fav-icon");
+            setMarcado(true);
+        } else{
+            element.classList.remove("fa-heart");
+            element.classList.remove("fa-solid");
+            element.classList.remove("fav-icon");
+            element.classList.add("fa-heart-o");
+            setMarcado(false);
+        }
+    }
+
 
     return(
         <>
@@ -16,11 +37,12 @@ export default function FavouriteInfo() {
                             <div className="col">
                                 <br/>
                                 <p>Para marcar o desmarcar un anuncio como favorito haz clic en el icono&nbsp;
-                                    <i id="prueba" className="fa fa-heart-o"></i>&nbsp;situado 
+                                    <i className="fa fa-heart-o"></i>&nbsp;situado 
                                 en la esquina superior derecha de aquellos anuncios que haya subido otro usuario.</p>
                                 <br/>
                                 <p>Aquí podrás visualizar cada anuncio que hayas marcado como favorito hasta que los desmarques o el autor decida borrarlo.</p>
                                 <br/>
+                                <p>¡Prueba en la figura!</p>
                             </div>
                             <div className="col-1"/>
                             <div className="col">
@@ -28,12 +50,16 @@ export default function FavouriteInfo() {
                                         <div className='card-header anuncio-header'>
                                             Ejemplo de anuncio
                                             <span className="wish-icon favorito">
-                                                    <i className="fa fa-heart-o"></i>
+                                                    <i id="prueba" className="fa fa-heart-o" onClick={() => cambiarIcono()}></i>
                                             </span>
                                             </div>
                                         <div className='card-body anuncio-thumbnail'>
                                             <div className='placement-imagen'>
-                                                
+                                                {!marcado?
+                                                    <p className="fav-info">El anuncio no está marcado como favorito</p>
+                                                    :
+                                                    <p className="fav-info">El anuncio ahora sí está marcado como favorito</p>
+                                                }
                                             </div>
                                             <div className='anuncio-info'>
                                                 <p className='nombre-anuncio'>Título</p>
