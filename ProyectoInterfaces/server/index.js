@@ -88,10 +88,17 @@ app.post("/getUsuarioByUsername", (req, res) => {
 app.post("/saveChat", (req,res) => {
 	let logChat = req.body.logChat;
 	let message = req.body.message;
-	let user = req.body.user;
+	let id = req.body.user;
+	let user;
+
+	console.log(id);
+	db.query("SELECT * FROM USUARIO WHERE id ="+id+";", (error, results) => {
+		if (error) throw error;
+		user = results;
+		console.log(user)
 
 	rutaArchivo = `logChats/${logChat}`;
-	message = `\n${user}: ${message}`;
+	message = `\n${user[0].id}: ${message}`;
 
 	if(!fs.existsSync("logChats/")){
 		fs.mkdir('logChats', (err) => {
@@ -114,6 +121,9 @@ app.post("/saveChat", (req,res) => {
 			res.send("Codigo 200");
 		}
 	}))
+	});
+
+	
 })
 
 app.get("/getMessages", (req, res) => {
@@ -142,8 +152,16 @@ app.get("/getMessages", (req, res) => {
 })
 
 app.get("/anuncios", (req,res) => {
-	dbQuery("SELECT * FROM ANUNCIO;", req, res);
+	let id = req.query.id;
+	if(id == null){
+		dbQuery("SELECT * FROM ANUNCIO;", req, res);
+	}else{
+		dbQuery("SELECT * FROM ANUNCIO WHERE id =" + id + ";", req, res);
+	}
+
+	
 })
+
 
 app.get("/favoritos", (req,res) => {
 	let user = req.body.user;
