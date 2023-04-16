@@ -81,6 +81,34 @@ app.post("/getUsuarioByUsername", (req, res) => {
 })
 
 /** =========================================================================
+ *  Anuncios
+ *  =========================================================================
+ */
+
+app.get("/anuncios", (req,res) => {
+	dbQuery("SELECT a.id 'idAnuncio', a.fecha_subida, a.reservado, a.nombre, a.precio, a.imagen, u.id 'idUsuario', u.username FROM ANUNCIO a JOIN USUARIO u on (a.vendedor = u.id);", req, res);
+})
+
+app.post("/addToFavoritos", (req, res) => {
+	let userId = req.body.user;
+	let anuncioId = req.body.anuncio;
+	db.query("INSERT INTO FAVORITOS (user_id, anuncio_id) VALUES (?,?);", [userId, anuncioId], (err,a,f) => {
+		if (err) {
+			console.log(err.sqlMessage);
+		}
+		else {
+			console.log('Añadido anuncio ' + anuncioId + ' a favoritos del usuario ' + userId + ' exitosamente')
+			res.send('OK');
+		};
+	})
+})
+
+app.post("/getFavoritos", (req, res) => {
+	let userId = req.body.user;
+	dbQuery("SELECT anuncio_id 'anuncioId' FROM FAVORITOS WHERE user_id = " + userId + ";");
+})
+
+/** =========================================================================
  *  Chats
  *  =========================================================================
  */
@@ -141,11 +169,3 @@ app.get("/getMessages", (req, res) => {
 	}
 })
 
-app.get("/anuncios", (req,res) => {
-	dbQuery("SELECT * FROM ANUNCIO;", req, res);
-})
-
-app.get("/favoritos", (req,res) => {
-	let user = req.body.user;
-	dbQuery("SELECT a.id, a.fecha_subida, a.reservado, a.nombre, a.precio, a.descripcion, a.vendedor FROM ANUNCIO a JOIN FAVORITOS f ON f.usuario = a.id WHERE f.usuario = " + user, req, res);
-})
