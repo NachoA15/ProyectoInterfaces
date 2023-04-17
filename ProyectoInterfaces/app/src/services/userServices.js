@@ -84,6 +84,31 @@ const checkUsuarioLogin = (username, password) => {
     })
 }
 
-const userServices = {addUsuario, checkUsuarioLogin};
+const updateUsuario = (usuarioId, username, nombre, localizacion, email, telefono, descripcion) => {
+    Axios.post("http://localhost:3001/updateUsuario", {
+      usuarioId : usuarioId,
+      username : username,
+      nombre : nombre,
+      localizacion : localizacion,
+      email : email,
+      telefono : telefono, 
+      descripcion : descripcion
+    }).then((u) => {
+        console.log(u.data)
+        if (u.data.length <= 0) {
+            swal({
+                title: 'El usuario no existe.',
+                text: 'El usuario introducido no se ha encontrado. Por favor, pruebe otra vez o cree una cuenta si no tiene una.',
+                icon: 'error'
+            })
+        } else {
+            ReactSession.set("username", username);
+  
+            appServices.moveToProfile(username);
+        }
+    })
+  }
+
+const userServices = {addUsuario, checkUsuarioLogin, updateUsuario};
 
 export default userServices;

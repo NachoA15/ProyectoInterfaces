@@ -1,3 +1,5 @@
+import { Axios } from "axios";
+
 let UserProfile = (function() {
     let full_name = "";
   

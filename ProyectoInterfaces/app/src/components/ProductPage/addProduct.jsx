@@ -10,7 +10,7 @@ export default function addProduct() {
         <div id='productsNav'>
             <NavbarRegistration />
         </div>
-
+        <br/><br/>
         <div class="container">
 
           <section class="panel panel-default">
@@ -64,7 +64,7 @@ export default function addProduct() {
                             </div>
 
                             <br/>
-
+                          {/*
                             <div class="row text-left">
                                <div class="col-md-2"></div>
                                <div class="col-md-8">
@@ -87,9 +87,10 @@ export default function addProduct() {
                                 </div>
                               </div>
                             </div>
+                            
 
                             <br/>
-
+                            */}
 
                             <div class="row text-left">
                                 <div class="col-md-2"></div>
