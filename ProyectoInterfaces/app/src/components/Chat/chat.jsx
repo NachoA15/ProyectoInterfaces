@@ -111,7 +111,9 @@ export default function Chat() {
                                             
                                         </a>
                                         <div class="chat-about">
-                                            <h6 class="m-b-0">{anuncio[0].nombre +" "+ anuncio[0].precio +"€" +" - " + anuncio[0].username}</h6>
+                                            {() => {
+                                                return(<h6 class="m-b-0">{anuncio[0].nombre +" "+ anuncio[0].precio +"€" +" - " + anuncio[0].username}</h6>)
+                                            }}
                                         </div>
                                     </div>
                                     
