@@ -94,7 +94,7 @@ export default function Products() {
                                                 </div>
                                                 <div className='card-body prueba'>
                                                     <br/>
-                                                    <button className='button-anuncio contacta' onClick={() => appServices.openChat(anuncio.id)}>Contacta</button>
+                                                    <button className='button-anuncio contacta' onClick={() => appServices.openChat(anuncio.idAnuncio)}>Contacta</button>
                                                     <button className='button-anuncio info'>+ Info</button>
                                                 </div>
                                             </div>

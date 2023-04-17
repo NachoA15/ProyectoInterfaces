@@ -36,9 +36,9 @@ export default function Chat() {
     useEffect(() => {
         if (anuncio.length > 0) {
             if (myId < anuncio[0].vendedor) {
-                setRutaArchivo("" + myId+"-" + anuncio[0].vendedor+"-" + anuncio[0].id + "");
+                setRutaArchivo("" + myId+"-" + anuncio[0].username+"-" + anuncio[0].idAnuncio + "");
             } else {
-                setRutaArchivo("" + anuncio[0].vendedor+"-" + myId+"-" + anuncio[0].id + "");
+                setRutaArchivo("" + anuncio[0].username+"-" + myId+"-" + anuncio[0].idAnuncio + "");
             }
         }
     }, [anuncio]);
@@ -58,7 +58,7 @@ export default function Chat() {
         };
     
         // Ejecutar fetchData cada 10 segundos (10000 ms)
-        const intervalId = setInterval(fetchData, 3000);
+        const intervalId = setInterval(fetchData, 1000);
     
         // Limpiar el intervalo cuando el componente se desmonte o cuando se cambie la dependencia
         return () => {
@@ -111,7 +111,7 @@ export default function Chat() {
                                             
                                         </a>
                                         <div class="chat-about">
-                                            <h6 class="m-b-0">{}</h6>
+                                            <h6 class="m-b-0">{anuncio[0].nombre +" "+ anuncio[0].precio +"€" +" - " + anuncio[0].username}</h6>
                                         </div>
                                     </div>
                                     
@@ -122,6 +122,7 @@ export default function Chat() {
                                     {
                                         
                                             messages.map((message, key) => {
+                                                if(key !== 0){
                                                 if(message.startsWith(myId+":")){
                                                     return(
                                             <div key={key}>
@@ -144,7 +145,8 @@ export default function Chat() {
                                                     </div>
                                                     )
                                                 }
-                                            })
+                                            }
+                                        })
                                         }
                                     
                                 </ul>
@@ -163,10 +165,14 @@ export default function Chat() {
                                                                      
                                 </div>
                             </div>
+                            <div class="button-container">
+                                <button class="button-anunciochat">Enviar Mensaje</button>
+                            </div>
                         </div>
                         </div>
                     </div>
                 </div>
+                
                 </form>
             </div>
         

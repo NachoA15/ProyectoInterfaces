@@ -149,7 +149,7 @@ app.post("/saveChat", (req,res) => {
 		console.log(user)
 
 	rutaArchivo = `logChats/${logChat}`;
-	message = `\n${user[0].id}: ${message}`;
+	finalMessage = `\n${user[0].id}: ${message}`;
 
 	if(!fs.existsSync("logChats/")){
 		fs.mkdir('logChats', (err) => {
@@ -160,18 +160,22 @@ app.post("/saveChat", (req,res) => {
 			}
 		});
 	}
-
-	fs.appendFile(rutaArchivo, message, (err => {
+	if(message !== ""){
+	fs.appendFile(rutaArchivo, finalMessage, (err => {
 		if (err){
 			console.error("El archivo no esta creado");
-			fs.writeFile(rutaArchivo, message, (err => {
+			fs.writeFile(rutaArchivo, finalMessage, (err => {
 				console.log(err);
 			}))
+			
 		}else{
 			console.log("Se ha escrito el texto correctamente");
 			res.send("Codigo 200");
 		}
 	}))
+	}else{
+		res.send("Codigo 202 Mensaje vacio")
+	}
 	});
 
 	
@@ -198,7 +202,7 @@ app.get("/getMessages", (req, res) => {
 		})
 	}else{
 		console.log("El archivo no existe");
-		res.send("202 NOT OK");
+		res.send([]);
 	}
 })
 

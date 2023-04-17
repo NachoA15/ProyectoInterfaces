@@ -185,3 +185,31 @@ body{
         overflow-x: auto
     }
 }
+
+/* Contenedor del botón */
+.button-container {
+    display: flex; /* Hace que el contenedor sea un flex container */
+    justify-content: flex-end; /* Alinea el botón a la derecha del contenedor */
+  }
+  
+  /* Estilos del botón */
+  button.button-anunciochat {
+    background-color: transparent;
+    border: 2px solid #1A1A1A;
+    border-radius: 20px;
+    color: #3B3B3B;
+    cursor: pointer;
+    font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    font-size: 15px;
+    font-weight: 500;
+    line-height: normal;
+    margin: 0;
+    padding: 10px 10px;
+    text-align: center;
+    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+    width: 120px;
+    margin-left: auto; /* Mueve el botón a la derecha */
+    margin-right: 30px;
+    margin-bottom: 20px;
+  }
+  
