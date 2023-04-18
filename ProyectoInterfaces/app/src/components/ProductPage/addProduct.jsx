@@ -129,7 +129,17 @@ export default function addProduct() {
                           <div class="col-md-2"></div>
                           <div class="col-md-8">
                             <div>
+                              <TextField
+                                id='imagen'
+                                label='Imagen (URL)'
+                                size='medium'
+                              />
+
+                              {/** 
+                               * 
                               <label for="file_img">Imagen del producto (.jpg/.png):</label> <input id='imagen' type="file" name="file_img"/>
+                              */}
+
                             </div>
                           </div>
                           <div class="col-md-2"></div>
