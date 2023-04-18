@@ -3,10 +3,12 @@ import NavbarRegistration from './NavBarProductsPage'
 import {FormControl, InputLabel, NativeSelect, Select, TextField} from '@mui/material'
 import userServices from '../../services/userServices';
 import anunciosServices from '../../services/anunciosServices';
-
-
+import { ReactSession } from "react-client-session";
 
 export default function addProduct() {
+
+    const idUsuarioRegistrado = ReactSession.get("id");
+
     return(
         <>
         <div id='productsNav'>
@@ -20,12 +22,12 @@ export default function addProduct() {
             <div id="addProductForm">
 
               <form onSubmit={(e) => {
-                const fecha_subida = "2023-04-17";
+                const fecha_subida = new Date();
                 let reservado = 0;
                 const nombre = document.getElementById('nombre').value;
                 let precio = document.getElementById('precio').value;
                 const descripcion = document.getElementById('descripcion').value;
-                const vendedor = 140;
+                const vendedor = idUsuarioRegistrado;
                 const imagen = document.getElementById('imagen').value;
                 //const imagen = "imagen";
 
