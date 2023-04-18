@@ -32,6 +32,10 @@ const addProduct = (anuncio) => {
     })
 }
 
-const anunciosServices = {addToFavoritos, deleteFavorito, addProduct}
+const deleteAnuncio = (anuncio) => {
+
+}
+
+const anunciosServices = {addToFavoritos, deleteFavorito, addProduct, deleteAnuncio}
 
 export default anunciosServices;
