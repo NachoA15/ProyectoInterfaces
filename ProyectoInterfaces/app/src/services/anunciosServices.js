@@ -35,7 +35,7 @@ const addProduct = (anuncio) => {
                     value: "ok",
                 }
             }
-        }).then((value) => {
+        }).then(() => {
             appServices.moveToProducts();
         })
     })
