@@ -38,11 +38,11 @@ export default function Login() {
                                     <div>
                                         <TextField
                                         id="usuario"
+                                        name='usuario'
                                         label="Usuario"
                                         variant="standard"
                                         size="small"
-                                        />
-                                        
+                                        /> 
                                     </div>
                                 </div>
                                 <div className="col-md-2"></div>
@@ -55,8 +55,8 @@ export default function Login() {
                                 <div className="col-md-8">
                                     <div>
                                         <TextField
-                                        
                                         id="password"
+                                        name='password'
                                         label="Contraseña"
                                         type="password"
                                         variant="standard"

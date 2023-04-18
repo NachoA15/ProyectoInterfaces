@@ -34,7 +34,7 @@ export default function FavouriteProducts({anuncios, setAnuncios, idUsuarioRegis
                                                     </div>
                                                     <div className='anuncio-info'>
                                                         <p className='nombre-anuncio'>{anuncio.nombre}</p>
-                                                        <p><b>{anuncio.precio} €</b></p>
+                                                        <p className='precio-anuncio'><b>{anuncio.precio} €</b></p> <span style={{float: 'right'}}>{anuncio.fecha_subida.toString().substring(0,10)}</span>
                                                     </div>
                                                 </div>
                                                 <div className='card-body prueba'>

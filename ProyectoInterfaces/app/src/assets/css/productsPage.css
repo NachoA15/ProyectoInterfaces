@@ -82,6 +82,10 @@ p.nombre-anuncio {
 	margin-bottom: 1px;
 }
 
+p.precio-anuncio {
+	display: inline-block;
+}
+
 p.fav-info {
 	font-size: 18px;
 	text-align: center;

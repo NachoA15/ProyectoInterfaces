@@ -4,12 +4,17 @@ import { useEffect, useState } from 'react';
 import Axios from 'axios';
 import { ReactSession } from "react-client-session";
 import anunciosServices from '../../services/anunciosServices';
+import {TextField} from '@mui/material'
 import '../../assets/css/productsPage.css'
+import '../../assets/css/searchbar.css'
 import appServices from '../../services/appServices';
+import Filter from './Filter';
 
 export default function Products() {
     
     const [anuncios, setAnuncios] = useState([]);
+    const [filtro, setFiltro] = useState([]);
+    const [filtrando, setFiltrando] = useState(false);
     const [favoritos, setFavoritos] = useState([]);
 
     const idUsuarioRegistrado = ReactSession.get("id");
@@ -57,6 +62,8 @@ export default function Products() {
         return i < favoritos.length;
     }
 
+    let resultados = filtrando? filtro : anuncios;
+
     return(
         <>
         <div id='productsNav'>
@@ -65,44 +72,48 @@ export default function Products() {
 
         <br/>
         <br/>
+        
         <div className="container-fluid">
             <div className="row">
                 <div className="col-md-12">
                     <h2><b>Sección de los anuncios</b></h2>
-                        <div className="item active">
-                            <div className="row">
-                                {anuncios.map((anuncio, key) => {
-                                    return( 
-                                        <div className='placement-anuncios' key={key}>
-                                            <div className='card anuncio'>
-                                                <div className='card-header anuncio-header'>
-                                                    Subido por <a href={"/profile/" + anuncio.username}>{anuncio.username}</a> 
-                                                    <span className="wish-icon favorito">
-                                                        {anuncio.idUsuario !== idUsuarioRegistrado && 
-                                                            <i id={anuncio.idAnuncio} className={findAnuncioEnFavoritos(anuncio.idAnuncio)? "fa fa-heart fa-solid fav-icon" : "fa fa-heart-o"} 
-                                                            onClick={() => procesarFavoritos(idUsuarioRegistrado, anuncio.idAnuncio)}></i>}
-                                                    </span>
+                    <Filter anuncios={anuncios} setFiltro={setFiltro} setFiltrando={setFiltrando} filtrando={filtrando}/>
+                    <br/>
+                    <br/>
+                    <div className="item active">
+                        <div className="row">
+                            {resultados.map((anuncio, key) => {
+                                return( 
+                                    <div className='placement-anuncios' key={key}>
+                                        <div className='card anuncio'>
+                                            <div className='card-header anuncio-header'>
+                                                Subido por <a href={"/profile/" + anuncio.username}>{anuncio.username}</a> 
+                                                <span className="wish-icon favorito">
+                                                    {anuncio.idUsuario !== idUsuarioRegistrado && 
+                                                        <i id={anuncio.idAnuncio} className={findAnuncioEnFavoritos(anuncio.idAnuncio)? "fa fa-heart fa-solid fav-icon" : "fa fa-heart-o"} 
+                                                        onClick={() => procesarFavoritos(idUsuarioRegistrado, anuncio.idAnuncio)}></i>}
+                                                </span>
+                                            </div>
+                                            <div className='card-body anuncio-thumbnail'>
+                                                <div className='placement-imagen'>
+                                                    <img src={anuncio.imagen}/>
                                                 </div>
-                                                <div className='card-body anuncio-thumbnail'>
-                                                    <div className='placement-imagen'>
-                                                        <img src={anuncio.imagen}/>
-                                                    </div>
-                                                    <div className='anuncio-info'>
-                                                        <p className='nombre-anuncio'>{anuncio.nombre}</p>
-                                                        <p><b>{anuncio.precio} €</b></p>
-                                                    </div>
-                                                </div>
-                                                <div className='card-body prueba'>
-                                                    <br/>
-                                                    <button className='button-anuncio contacta' onClick={() => appServices.openChat(anuncio.idAnuncio)}>Contacta</button>
-                                                    <button className='button-anuncio info'>+ Info</button>
+                                                <div className='anuncio-info'>
+                                                    <p className='nombre-anuncio'>{anuncio.nombre}</p>
+                                                    <p className='precio-anuncio'><b>{anuncio.precio} €</b></p> <span style={{float: 'right'}}>{anuncio.fecha_subida.toString().substring(0,10)}</span>
                                                 </div>
                                             </div>
+                                            <div className='card-body prueba'>
+                                                <br/>
+                                                <button className='button-anuncio contacta' onClick={() => appServices.openChat(anuncio.idAnuncio)}>Contacta</button>
+                                                <button className='button-anuncio info'>+ Info</button>
+                                            </div>
                                         </div>
-                                    );
-                                })}
-                            </div>
+                                    </div>
+                                );
+                            })}
                         </div>
+                    </div>
                 </div>
             </div>
         </div>

@@ -1,0 +1,48 @@
+.box{
+    position: relative;
+    width: 250px;
+    margin-left: 40px;
+    display: inline-block;
+    transition: .5s;
+}
+
+.box:hover {
+    width: 350px;
+}
+
+.input {
+    padding: 10px;
+    width: 100%;
+    height: 50px;
+    background: none;
+    border: 4px solid #00b3ff;
+    border-radius: 50px;
+    box-sizing: border-box;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 20px;
+    color: #3f3f3f;
+    outline: none;
+    transition: .5s;
+}
+
+.box:hover input{
+    width: 350px;
+    background: #3b3640;
+    border-radius: 10px;
+    color: #ffffff;
+}
+
+.box i{
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translate(-50%,-50%);
+    font-size: 26px;
+    color: #3f3f3f;
+    transition: .2s;
+}
+
+.box:hover i{
+    opacity: 0;
+    z-index: -1;
+}
