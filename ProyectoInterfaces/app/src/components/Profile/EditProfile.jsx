@@ -5,10 +5,18 @@ import NavbarProfile from "./NavbarProfile";
 import '../../assets/css/editProfile.css'
 import userServices from "../../services/userServices";
 
-export default function EditProfile({usuarioPerfil}) {
+export default function EditProfile({usuarioPerfil, setEditando}) {
 
     let params = useParams();
     let username = params.username;
+
+    const procesarEmail = () => {
+        if(usuarioPerfil.correo === null){
+            return "";
+        }else{
+            return usuarioPerfil.correo;
+        }
+    }
 
     return(
         <>
@@ -54,7 +62,7 @@ export default function EditProfile({usuarioPerfil}) {
                     </div> 
                     <br/>
                     <div class="d-flex flex-row justify-content-center align-items-center gap-2"> 
-                        <span ><TextField id="email" name="correo electrónico" label="Correo Electrónico" variant="standard" size="small" defaultValue={usuarioPerfil.correo}/></span> 
+                        <span ><TextField id="email" name="correo electrónico" label="Correo Electrónico" variant="standard" size="small" defaultValue={procesarEmail()}/></span> 
                     </div> 
                     <br/>
                     <div class="d-flex flex-row justify-content-center align-items-center gap-2"> 
@@ -69,7 +77,9 @@ export default function EditProfile({usuarioPerfil}) {
                         <button className="btn btn-dark profile-button" type="submit">Guardar cambios</button>
                     </div> 
                     <div class=" d-flex mt-2"> 
-                        <button className="btn btn-dark profile-button" type="button">Cancelar cambios</button>
+                        <button className="btn btn-dark profile-button" type="button" onClick={() => {
+                            setEditando(false)
+                        }}>Cancelar cambios</button>
                     </div>
                     
                 </div> 

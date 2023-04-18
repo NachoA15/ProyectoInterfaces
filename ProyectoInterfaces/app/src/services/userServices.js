@@ -85,6 +85,7 @@ const checkUsuarioLogin = (username, password) => {
 }
 
 const updateUsuario = (usuarioId, username, nombre, localizacion, email, telefono, descripcion) => {
+
     Axios.post("http://localhost:3001/updateUsuario", {
       usuarioId : usuarioId,
       username : username,
@@ -102,9 +103,21 @@ const updateUsuario = (usuarioId, username, nombre, localizacion, email, telefon
                 icon: 'error'
             })
         } else {
-            ReactSession.set("username", username);
-  
-            appServices.moveToProfile(username);
+            swal({
+                title: 'Perfil editado con éxito',
+                text: 'Los cambios se han guardado correctamente',
+                icon: 'success',
+                buttons: {
+                    aceptar: {
+                        text: "Aceptar",
+                        value: "ok",
+                    }
+                }
+            }).then((value) => {
+                ReactSession.set("username", username);
+                appServices.moveToProfile(username);
+            })
+            
         }
     })
   }

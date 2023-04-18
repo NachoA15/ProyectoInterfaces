@@ -21,7 +21,7 @@ export default function addProduct() {
 
               <form onSubmit={(e) => {
                 const fecha_subida = "2023-04-17";
-                let reservado = null;
+                let reservado = 0;
                 const nombre = document.getElementById('nombre').value;
                 let precio = document.getElementById('precio').value;
                 const descripcion = document.getElementById('descripcion').value;

@@ -31,7 +31,7 @@ export default function Profile() {
     return(
         <>
         <NavbarProfile />
-        {!editando? <ProfileView usuarioPerfil={usuarioPerfil} usuarioRegistrado={usuarioRegistrado} setEditando={setEditando}/> : <EditProfile usuarioPerfil={usuarioPerfil}/>}
+        {!editando? <ProfileView usuarioPerfil={usuarioPerfil} usuarioRegistrado={usuarioRegistrado} setEditando={setEditando}/> : <EditProfile usuarioPerfil={usuarioPerfil} setEditando={setEditando}/>}
         </>
     )
 }
