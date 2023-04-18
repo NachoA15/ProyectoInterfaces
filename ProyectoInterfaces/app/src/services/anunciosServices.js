@@ -21,7 +21,7 @@ const addProduct = (anuncio) => {
         fecha_subida: anuncio[0],
         reservado: anuncio[1],
         nombre: anuncio[2],
-        precio: anuncio[3],
+        precio: anuncio[3].replace(",","."),
         descripcion: anuncio[4],
         vendedor: anuncio[5],
         imagen: anuncio[6]
