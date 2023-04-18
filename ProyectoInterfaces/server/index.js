@@ -80,6 +80,33 @@ app.post("/getUsuarioByUsername", (req, res) => {
 	dbQuery("SELECT * FROM USUARIO WHERE username = '" + username + "';", req, res);
 })
 
+app.post("/updateUsuario", (req, res) => {
+	let usuarioId = req.body.usuarioId;
+	let username = req.body.username;
+	let nombre = req.body.nombre;
+    let localizacion = req.body.localizacion;
+	let email;
+	if(req.body.email === ""){
+		email = null;
+	}else{
+		email = req.body.email;
+	}
+    
+    let telefono = req.body.telefono; 
+    let descripcion = req.body.descripcion;
+
+	db.query("UPDATE USUARIO SET username = '" + username + "', nombre = '" + nombre + "', localizacion = '" + localizacion + "', correo = '" +
+	email + "', telefono = '" + telefono + "', descripcion = '" + descripcion + "' WHERE id = " + usuarioId + ";", (err,a,f) => {
+		if (err) {
+			console.log(err.sqlMessage);
+		}
+		else {
+			console.log('Actualizado usuario ' + usuarioId + ' exitosamente')
+			res.send('OK');
+		};
+	})
+})
+
 /** =========================================================================
  *  Anuncios
  *  =========================================================================

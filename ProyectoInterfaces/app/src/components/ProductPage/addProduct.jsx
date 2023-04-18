@@ -12,7 +12,7 @@ export default function addProduct() {
         <div id='productsNav'>
             <NavbarRegistration />
         </div>
-
+        <br/><br/>
         <div class="container">
 
           <section class="panel panel-default">

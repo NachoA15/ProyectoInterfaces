@@ -14,14 +14,15 @@ export default function NavbarProductsPage() {
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span className="navbar-toggler-icon"></span></button>
                     <div className="collapse navbar-collapse" id="navbarResponsive">
                         <ul className="navbar-nav ms-auto">
-                            <li className="nav-item"><a className="nav-link active" href="#">Productos</a></li>
+                            <li className="nav-item"> <a href="/addProduct" className="addProducts nav-link"><button type="button" class="btn btn-outline-light btn-sm">Subir producto</button></a></li>
+                            <li className="nav-item"><a className="nav-link active" href="/products">Productos</a></li>
                             <li className="nav-item"> <a className="nav-link" href={"/favourites/" + usuarioRegistrado} >Mis favoritos</a></li> 
                             <li className="nav-item"> <a className="nav-link" href={"/profile/" + usuarioRegistrado}>Mi perfil</a></li>  
                             <li className="nav-item"><a className="nav-link" href="/" onClick={() => {
                                 ReactSession.set("username",null);
                                 ReactSession.set("id",null);
                             }}>Cerrar sesión</a></li>
-                            <li className="nav-item"> <a href="/addProduct" className="addProducts nav-link"><i className="fa fa-plus-square fa-2x" aria-hidden="true"> Subir producto</i></a></li>
+                            
                         </ul>
                     </div>
                 </div>
