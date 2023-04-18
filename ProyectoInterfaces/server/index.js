@@ -89,6 +89,31 @@ app.get("/anuncios", (req,res) => {
 	dbQuery("SELECT a.id 'idAnuncio', a.fecha_subida, a.reservado, a.nombre, a.precio, a.imagen, u.id 'idUsuario', u.username FROM ANUNCIO a JOIN USUARIO u on (a.vendedor = u.id);", req, res);
 })
 
+app.post('/addProduct', (req, res) => {
+    let fecha_subida = req.body.fecha_subida;
+    let reservado= req.body.reservado;
+    let nombre = req.body.nombre;
+    let precio = req.body.precio;
+    let descripcion = req.body.descripcion;
+    let vendedor = req.body.vendedor;
+    let imagen = req.body.imagen;
+
+        db.query('INSERT INTO ANUNCIO (fecha_subida, reservado, nombre, precio, descripcion, vendedor, imagen) VALUES (?,?,?,?,?,?,?);', [fecha_subida,reservado,nombre,precio,descripcion,vendedor,imagen], (err,a,f) => {
+            if (err) {
+                if (err.sqlMessage.endsWith("for key 'usuario.username'")) {
+                    res.send('duplicated_username');
+                } else if (err.sqlMessage.endsWith("for key 'usuario.correo'")) {
+                    res.send('duplicated_correo');
+                }
+                console.log(err.sqlMessage);
+            }
+            else {
+                console.log('Anuncio ' + nombre + ' insertado exitosamente')
+                res.send('OK');
+            };
+        })
+})
+
 app.post("/addToFavoritos", (req, res) => {
 	let userId = req.body.user;
 	let anuncioId = req.body.anuncio;

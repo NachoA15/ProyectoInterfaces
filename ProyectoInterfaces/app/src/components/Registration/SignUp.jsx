@@ -185,7 +185,7 @@ export default function SignUp() {
                 <br/>
                 
                 <div className='container' style={{ maxWidth: 150 }}>
-                        <button className="btn btn-outline-primary" type='submit'>Confirmar</button>
+                    <button className="btn btn-outline-primary" type='submit'>Confirmar</button>
                 </div>
             </form>
 
