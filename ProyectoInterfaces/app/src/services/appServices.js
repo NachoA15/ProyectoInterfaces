@@ -18,6 +18,10 @@ const openChat = (idAnuncio) => {
     window.location.href = "/chat/" + idAnuncio
 }
 
-const appServices = {moveToMainPage, moveToSignUp, moveToLogin, moveToProfile, openChat}
+const moveToProducts = () => {
+    window.location.href = "/products"
+}
+
+const appServices = {moveToMainPage, moveToSignUp, moveToLogin, moveToProfile, openChat, moveToProducts}
 
 export default appServices

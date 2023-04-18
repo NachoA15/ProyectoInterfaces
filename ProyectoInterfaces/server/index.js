@@ -135,7 +135,7 @@ app.post('/addProduct', (req, res) => {
     let vendedor = req.body.vendedor;
     let imagen = req.body.imagen;
 
-        db.query('INSERT INTO ANUNCIO (fecha_subida, reservado, nombre, precio, descripcion, vendedor, imagen) VALUES (?,?,?,?,?,?,?);', [fecha_subida,reservado,nombre,precio,descripcion,vendedor,imagen], (err,a,f) => {
+        db.query('INSERT INTO ANUNCIO (fecha_subida, reservado, nombre, precio, descripcion, vendedor, imagen) VALUES (?,?,?,?,?,?,?);', [fecha_subida.toString().substring(0,10),reservado,nombre,precio,descripcion,vendedor,imagen], (err,a,f) => {
             if (err) {
                 if (err.sqlMessage.endsWith("for key 'usuario.username'")) {
                     res.send('duplicated_username');

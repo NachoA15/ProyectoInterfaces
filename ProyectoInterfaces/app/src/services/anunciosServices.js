@@ -1,5 +1,6 @@
 import Axios from 'axios';
 import swal from 'sweetalert';
+import appServices from './appServices';
 
 const addToFavoritos = (userId, anuncioId) => {
     Axios.post("http://localhost:3001/addToFavoritos", {
@@ -26,8 +27,16 @@ const addProduct = (anuncio) => {
         imagen: anuncio[6]
     }).then(() => {
         swal({
-            title: 'Anuncio subido con éxito',
-            icon: 'success'
+            title: 'Producto subido con éxito',
+            icon: 'success',
+            buttons: {
+                aceptar: {
+                    text: "Aceptar",
+                    value: "ok",
+                }
+            }
+        }).then((value) => {
+            appServices.moveToProducts();
         })
     })
 }
