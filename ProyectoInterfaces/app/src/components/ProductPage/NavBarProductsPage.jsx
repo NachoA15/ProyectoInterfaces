@@ -1,6 +1,7 @@
 import React from 'react';
 import '../../assets/css/NavBarProductsPage.css'
 import { ReactSession } from "react-client-session";
+import appServices from '../../services/appServices';
 
 export default function NavbarProductsPage() {
 
@@ -18,9 +19,33 @@ export default function NavbarProductsPage() {
                             <li className="nav-item"><a className="nav-link active" href="/products">Productos</a></li>
                             <li className="nav-item"> <a className="nav-link" href={"/favourites/" + usuarioRegistrado} >Mis favoritos</a></li> 
                             <li className="nav-item"> <a className="nav-link" href={"/profile/" + usuarioRegistrado}>Mi perfil</a></li>  
-                            <li className="nav-item"><a className="nav-link" href="/" onClick={() => {
-                                ReactSession.set("username",null);
-                                ReactSession.set("id",null);
+                            <li className="nav-item"><a className="nav-link" href="/" onClick={(e) => {
+                                e.preventDefault();
+                                swal({
+                                    title: 'Cerrar sesión',
+                                    text: '¿Desea cerrar la sesión?',
+                                    buttons: {
+                                        Si: {
+                                            text: "Sí",
+                                            value: "si",
+                                        },
+                                        No: {
+                                            text: "No",
+                                            value: "no",
+                                        }
+                                    }
+                                }).then((value) => {
+                                    switch (value) {
+                                        case "si":
+                                            ReactSession.set("username",null);
+                                            ReactSession.set("id",null);
+                                            appServices.moveToMainPage();
+                                            break;
+                
+                                        default:
+                                            appServices.moveToProducts();
+                                    }
+                                })
                             }}>Cerrar sesión</a></li>
                             
                         </ul>
