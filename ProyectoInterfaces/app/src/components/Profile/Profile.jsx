@@ -16,6 +16,7 @@ export default function Profile() {
     const [editando, setEditando] = useState(false);
 
     const usuarioRegistrado = ReactSession.get("username");
+    const idUsuarioRegistrado = ReactSession.get("id");
 
     let params = useParams();
     let username = params.username;
@@ -31,7 +32,7 @@ export default function Profile() {
     return(
         <>
         <NavbarProfile />
-        {!editando? <ProfileView usuarioPerfil={usuarioPerfil} usuarioRegistrado={usuarioRegistrado} setEditando={setEditando}/> : <EditProfile usuarioPerfil={usuarioPerfil} setEditando={setEditando}/>}
+        {!editando? <ProfileView usuarioPerfil={usuarioPerfil} usuarioRegistrado={usuarioRegistrado} setEditando={setEditando} idUsuarioRegistrado={idUsuarioRegistrado}/> : <EditProfile usuarioPerfil={usuarioPerfil} setEditando={setEditando}/>}
         </>
     )
 }

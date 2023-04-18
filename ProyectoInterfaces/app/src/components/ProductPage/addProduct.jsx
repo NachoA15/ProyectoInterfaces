@@ -1,10 +1,7 @@
 import React from 'react';
 import NavbarRegistration from './NavBarProductsPage'
-<<<<<<< HEAD
 import {FormControl, InputLabel, NativeSelect, Select, TextField} from '@mui/material'
-=======
-import {FormControl, InputLabel, NativeSelect, TextField} from '@mui/material'
->>>>>>> 24cb2c4992fe4d6d7d174f129e817207529b81a1
+import userServices from '../../services/userServices';
 import anunciosServices from '../../services/anunciosServices';
 import { ReactSession } from "react-client-session";
 

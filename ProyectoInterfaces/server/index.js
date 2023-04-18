@@ -126,6 +126,11 @@ app.get("/anuncios", (req,res) => {
 	dbQuery("SELECT a.id 'idAnuncio', a.fecha_subida, a.reservado, a.nombre, a.precio, a.imagen, u.id 'idUsuario', u.username FROM ANUNCIO a JOIN USUARIO u on (a.vendedor = u.id);", req, res);
 })
 
+app.post("/getAnunciosByUser", (req, res) => {
+	let userId = req.body.user;
+	dbQuery("SELECT a.id 'idAnuncio', a.fecha_subida, a.reservado, a.nombre, a.precio, a.imagen, u.id 'idUsuario', u.username FROM ANUNCIO a JOIN USUARIO u on (a.vendedor = u.id) WHERE a.vendedor = " + userId + ";", req, res);
+})
+
 app.post('/addProduct', (req, res) => {
     let fecha_subida = req.body.fecha_subida;
     let reservado= req.body.reservado;

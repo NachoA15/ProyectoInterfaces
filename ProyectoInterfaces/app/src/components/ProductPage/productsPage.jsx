@@ -4,10 +4,9 @@ import { useEffect, useState } from 'react';
 import Axios from 'axios';
 import { ReactSession } from "react-client-session";
 import anunciosServices from '../../services/anunciosServices';
-import {TextField} from '@mui/material'
 import '../../assets/css/productsPage.css'
 import '../../assets/css/searchbar.css'
-import appServices from '../../services/appServices';
+import Anuncio from '../Anuncio';
 import Filter from './Filter';
 
 export default function Products() {
@@ -34,34 +33,6 @@ export default function Products() {
         })
     }, []);
 
-
-    const procesarFavoritos = (idUsuario, idAnuncio) => {
-        let element = document.getElementById(idAnuncio);
-
-        if(element.classList.contains("fa-heart-o")){
-            element.classList.remove("fa-heart-o");
-            element.classList.add("fa-heart");
-            element.classList.add("fa-solid");
-            element.classList.add("fav-icon");
-            anunciosServices.addToFavoritos(idUsuario, idAnuncio);
-        } else{
-            element.classList.remove("fa-heart");
-            element.classList.remove("fa-solid");
-            element.classList.remove("fav-icon");
-            element.classList.add("fa-heart-o");
-            anunciosServices.deleteFavorito(idUsuario, idAnuncio);
-        }
-    }
-
-    const findAnuncioEnFavoritos = (anuncioId) => {
-        let i = 0;
-        while (i < favoritos.length && favoritos[i].anuncio_id !== anuncioId) {
-            i++;
-        }
-        
-        return i < favoritos.length;
-    }
-
     let resultados = filtrando? filtro : anuncios;
 
     return(
@@ -85,30 +56,7 @@ export default function Products() {
                             {resultados.map((anuncio, key) => {
                                 return( 
                                     <div className='placement-anuncios' key={key}>
-                                        <div className='card anuncio'>
-                                            <div className='card-header anuncio-header'>
-                                                Subido por <a href={"/profile/" + anuncio.username}>{anuncio.username}</a> 
-                                                <span className="wish-icon favorito">
-                                                    {anuncio.idUsuario !== idUsuarioRegistrado && 
-                                                        <i id={anuncio.idAnuncio} className={findAnuncioEnFavoritos(anuncio.idAnuncio)? "fa fa-heart fa-solid fav-icon" : "fa fa-heart-o"} 
-                                                        onClick={() => procesarFavoritos(idUsuarioRegistrado, anuncio.idAnuncio)}></i>}
-                                                </span>
-                                            </div>
-                                            <div className='card-body anuncio-thumbnail'>
-                                                <div className='placement-imagen'>
-                                                    <img src={anuncio.imagen}/>
-                                                </div>
-                                                <div className='anuncio-info'>
-                                                    <p className='nombre-anuncio'>{anuncio.nombre}</p>
-                                                    <p className='precio-anuncio'><b>{anuncio.precio} €</b></p> <span style={{float: 'right'}}>{anuncio.fecha_subida.toString().substring(0,10)}</span>
-                                                </div>
-                                            </div>
-                                            <div className='card-body prueba'>
-                                                <br/>
-                                                <button className='button-anuncio contacta' onClick={() => appServices.openChat(anuncio.idAnuncio)}>Contacta</button>
-                                                <button className='button-anuncio info'>+ Info</button>
-                                            </div>
-                                        </div>
+                                        <Anuncio anuncio={anuncio} idUsuarioRegistrado={idUsuarioRegistrado} favoritos={favoritos}/>
                                     </div>
                                 );
                             })}

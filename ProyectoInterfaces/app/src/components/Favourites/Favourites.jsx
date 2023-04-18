@@ -30,12 +30,10 @@ export default function Favourites() {
         <div id='productsNav'>
             <NavbarFavourites />
         </div>
-
-        <br/>
-        <br/>
         
-        {anuncios.length === 0? <FavouriteInfo /> : <FavouriteProducts anuncios={anuncios} setAnuncios={setAnuncios} idUsuarioRegistrado={idUsuarioRegistrado}/>}
-
+        <div className='favoritos'>
+            {anuncios.length === 0? <FavouriteInfo /> : <FavouriteProducts anuncios={anuncios} setAnuncios={setAnuncios} idUsuarioRegistrado={idUsuarioRegistrado}/>}
+        </div>
         </>
     )
 }

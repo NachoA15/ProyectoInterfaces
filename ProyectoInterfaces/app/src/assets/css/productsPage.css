@@ -48,6 +48,7 @@ div.anuncio-thumbnail {
 div.anuncio-info {
 	display: inline-block;
 	position: relative;
+	width: 100%;
 	top: 5%;
 }
 
@@ -123,6 +124,11 @@ button.contacta {
 
 button.info {
 	float: right;
+}
+
+button.elimina:hover{
+	background-color: rgb(255, 101, 101);
+	color: black;
 }
 
 span.favorito {

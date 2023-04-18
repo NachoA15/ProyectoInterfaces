@@ -62,4 +62,8 @@ h1 {
   border: 2px solid #f1f2f3;
 }
 
+button.subir-anuncio {
+  border-radius: 5px;
+}
+
 
