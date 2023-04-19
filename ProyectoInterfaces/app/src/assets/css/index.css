@@ -66,4 +66,38 @@ button.subir-anuncio {
   border-radius: 5px;
 }
 
+/* -----------------------------------------------------------
+# DIALOG
+----------------------------------------------------------- */
+
+.customDialog::backdrop {background-color: rgba(0, 0, 0, .55);}
+
+.customDialog {
+  position: relative;
+  cursor: default;
+  background-color: transparent;
+  overflow-y: hidden;
+  border: 0px;
+  width: 50%;
+  top: 12%;
+  left: 25%;
+}
+
+.form-eliminar {
+  text-align: center;
+  cursor: default;
+  width:100%;
+  height:270px;
+  background:#e6e6e6;
+  border-radius:8px;
+  box-shadow:0 0 40px -10px #000;
+  margin:calc(50vh - 220px) auto;
+  padding:20px 30px;
+  max-width:calc(100vw - 40px);
+  box-sizing:border-box;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  position:relative;
+  
+}
+
 

@@ -2,6 +2,22 @@ import Axios from 'axios';
 import swal from 'sweetalert';
 import appServices from './appServices';
 
+const getAnuncios = (setAnuncios) => {
+    Axios.get("http://127.0.0.1:3001/anuncios")
+    .then((res) => {
+        setAnuncios(res.data)
+    })
+}
+
+const getFavoritos = (idUsuario, setAnuncios) => {
+    Axios.post("http://127.0.0.1:3001/getFavoritos", {
+        user: idUsuario
+    })
+    .then((res) => {
+        setAnuncios(res.data)
+    })
+}
+
 const addToFavoritos = (userId, anuncioId) => {
     Axios.post("http://localhost:3001/addToFavoritos", {
         user: userId,
@@ -41,10 +57,18 @@ const addProduct = (anuncio) => {
     })
 }
 
+const getAnunciosByUser = (idUsuario, setAnuncios) => {
+    Axios.post("http://127.0.0.1:3001/getAnunciosByUser", {
+        user: idUsuario
+    }).then((res) => {
+        setAnuncios(res.data);
+    })
+}
+
 const deleteAnuncio = (anuncio) => {
 
 }
 
-const anunciosServices = {addToFavoritos, deleteFavorito, addProduct, deleteAnuncio}
+const anunciosServices = {getAnuncios, getFavoritos, getAnunciosByUser, addToFavoritos, deleteFavorito, addProduct, deleteAnuncio}
 
 export default anunciosServices;

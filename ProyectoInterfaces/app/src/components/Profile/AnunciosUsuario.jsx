@@ -1,7 +1,8 @@
 import React from "react";
 import Axios from 'axios';
 import { useEffect, useState } from 'react';
-import Anuncio from '../Anuncio';
+import Anuncio from "../Anuncios/Anuncio";
+import anunciosServices from "../../services/anunciosServices";
 
 export default function AnunciosUsuario({idUsuario, idUsuarioRegistrado}) {
 
@@ -9,11 +10,7 @@ export default function AnunciosUsuario({idUsuario, idUsuarioRegistrado}) {
 
 
     useEffect(() => {
-        Axios.post("http://127.0.0.1:3001/getAnunciosByUser", {
-            user: idUsuario
-        }).then((res) => {
-            setAnuncios(res.data);
-        })
+        anunciosServices.getAnunciosByUser(idUsuario, setAnuncios);
     }, []);
 
     return(

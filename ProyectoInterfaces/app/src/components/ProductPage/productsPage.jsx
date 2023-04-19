@@ -4,10 +4,10 @@ import { useEffect, useState } from 'react';
 import Axios from 'axios';
 import { ReactSession } from "react-client-session";
 import anunciosServices from '../../services/anunciosServices';
+import Anuncio from '../Anuncios/Anuncio';
+import Filter from './Filter';
 import '../../assets/css/productsPage.css'
 import '../../assets/css/searchbar.css'
-import Anuncio from '../Anuncio';
-import Filter from './Filter';
 
 export default function Products() {
     
@@ -19,10 +19,7 @@ export default function Products() {
     const idUsuarioRegistrado = ReactSession.get("id");
 
     useEffect(() => {
-        Axios.get("http://127.0.0.1:3001/anuncios")
-        .then((res) => {
-            setAnuncios(res.data)
-        })
+        anunciosServices.getAnuncios(setAnuncios);
     }, []);
 
     useEffect(() => {
@@ -56,7 +53,7 @@ export default function Products() {
                             {resultados.map((anuncio, key) => {
                                 return( 
                                     <div className='placement-anuncios' key={key}>
-                                        <Anuncio anuncio={anuncio} idUsuarioRegistrado={idUsuarioRegistrado} favoritos={favoritos}/>
+                                        <Anuncio anuncio={anuncio} idUsuarioRegistrado={idUsuarioRegistrado} favoritos={favoritos} setFavoritos={setFavoritos}/>
                                     </div>
                                 );
                             })}

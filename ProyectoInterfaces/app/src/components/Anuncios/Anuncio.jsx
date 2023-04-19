@@ -1,8 +1,8 @@
-import React from "react";
-import anunciosServices from "../services/anunciosServices";
-import appServices from "../services/appServices";
+import React, { useState } from "react";
+import anunciosServices from "../../services/anunciosServices";
+import appServices from "../../services/appServices";
 
-export default function Anuncio({anuncio, idUsuarioRegistrado, favoritos}) {
+export default function Anuncio({anuncio, idUsuarioRegistrado, favoritos, setFavoritos}) {
 
     const procesarFavoritos = (idUsuario, idAnuncio) => {
         let element = document.getElementById(idAnuncio);
@@ -19,15 +19,16 @@ export default function Anuncio({anuncio, idUsuarioRegistrado, favoritos}) {
             element.classList.remove("fav-icon");
             element.classList.add("fa-heart-o");
             anunciosServices.deleteFavorito(idUsuario, idAnuncio);
+            setFavoritos(favoritos.filter((anuncio) => anuncio.idAnuncio !== idAnuncio));
         }
     }
 
     const findAnuncioEnFavoritos = (anuncioId) => {
         let i = 0;
-        while (i < favoritos.length && favoritos[i].anuncio_id !== anuncioId) {
+        while (i < favoritos.length && favoritos[i].idAnuncio !== anuncioId) {
             i++;
         }
-        
+
         return i < favoritos.length;
     }
 
@@ -63,7 +64,10 @@ export default function Anuncio({anuncio, idUsuarioRegistrado, favoritos}) {
             <div className='card-body prueba'>
                 <br/>
                 {idUsuarioRegistrado === anuncio.idUsuario?
-                <button className='button-anuncio elimina' onClick={() => procesarBorradoAnuncio(anuncio)}>Eliminar</button>
+                <button className='button-anuncio elimina' onClick={() => {
+                    setAnuncioAEliminar(anuncio);
+                    dialogEliminar.showModal();
+                }}>Eliminar</button>
                 :
                 <button className='button-anuncio contacta' onClick={() => appServices.openChat(anuncio.idAnuncio)}>Contacta</button>}
                 <button className='button-anuncio info'>+ Info</button>

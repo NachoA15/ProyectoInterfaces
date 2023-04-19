@@ -159,7 +159,7 @@ app.post('/addProduct', (req, res) => {
 app.post("/addToFavoritos", (req, res) => {
 	let userId = req.body.user;
 	let anuncioId = req.body.anuncio;
-	db.query("INSERT INTO FAVORITOS (user_id, anuncio_id) VALUES (?,?);", [userId, anuncioId], (err,a,f) => {
+	db.query("INSERT INTO FAVORITOS (idUsuario, idAnuncio) VALUES (?,?);", [userId, anuncioId], (err,a,f) => {
 		if (err) {
 			console.log(err.sqlMessage);
 		}
@@ -173,7 +173,7 @@ app.post("/addToFavoritos", (req, res) => {
 app.post("/deleteFavorito", (req, res) => {
 	let userId = req.body.user;
 	let anuncioId = req.body.anuncio;
-	db.query("DELETE FROM FAVORITOS WHERE user_id = ? AND anuncio_id = ?;", [userId, anuncioId], (err,a,f) => {
+	db.query("DELETE FROM FAVORITOS WHERE idUsuario = ? AND idAnuncio = ?;", [userId, anuncioId], (err,a,f) => {
 		if (err) {
 			console.log(err.sqlMessage);
 		}
@@ -187,12 +187,12 @@ app.post("/deleteFavorito", (req, res) => {
 
 app.post("/getIdFavoritos", (req, res) => {
 	let userId = req.body.user;
-	dbQuery("SELECT anuncio_id FROM FAVORITOS WHERE user_id = " + userId + ";", req, res);
+	dbQuery("SELECT idAnuncio FROM FAVORITOS WHERE idUsuario = " + userId + ";", req, res);
 })
 
 app.post("/getFavoritos", (req, res) => {
 	let userId = req.body.user;
-	dbQuery("SELECT a.id 'idAnuncio', a.fecha_subida, a.reservado, a.nombre, a.precio, a.imagen, u.id 'idUsuario', u.username FROM FAVORITOS f JOIN ANUNCIO a ON (f.anuncio_id = a.id) JOIN USUARIO u on (a.vendedor = u.id) WHERE f.user_id = " + userId + ";", req, res);
+	dbQuery("SELECT a.id 'idAnuncio', a.fecha_subida, a.reservado, a.nombre, a.precio, a.imagen, u.id 'idUsuario', u.username FROM FAVORITOS f JOIN ANUNCIO a ON (f.idAnuncio = a.id) JOIN USUARIO u on (a.vendedor = u.id) WHERE f.idUsuario = " + userId + ";", req, res);
 })
 
 
