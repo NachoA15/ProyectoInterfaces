@@ -131,6 +131,11 @@ app.post("/getAnunciosByUser", (req, res) => {
 	dbQuery("SELECT a.id 'idAnuncio', a.fecha_subida, a.reservado, a.nombre, a.precio, a.imagen, u.id 'idUsuario', u.username FROM ANUNCIO a JOIN USUARIO u on (a.vendedor = u.id) WHERE a.vendedor = " + userId + ";", req, res);
 })
 
+app.post("/getAnuncioById", (req, res) => {
+	let anuncioId = req.body.anuncio;
+	dbQuery("SELECT a.id 'idAnuncio', a.fecha_subida, a.reservado, a.nombre, a.precio, a.imagen, u.id 'idUsuario', u.username FROM ANUNCIO a JOIN USUARIO u on (a.vendedor = u.id) WHERE a.id = " + anuncioId + ";", req, res);
+})
+
 app.post('/addProduct', (req, res) => {
     let fecha_subida = req.body.fecha_subida;
     let reservado= req.body.reservado;

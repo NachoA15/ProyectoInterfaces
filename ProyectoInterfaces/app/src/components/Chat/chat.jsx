@@ -18,11 +18,10 @@ export default function Chat() {
     
     const fetchData = async () => {
         try {
-            const response = await axios.get('http://127.0.0.1:3001/anuncios', {
-                params: {
-                    id: idProduct,
-                },
+            const response = await axios.post('http://127.0.0.1:3001/getAnuncioById', {
+                anuncio: idProduct
             });
+            console.log('RESPUESTA: ' + response.data);
             setAnuncio(response.data);
         } catch (error) {
             console.error(error);
@@ -65,17 +64,6 @@ export default function Chat() {
             clearInterval(intervalId);
         };
     }, [rutaArchivo]);
-
-    console.log(rutaArchivo);
-    console.log(anuncio[0]);
-
-    
-    
-
-    console.log(messages);
-
-    console.log(anuncio)
-
     
 
     return(
@@ -88,8 +76,6 @@ export default function Chat() {
                     message: message,
                     user: myId,
                     logChat: "chat" + rutaArchivo+".txt"
-                }).then(res => {
-                    console.log(res.data);
                 })
             }}>
 
