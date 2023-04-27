@@ -4,7 +4,6 @@ import {TextField} from '@mui/material'
 import { useState, useEffect } from "react";
 import userServices from '../../services/userServices';
 import '../../assets/css/login.css'
-import Profile from '../Profile/Profile';
 
 export default function Login() {
 
@@ -16,7 +15,7 @@ export default function Login() {
             <NavbarRegistration />
         </div>
         
-        <div id='loginForm'>
+        <div className='full-screen'>
             <form onSubmit={(e) => {
                 e.preventDefault();
                 const username = document.getElementById('usuario').value;
@@ -25,8 +24,8 @@ export default function Login() {
                 userServices.checkUsuarioLogin(username, password);
             }}>
                 
-                <div className='container center' style={{ maxWidth: 450 }}>
-                    <div className='card bg-light'>
+                <div className='container center' style={{ maxWidth: 400 }}>
+                    <div className='card bg-light' style={{width:'100%'}}>
                         <div className="card-body">
                             <div className="row text-center">
                                 <h3 className="card-title" >Accede a tu cuenta</h3>
@@ -68,33 +67,31 @@ export default function Login() {
                             </div>
 
                             <br/>
-                        </div> 
-                        
+                        </div>     
                     </div>
-                </div>
 
-                
-                <br/>
-                <div className='container' style={{ maxWidth: 150 }}>
-                    <button type="submit" className="btn btn-outline-primary">Confirmar</button>
+                    <br/>
+                    <div className='container' style={{ maxWidth: 150 }}>
+                        <button type="submit" className="btn btn-outline-primary">Confirmar</button>
+                    </div>
+                    <br/>
+                    <div className='container text-center' style={{ maxWidth: 350}}>
+                        <h6>
+                            ¿Aun no tienes una cuenta?
+                            <a href="/signUp"> Regístrate</a>
+                        </h6>
+                    </div>
+                    <br/>
+                    <div className='container text-center' style={{ maxWidth: 300}}>
+                        <h6>
+                            
+                            <a href="#"> ¿Has olvidado tu constraseña?</a>
+                        </h6>
+                    </div>   
                 </div>
                 
             </form>
-            <br/>
-        
-            <div className='container text-center' style={{ maxWidth: 350}}>
-                <h6>
-                    ¿Aun no tienes una cuenta?
-                    <a href="/signUp"> Regístrate</a>
-                </h6>
-            </div>
-            <br/>
-            <div className='container text-center' style={{ maxWidth: 300}}>
-                <h6>
-                    
-                    <a href="#"> ¿Has olvidado tu constraseña?</a>
-                </h6>
-            </div>
+
             
             
         </div>

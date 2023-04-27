@@ -7,7 +7,6 @@ import Axios from 'axios'
 
 import ProfileView from './ProfileView';
 import EditProfile from './EditProfile';
-
 import '../../assets/css/profile.css'
 
 export default function Profile() {

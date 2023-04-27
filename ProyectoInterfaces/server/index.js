@@ -136,6 +136,32 @@ app.post("/getAnuncioById", (req, res) => {
 	dbQuery("SELECT a.id 'idAnuncio', a.fecha_subida, a.reservado, a.nombre, a.precio, a.imagen, u.id 'idUsuario', u.username FROM ANUNCIO a JOIN USUARIO u on (a.vendedor = u.id) WHERE a.id = " + anuncioId + ";", req, res);
 })
 
+app.post("/deleteAnuncio", (req,res) => {
+	let anuncioId = req.body.anuncio;
+	db.query("DELETE FROM ANUNCIO WHERE id = ?;", [anuncioId], (err,a,f) => {
+		if (err) {
+			console.log(err.sqlMessage);
+		}
+		else {
+			console.log('Borrado anuncio ' + anuncioId + ' exitosamente')
+			res.send('OK');
+		};
+	})
+})
+
+app.post("/deleteFromFavoritos", (req, res) => {
+	let anuncioId = req.body.anuncio;
+	db.query("DELETE FROM FAVORITOS WHERE idAnuncio = ?;", [anuncioId], (err,a,f) => {
+		if (err) {
+			console.log(err.sqlMessage);
+		}
+		else {
+			console.log('Borrado todos los anuncios ' + anuncioId + ' de favoritos exitosamente')
+			res.send('OK');
+		};
+	})
+})
+
 app.post('/addProduct', (req, res) => {
     let fecha_subida = req.body.fecha_subida;
     let reservado= req.body.reservado;

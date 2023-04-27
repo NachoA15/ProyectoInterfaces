@@ -13,6 +13,10 @@ body {
 	background-color: whitesmoke;
 }
 
+div.main-div {
+	margin: 0px;
+}
+
 h2::after {
 	content: "";
 	width: 250px;

@@ -5,7 +5,7 @@ export default function FavouriteProducts({favoritos, setFavoritos, idUsuarioReg
 
     return(
         <>
-        <div className="container-fluid">
+        <div className="container-fluid full-screen">
             <div className="row">
                 <div className="col-md-12">
                     <h2><b>Anuncios marcados como favoritos</b></h2>
