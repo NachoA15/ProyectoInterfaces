@@ -120,5 +120,13 @@ div#intro-buttons-section {
   transform: translateY(-2px);
 }
 
+.button-intro:focus {
+    color: #fff;
+    background-color: #00b1bd;
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    transform: translateY(-2px);
+  }
+  
+
 
 
