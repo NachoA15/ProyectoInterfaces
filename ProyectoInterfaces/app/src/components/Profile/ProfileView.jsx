@@ -4,9 +4,11 @@ import AnunciosUsuario from './AnunciosUsuario';
 
 export default function ProfileView({usuarioPerfil, usuarioRegistrado, setEditando, idUsuarioRegistrado}) {
 
+console.log(usuarioRegistrado)
+
     return(
         <>      
-        <div className='profile-placement'>
+        <div className='profile-placement full-screen'>
             <div className="row py-5 px-4"> 
                 <div className="col mx-auto">
                     <div className="bg-white shadow rounded overflow-hidden"> 

@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import anunciosServices from "../../services/anunciosServices";
 import appServices from "../../services/appServices";
+import Swal from 'sweetalert2'
 
-export default function Anuncio({anuncio, idUsuarioRegistrado, favoritos, setFavoritos}) {
+export default function Anuncio({anuncio, anuncios, setAnuncios, idUsuarioRegistrado, favoritos, setFavoritos}) {
 
     const procesarFavoritos = (idUsuario, idAnuncio) => {
         let element = document.getElementById(idAnuncio);
@@ -33,7 +34,30 @@ export default function Anuncio({anuncio, idUsuarioRegistrado, favoritos, setFav
     }
 
     const procesarBorradoAnuncio = (anuncio) => {
-
+        Swal.fire({
+            icon: 'warning',
+            html:
+                '<h3>¿Está seguro de que quiere borrar el anuncio?</h3>' + 
+                'Va a borrar el anuncio "' + anuncio.nombre + '". Esta acción no se puede deshacer.',
+            width: 650,
+            showCancelButton: true,
+            showDenyButton: true,
+            showConfirmButton: false,
+            cancelButtonText: 'Cancelar',
+            denyButtonText: 'Eliminar'
+        }).then((result) => {
+            if (result.isDenied) {
+                setAnuncios(anuncios.filter((a) => a.idAnuncio !== anuncio.idAnuncio));
+                anunciosServices.deleteAnuncio(anuncio.idAnuncio);
+                Swal.fire({
+                    icon: 'success',
+                    html:
+                    '<h3>Anuncio eliminado con éxito.</h3>' + 
+                    'El anuncio "' + anuncio.nombre + '" se ha eliminado satisfactoriamente.',
+                    confirmButtonColor: '#00afe9'
+                });
+            }
+        })
     }
 
     return(
@@ -64,10 +88,7 @@ export default function Anuncio({anuncio, idUsuarioRegistrado, favoritos, setFav
             <div className='card-body prueba'>
                 <br/>
                 {idUsuarioRegistrado === anuncio.idUsuario?
-                <button className='button-anuncio elimina' onClick={() => {
-                    setAnuncioAEliminar(anuncio);
-                    dialogEliminar.showModal();
-                }}>Eliminar</button>
+                <button className='button-anuncio elimina' onClick={() => {procesarBorradoAnuncio(anuncio)}}>Eliminar</button>
                 :
                 <button className='button-anuncio contacta' onClick={() => appServices.openChat(anuncio.idAnuncio)}>Contacta</button>}
                 <button className='button-anuncio info'>+ Info</button>

@@ -1,4 +1,3 @@
-
   .right-card {
     width: 476px;
     min-height: 650px;
@@ -25,7 +24,16 @@
     font-weight: 300;
     color: #22215b;
   }
-
+  .profile {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
+  .profile-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
   .right-card-body-container {
     display: flex;
     flex-direction: column;
@@ -35,5 +43,10 @@
     display: flex;
     align-items: center;
     gap: 43px;
+  }
+  .card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
   

@@ -12,7 +12,7 @@ export default function SignUp() {
             <NavbarRegistration />
         </div>
         
-        <div id='signUpForm'>
+        <div className='full-screen'>
             <form onSubmit={(e) => {
                 const username = document.getElementById('usuario').value;
                 const password = document.getElementById('password').value;
@@ -34,8 +34,8 @@ export default function SignUp() {
                 <br/>
                 <br/>
                 <br/>
-                <div className='container center' style={{ maxWidth: 450 }}>
-                    <div className='card bg-light'>
+                <div className='container center' style={{ maxWidth: 400 }}>
+                    <div className='card bg-light' style={{width: '100%'}}>
                         <div className="card-body">
                             <div className="row text-center">
                                 <h3 className="card-title" >Piezzo</h3>
@@ -181,25 +181,26 @@ export default function SignUp() {
                         </div> 
                         
                     </div>
-                </div>
-                <br/>
+
+                    <br/>
                 
-                <div className='container' style={{ maxWidth: 150 }}>
-                    <button className="btn btn-outline-primary" type='submit'>Confirmar</button>
+                    <div className='container' style={{ maxWidth: 150 }}>
+                        <button className="btn btn-outline-primary" type='submit'>Confirmar</button>
+                    </div>
+
+                    <br/>
+
+                    <div className='container text-center' style={{ maxWidth: 300}}>
+                        <h6>
+                            ¿Ya tienes una cuenta?
+                            <a href="/login"> Entrar</a>
+                        </h6>
+                    </div>
+
+                    <br/>
+                    
                 </div>
             </form>
-
-
-            <br/>
-
-            <div className='container text-center' style={{ maxWidth: 300}}>
-                <h6>
-                    ¿Ya tienes una cuenta?
-                    <a href="/login"> Entrar</a>
-                </h6>
-            </div>
-            
-            <br/>
             
         </div>
         

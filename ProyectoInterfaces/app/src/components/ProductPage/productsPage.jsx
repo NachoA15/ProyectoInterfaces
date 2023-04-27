@@ -53,7 +53,7 @@ export default function Products() {
                             {resultados.map((anuncio, key) => {
                                 return( 
                                     <div className='placement-anuncios' key={key}>
-                                        <Anuncio anuncio={anuncio} idUsuarioRegistrado={idUsuarioRegistrado} favoritos={favoritos} setFavoritos={setFavoritos}/>
+                                        <Anuncio anuncio={anuncio} anuncios={anuncios} setAnuncios={setAnuncios} idUsuarioRegistrado={idUsuarioRegistrado} favoritos={favoritos} setFavoritos={setFavoritos}/>
                                     </div>
                                 );
                             })}

@@ -21,29 +21,18 @@ export default function NavbarProductsPage() {
                             <li className="nav-item"> <a className="nav-link" href={"/profile/" + usuarioRegistrado}>Mi perfil</a></li>  
                             <li className="nav-item"><a className="nav-link" href="/" onClick={(e) => {
                                 e.preventDefault();
-                                swal({
-                                    title: 'Cerrar sesión',
-                                    text: '¿Desea cerrar la sesión?',
-                                    buttons: {
-                                        Si: {
-                                            text: "Sí",
-                                            value: "si",
-                                        },
-                                        No: {
-                                            text: "No",
-                                            value: "no",
-                                        }
-                                    }
-                                }).then((value) => {
-                                    switch (value) {
-                                        case "si":
-                                            ReactSession.set("username",null);
-                                            ReactSession.set("id",null);
-                                            appServices.moveToMainPage();
-                                            break;
-                
-                                        default:
-                                            appServices.moveToProducts();
+                                Swal.fire({
+                                    icon: 'question',
+                                    html: '<h3>¿Quiere cerrar sesión?</h3> Volverás a la página principal.',
+                                    confirmButtonText: 'Sí',
+                                    confirmButtonColor: 'green',
+                                    showDenyButton: 'true',
+                                    denyButtonText: 'No'
+                                }).then((result) => {
+                                    if (result.isConfirmed) {
+                                        ReactSession.set("username",null);
+                                        ReactSession.set("id",null);
+                                        appServices.moveToMainPage();
                                     }
                                 })
                             }}>Cerrar sesión</a></li>

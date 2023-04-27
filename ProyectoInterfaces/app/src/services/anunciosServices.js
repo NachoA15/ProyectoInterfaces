@@ -65,8 +65,18 @@ const getAnunciosByUser = (idUsuario, setAnuncios) => {
     })
 }
 
-const deleteAnuncio = (anuncio) => {
+const deleteAnuncioFromFavoritos = async (idAnuncio) => {
+    Axios.post("http://127.0.0.1:3001/deleteFromFavoritos", {
+        anuncio: idAnuncio
+    })  
+}
 
+const deleteAnuncio = (idAnuncio) => {
+    deleteAnuncioFromFavoritos(idAnuncio);
+
+    Axios.post("http://127.0.0.1:3001/deleteAnuncio", {
+        anuncio: idAnuncio
+    })  
 }
 
 const anunciosServices = {getAnuncios, getFavoritos, getAnunciosByUser, addToFavoritos, deleteFavorito, addProduct, deleteAnuncio}
