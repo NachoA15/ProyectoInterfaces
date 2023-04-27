@@ -1,5 +1,6 @@
 const express = require('express');
 const fs = require('fs');
+const path = require('path');
 require('dotenv').config();
 const app = express();
 const cors = require('cors');
@@ -123,7 +124,7 @@ app.post("/updateUsuario", (req, res) => {
  */
 
 app.get("/anuncios", (req,res) => {
-	dbQuery("SELECT a.id 'idAnuncio', a.fecha_subida, a.reservado, a.nombre, a.precio, a.imagen, u.id 'idUsuario', u.username FROM ANUNCIO a JOIN USUARIO u on (a.vendedor = u.id);", req, res);
+	dbQuery("SELECT a.id 'idAnuncio', a.vendedor, a.fecha_subida, a.reservado, a.nombre, a.precio, a.imagen, u.id 'idUsuario', u.username FROM ANUNCIO a JOIN USUARIO u on (a.vendedor = u.id);", req, res);
 })
 
 app.post("/getAnunciosByUser", (req, res) => {
@@ -133,7 +134,7 @@ app.post("/getAnunciosByUser", (req, res) => {
 
 app.post("/getAnuncioById", (req, res) => {
 	let anuncioId = req.body.anuncio;
-	dbQuery("SELECT a.id 'idAnuncio', a.fecha_subida, a.reservado, a.nombre, a.precio, a.imagen, u.id 'idUsuario', u.username FROM ANUNCIO a JOIN USUARIO u on (a.vendedor = u.id) WHERE a.id = " + anuncioId + ";", req, res);
+	dbQuery("SELECT a.id 'idAnuncio', a.vendedor, a.fecha_subida, a.reservado, a.nombre, a.precio, a.imagen, u.id 'idUsuario', u.username FROM ANUNCIO a JOIN USUARIO u on (a.vendedor = u.id) WHERE a.id = " + anuncioId + ";", req, res);
 })
 
 app.post('/addProduct', (req, res) => {
@@ -276,5 +277,47 @@ app.get("/getMessages", (req, res) => {
 		console.log("El archivo no existe");
 		res.send([]);
 	}
+})
+
+app.get("/getChats", (req,res) => {
+	let myId = req.query.id;
+	let rutaArchivo = './logChats';
+
+	const archivos = fs.readdirSync(rutaArchivo);
+
+	const archivosFiltrados = archivos.filter(archivo => {
+		const nombreArchivo = path.parse(archivo).name;
+		const idVendedor = nombreArchivo.split('-')[0].replace('chat', '');
+		const idComprador = nombreArchivo.split('-')[1];
+		return idVendedor === myId || idComprador === myId;
+	  });
+
+	  console.log(archivosFiltrados);
+	
+	  const idsProductos = archivosFiltrados.map(archivo => {
+		const idProducto = archivo.split('-')[2].replace('.txt', '');
+		return idProducto;
+	  });
+	  
+	  console.log(idsProductos);
+
+	  const promises = idsProductos.map(producto => {
+		return new Promise((resolve, reject) => {
+		  db.query("SELECT * FROM ANUNCIO WHERE id = " + producto, (error, results) => {
+			if (error) reject(error);
+			else resolve(results);
+		  });
+		});
+	  });
+	  
+	  Promise.all(promises)
+		.then(results => {
+		  console.log(results);
+		  res.send(results).status(200);
+		})
+		.catch(error => {
+		  console.error(error);
+		  res.send(error).status(500);
+		});
 })
 

@@ -6,6 +6,27 @@ import { ReactSession } from "react-client-session";
 
 export default function ChatList(){
 
+    const [anuncios, setAnuncios] = useState([]);
+
+    let myId = ReactSession.get("id");
+
+    const fetchData = async () => {
+        try{
+            const response = await axios.get('http://127.0.0.1:3001/getChats',{
+                params: {
+                    id: myId
+                },
+            });
+            setAnuncios(response.data);
+        } catch(error) {
+            console.error(error);
+        }
+    };
+
+    useEffect(() => {
+        fetchData();
+    }, []);
+
     return(
         <>
             <div class="wrapper">
@@ -19,179 +40,22 @@ export default function ChatList(){
                         </div>
                         <div class="right-card-body">
                         <div class="right-card-body-container">
-                            <div class="card">
+                            {anuncios.map((anuncio, key) => {
+                                console.log(anuncio[0])
+                                return(
+                            <a href={"/chat/" + anuncio[0].id}>
+                            <div class="card" key={key}>
                             <div class="profile">
-                                <div>
-                                <img
-                                    src="https://i.postimg.cc/PJMXbH16/Icon.png
-                                    "
-                                    alt="profile"
-                                />
-                                </div>
                                 <div class="profile-info">
-                                <span class="name-font">Neelesh Chaudhary</span>
-                                <span class="job-font">UI / UX Designer</span>
-                                </div>
-                            </div>
-                            <div class="icons">
-                                <div>
-                                <img
-                                    src="https://i.postimg.cc/Jnv6TH50/Message.png"
-                                    alt="message"
-                                />
-                                </div>
-                                <div>
-                                <img
-                                    src="https://i.postimg.cc/9XwND1c7/Phone.png"
-                                    alt="phone"
-                                />
+                                <span class="name-font">{anuncio[0].nombre + " " + anuncio[0].precio + "€"} </span>
+                                <span class="job-font">{anuncio[0].vendedor}</span>
                                 </div>
                             </div>
                             </div>
-                            <div class="card">
-                            <div class="profile">
-                                <div>
-                                <img
-                                    src="https://i.postimg.cc/yN5tGGV7/Icon-1.png
-                                    "
-                                    alt="profile"
-                                />
-                                </div>
-                                <div class="profile-info">
-                                <span class="name-font">Guy Fisher</span>
-                                <span class="job-font">Business Analyst</span>
-                                </div>
-                            </div>
-                            <div class="icons">
-                                <div>
-                                <img
-                                    src="https://i.postimg.cc/Jnv6TH50/Message.png"
-                                    alt="message"
-                                />
-                                </div>
-                                <div>
-                                <img
-                                    src="https://i.postimg.cc/9XwND1c7/Phone.png"
-                                    alt="phone"
-                                />
-                                </div>
-                            </div>
-                            </div>
-                            <div class="card">
-                            <div class="profile">
-                                <div>
-                                <img
-                                    src="https://i.postimg.cc/1tGBK7XC/Icon-2.png"
-                                    alt="profile"
-                                />
-                                </div>
-                                <div class="profile-info">
-                                <span class="name-font">Diane Hawkins</span>
-                                <span class="job-font">Blockchain Expert</span>
-                                </div>
-                            </div>
-                            <div class="icons">
-                                <div>
-                                <img
-                                    src="https://i.postimg.cc/Jnv6TH50/Message.png"
-                                    alt="message"
-                                />
-                                </div>
-                                <div>
-                                <img
-                                    src="https://i.postimg.cc/9XwND1c7/Phone.png"
-                                    alt="phone"
-                                />
-                                </div>
-                            </div>
-                            </div>
-                            <div class="card">
-                            <div class="profile">
-                                <div>
-                                <img
-                                    src="https://i.postimg.cc/CKDsFrGh/Icon-3.png
-                                    "
-                                    alt="profile"
-                                />
-                                </div>
-                                <div class="profile-info">
-                                <span class="name-font">Dustin Mccoy</span>
-                                <span class="job-font">Product Designer</span>
-                                </div>
-                            </div>
-                            <div class="icons">
-                                <div>
-                                <img
-                                    src="https://i.postimg.cc/Jnv6TH50/Message.png"
-                                    alt="message"
-                                />
-                                </div>
-                                <div>
-                                <img
-                                    src="https://i.postimg.cc/9XwND1c7/Phone.png"
-                                    alt="phone"
-                                />
-                                </div>
-                            </div>
-                            </div>
-                            <div class="card">
-                            <div class="profile">
-                                <div>
-                                <img
-                                    src="https://i.postimg.cc/K83nNpsP/Icon-4.png
-                                    "
-                                    alt="profile"
-                                />
-                                </div>
-                                <div class="profile-info">
-                                <span class="name-font">Philip Cooper</span>
-                                <span class="job-font">Quality Assurance</span>
-                                </div>
-                            </div>
-                            <div class="icons">
-                                <div>
-                                <img
-                                    src="https://i.postimg.cc/Jnv6TH50/Message.png"
-                                    alt="message"
-                                />
-                                </div>
-                                <div>
-                                <img
-                                    src="https://i.postimg.cc/9XwND1c7/Phone.png"
-                                    alt="phone"
-                                />
-                                </div>
-                            </div>
-                            </div>
-                            <div class="card">
-                            <div class="profile">
-                                <div>
-                                <img
-                                    src="https://i.postimg.cc/JnYnSMsG/Icon-5.png
-                                    "
-                                    alt="profile"
-                                />
-                                </div>
-                                <div class="profile-info">
-                                <span class="name-font">Scarlett Murphy</span>
-                                <span class="job-font">Researcher</span>
-                                </div>
-                            </div>
-                            <div class="icons">
-                                <div>
-                                <img
-                                    src="https://i.postimg.cc/Jnv6TH50/Message.png"
-                                    alt="message"
-                                />
-                                </div>
-                                <div>
-                                <img
-                                    src="https://i.postimg.cc/9XwND1c7/Phone.png"
-                                    alt="phone"
-                                />
-                                </div>
-                            </div>
-                            </div>
+                            </a>
+                                )
+                            })}
+                            
                         </div>
                         </div>
                     </div>

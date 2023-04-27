@@ -14,7 +14,6 @@ export default function Chat() {
     let idProduct = params.id;
     let myId = ReactSession.get("id");
 
-    console.log(idProduct);
     
     const fetchData = async () => {
         try {
@@ -34,13 +33,16 @@ export default function Chat() {
     
     useEffect(() => {
         if (anuncio.length > 0) {
+            console.log(anuncio);
             if (myId < anuncio[0].vendedor) {
-                setRutaArchivo("" + myId+"-" + anuncio[0].username+"-" + anuncio[0].idAnuncio + "");
+                setRutaArchivo("" + myId+"-" + anuncio[0].vendedor+"-" + anuncio[0].idAnuncio + "");
             } else {
-                setRutaArchivo("" + anuncio[0].username+"-" + myId+"-" + anuncio[0].idAnuncio + "");
+                setRutaArchivo("" + anuncio[0].vendedor+"-" + myId+"-" + anuncio[0].idAnuncio + "");
             }
         }
     }, [anuncio]);
+
+    console.log(rutaArchivo);
     
     useEffect(() => {
         const fetchData = async () => {

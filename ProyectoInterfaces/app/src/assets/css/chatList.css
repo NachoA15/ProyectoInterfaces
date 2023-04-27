@@ -1,116 +1,4 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Roboto", sans-serif;
-  }
-  body {
-    background-color: #f1f3f6;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-  }
-  .wrapper {
-    display: flex;
-    align-items: center;
-    gap: 30px;
-    margin-left: 29%;
-  }
-  /* left */
-  .left-card {
-    width: 476px;
-    height: 725px;
-    background-color: #fff;
-    border-radius: 20px;
-    padding: 33px 25px 30px 30px;
-  }
-  .header-bold {
-    font-size: 30px;
-    font-weight: bold;
-    color: #22215b;
-  }
-  .left-header-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .left-header-container :nth-child(1) {
-    display: flex;
-    align-items: center;
-    gap: 42px;
-  }
-  .today {
-    margin-top: 30px;
-    font-size: 16px;
-    color: #9097a0;
-    text-align: center;
-  }
-  .left-body {
-    margin-top: 30px;
-  }
-  .first {
-    display: flex;
-    gap: 10px;
-  }
-  .second {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 40px;
-  }
-  .third {
-    display: flex;
-    margin-top: 40px;
-  }
-  .fourth {
-    margin-top: 30px;
-  }
-  .input-group {
-    width: 347px;
-    height: 60px;
-    border-radius: 10px;
-    background-color: #f1f3f6;
-    margin-top: 68px;
-    padding: 19px;
-  }
-  ::placeholder {
-    font-size: 14px;
-    color: #a5adb9;
-  }
-  .input-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .input-container :nth-child(1) {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-  }
-  input {
-    border: 0;
-    outline: 0;
-    background-color: transparent;
-  }
-  .btn-container button {
-    width: 60px;
-    height: 60px;
-    padding: 19px;
-    border-radius: 10px;
-    border: 0;
-    outline: 0;
-    cursor: pointer;
-    background-color: #578ef5;
-  }
-  .left-footer-container {
-    display: flex;
-    align-items: flex-end;
-    gap: 10px;
-  }
-  img {
-    cursor: pointer;
-  }
-  /* right */
+
   .right-card {
     width: 476px;
     min-height: 650px;
@@ -137,16 +25,7 @@
     font-weight: 300;
     color: #22215b;
   }
-  .profile {
-    display: flex;
-    gap: 16px;
-    align-items: center;
-  }
-  .profile-info {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-  }
+
   .right-card-body-container {
     display: flex;
     flex-direction: column;
@@ -156,10 +35,5 @@
     display: flex;
     align-items: center;
     gap: 43px;
-  }
-  .card {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
   }
   
