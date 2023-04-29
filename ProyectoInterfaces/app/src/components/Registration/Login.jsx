@@ -82,12 +82,6 @@ export default function Login() {
                         </h6>
                     </div>
                     <br/>
-                    <div className='container text-center' style={{ maxWidth: 300}}>
-                        <h6>
-                            
-                            <a href="#"> ¿Has olvidado tu constraseña?</a>
-                        </h6>
-                    </div>   
                 </div>
                 
             </form>

@@ -100,7 +100,7 @@ export default function Chat() {
         
         <div class="container-fluid">
             <div class="row clearfix">
-            <div class="col-md-1">
+            <div class="col-md-2">
                 <div class="chat-button">
                      <a href="/products" class="btn btn-dark" style={{height: 40}}>Volver</a>
                 </div>
@@ -115,7 +115,7 @@ export default function Chat() {
                                         </a>
                                         <div class="chat-about">
                                             {() => {
-                                                return(<h6 class="m-b-0">{anuncio[0].nombre +" "+ anuncio[0].precio +"€" +" - " + anuncio[0].username}</h6>)
+                                                return(<h6 class="m-b-0">{anuncio[0].nombre +" "+ anuncio[0].precio +"€" + " - " + anuncio[0].username}</h6>)
                                             }}
                                         </div>
                                     </div>

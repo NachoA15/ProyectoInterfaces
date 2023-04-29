@@ -35,14 +35,16 @@ export default function ChatList(){
 <       div id='chatNav'>
             <NavbarChat />
         </div>
+        <div className="container-fluid full-screen">
+        <div className="col-md-12"><h2><b>Mis Chats</b></h2>
+        </div>
+        </div>
             <div class="wrapper">
-
                 <div class="right">
                 <div class="right-container">
                     <div class="right-card">
                     <div class="right-card-container">
                         <div class="right-card-header">
-                        <span class="header-bold">Mis Chats</span>
                         </div>
                         <div class="right-card-body">
                         <div class="right-card-body-container">
@@ -53,8 +55,8 @@ export default function ChatList(){
                                 <div class="card" key={key}>
                                 <div class="profile">
                                     <div class="profile-info">
-                                    <span class="name-font">{anuncio.producto[0].nombre + " " + anuncio.producto[0].precio + "€"} </span>
-                                    <span class="job-font">{anuncio.producto[0].vendedor}</span>
+                                    <span class="job-font">Usuario: {anuncio.producto[0].username + " "}</span>
+                                    <span class="name-font">Anuncio: {anuncio.producto[0].nombre + " " + anuncio.producto[0].precio + "€"} </span>
                                     </div>
                                 </div>
                                 </div>

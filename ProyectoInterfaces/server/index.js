@@ -134,7 +134,7 @@ app.post("/getAnunciosByUser", (req, res) => {
 
 app.post("/getAnuncioById", (req, res) => {
 	let anuncioId = req.body.anuncio;
-	dbQuery("SELECT a.id 'idAnuncio', a.vendedor, a.fecha_subida, a.reservado, a.nombre, a.precio, a.imagen, u.id 'idUsuario', u.username FROM ANUNCIO a JOIN USUARIO u on (a.vendedor = u.id) WHERE a.id = " + anuncioId + ";", req, res);
+	dbQuery("SELECT a.id 'idAnuncio', a.vendedor, a.fecha_subida, a.reservado, a.nombre, a.precio, a.imagen, u.id 'idUsuario', u.username 'username' FROM ANUNCIO a JOIN USUARIO u on (a.vendedor = u.id) WHERE a.id = " + anuncioId + ";", req, res);
 })
 
 app.post("/deleteAnuncio", (req,res) => {
@@ -332,7 +332,7 @@ app.get("/getChats", (req,res) => {
   
 	const promises = productosConOtrosIds.map(producto => {
 	  return new Promise((resolve, reject) => {
-		db.query("SELECT * FROM ANUNCIO WHERE id = " + producto.id, (error, results) => {
+		db.query("SELECT a.id, a.nombre, a.precio, u.username, a.vendedor FROM ANUNCIO a JOIN USUARIO u ON (a.vendedor = u.id) WHERE a.id = " + producto.id, (error, results) => {
 		  if (error) reject(error);
 		  else resolve({producto: results, otroId: producto.otroId});
 		});
