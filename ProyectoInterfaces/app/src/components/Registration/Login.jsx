@@ -28,7 +28,7 @@ export default function Login() {
                     <div className='card bg-light' style={{width:'100%'}}>
                         <div className="card-body">
                             <div className="row text-center">
-                                <h3 className="card-title" >Accede a tu cuenta</h3>
+                                <h3 className="card-title" tabindex="0" >Accede a tu cuenta</h3>
                             </div>
                             
                             <div className="row text-left">
@@ -76,7 +76,7 @@ export default function Login() {
                     </div>
                     <br/>
                     <div className='container text-center' style={{ maxWidth: 350}}>
-                        <h6>
+                        <h6 tabindex="0">
                             ¿Aun no tienes una cuenta?
                             <a href="/signUp"> Regístrate</a>
                         </h6>

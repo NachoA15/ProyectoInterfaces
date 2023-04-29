@@ -46,7 +46,7 @@ export default function EditProfile({usuarioPerfil, setEditando}) {
                 <div class="image d-flex flex-column justify-content-center align-items-center"> 
                     <button class="boton btn btn-secondary" > <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80" height="100" width="100" /> </button> 
                     <br/>
-                    <label className="control-label small" htmlFor="file_img">Cambiar foto de perfil (.jpg/.png):</label> <input type="file" name="file_img"/>
+                    <label className="control-label small" htmlFor="file_img" tabindex="0">Cambiar foto de perfil (.jpg/.png):</label> <input type="file" name="file_img"/>
                     <br/>
                     <div class="d-flex flex-row justify-content-center align-items-center gap-2">
                     <span><TextField required id="usuario" name="nombre de usuario" label="Usuario" variant="standard" size="small" defaultValue={usuarioPerfil.username}/></span> 

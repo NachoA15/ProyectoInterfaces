@@ -55,8 +55,8 @@ export default function ChatList(){
                                 <div class="card" key={key}>
                                 <div class="profile">
                                     <div class="profile-info">
-                                    <span class="job-font">Usuario: {anuncio.producto[0].username + " "}</span>
-                                    <span class="name-font">Anuncio: {anuncio.producto[0].nombre + " " + anuncio.producto[0].precio + "€"} </span>
+                                    <span class="job-font" tabIndex="0">Usuario: {anuncio.producto[0].username + " "}</span>
+                                    <span class="name-font" tabIndex="0">Anuncio: {anuncio.producto[0].nombre + " " + anuncio.producto[0].precio + "€"} </span>
                                     </div>
                                 </div>
                                 </div>

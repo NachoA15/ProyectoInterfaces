@@ -107,13 +107,13 @@ export default function Chat() {
                 </div>
                     <div class="col-md-7">
                         <div class="chat">
-                            <div class="chat-header clearfix">
+                            <div class="chat-header clearfix" aria-hidden="true">
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <a href="javascript:void(0);" data-toggle="modal" data-target="#view_info">
+                                        <a href="javascript:void(0);" data-toggle="modal" data-target="#view_info" aria-hidden="true">
                                             
                                         </a>
-                                        <div class="chat-about">
+                                        <div class="chat-about" aria-hidden="true">
                                             {() => {
                                                 return(<h6 class="m-b-0">{anuncio[0].nombre +" "+ anuncio[0].precio +"€" + " - " + anuncio[0].username}</h6>)
                                             }}
@@ -123,7 +123,7 @@ export default function Chat() {
                                 </div>
                             </div>
                             <div class="chat-history">
-                                <ul class="m-b-0">
+                                <ul class="m-b-0"  tabindex="0">
                                     {
                                         
                                             messages.map((message, key) => {
@@ -159,10 +159,9 @@ export default function Chat() {
                             <div class="chat-message clearfix">
                                 <div class="input-group mb-0">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="fa fa-send"></i><TextField
+                                        <span class="input-group-text"><i class="fa fa-send" ></i><TextField 
                                         id="mensaje"
                                         name='nombre de usuario'
-                                        
                                         variant="standard"
                                         size="small" 
                                         /> </span>

@@ -67,16 +67,16 @@ export default function Anuncio({anuncio, anuncios, setAnuncios, idUsuarioRegist
     return(
         <>
         <div className='card anuncio'>
-            <div className='card-header anuncio-header'>
+            <div className='card-header anuncio-header' tabindex="0">
                 Subido por 
                 {idUsuarioRegistrado === anuncio.idUsuario?
                 <> ti</>
                 :
                 <a href={"/profile/" + anuncio.username}> {anuncio.username}</a>     
                 }
-                <span className="wish-icon favorito">
+                <span className="wish-icon favorito" tabindex="0">
                     {anuncio.idUsuario !== idUsuarioRegistrado && 
-                    <i id={anuncio.idAnuncio} className={findAnuncioEnFavoritos(anuncio.idAnuncio)? "fa fa-heart fa-solid fav-icon" : "fa fa-heart-o"} 
+                    <i aria-label="marcar como favorito" id={anuncio.idAnuncio} className={findAnuncioEnFavoritos(anuncio.idAnuncio)? "fa fa-heart fa-solid fav-icon" : "fa fa-heart-o"} 
                          onClick={() => procesarFavoritos(idUsuarioRegistrado, anuncio.idAnuncio)}></i>}
                 </span>
             </div>
@@ -85,8 +85,8 @@ export default function Anuncio({anuncio, anuncios, setAnuncios, idUsuarioRegist
                     <img src={anuncio.imagen}/>
                 </div>
                 <div className='anuncio-info'>
-                    <p className='nombre-anuncio'>{anuncio.nombre}</p>
-                    <p className='precio-anuncio'><b>{anuncio.precio} €</b></p> <span style={{float: 'right'}}>{anuncio.fecha_subida.toString().substring(0,10)}</span>
+                    <p className='nombre-anuncio' tabindex="0">{anuncio.nombre}</p>
+                    <p className='precio-anuncio' tabindex="0"><b>{anuncio.precio} €</b></p> <span style={{float: 'right'}} tabindex="0">{anuncio.fecha_subida.toString().substring(0,10)}</span>
                 </div>
             </div>
             <div className='card-body prueba'>

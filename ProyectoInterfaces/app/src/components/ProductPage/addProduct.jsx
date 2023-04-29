@@ -42,8 +42,8 @@ export default function addProduct() {
                   <div class='card bg-light'>
                     <div class="card-body">
                       <div class="row text-center">
-                        <h3 class="card-title" >Introduzca la información del producto:</h3>
-                        <h6>Los campos obligatorios se muestran con un asterisco (*)</h6>
+                        <h3 class="card-title" tabindex="0">Introduzca la información del producto:</h3>
+                        <h6 tabindex="0">Los campos obligatorios se muestran con un asterisco (*)</h6>
                       </div>
                       <br/>
                       <div class="row text-left">

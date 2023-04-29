@@ -22,8 +22,8 @@ console.log(usuarioRegistrado)
                                     
                                     <div className="col media-body mb-5 text-white">
                                         <div>
-                                            <h4 className="mt-0 mb-0">{usuarioPerfil.username}</h4> 
-                                            <p className="small mb-4 location"><img src={world} alt='' width={20}/> &nbsp;{usuarioPerfil.localizacion}</p> 
+                                            <h4 className="mt-0 mb-0" tabindex="0">{usuarioPerfil.username}</h4> 
+                                            <p className="small mb-4 location" tabindex="0"><img src={world} alt='' width={20}/> &nbsp;{usuarioPerfil.localizacion}</p> 
                                         </div>
                                     </div> 
                                 </div> 
@@ -33,20 +33,20 @@ console.log(usuarioRegistrado)
                         <div className="bg-light p-4 d-flex justify-content-end text-center"> 
                             <ul className="list-inline mb-0"> 
                                 <li className="list-inline-item"> 
-                                    <h5 className="font-weight-bold mb-0 d-block">5</h5>
-                                    <small className="text-muted">Valoración</small> 
+                                    <h5 className="font-weight-bold mb-0 d-block" tabindex="0">5</h5>
+                                    <small className="text-muted" tabindex="0">Valoración</small> 
                                 </li> 
                             </ul> 
                         </div> 
                         
                         <div className="px-4 py-3"> 
-                            <h5 className="mb-0">Sobre mí</h5> 
+                            <h5 className="mb-0" tabindex="0">Sobre mí</h5> 
                             <div className="p-4 rounded shadow-sm bg-light">
                                 {usuarioPerfil.descripcion !== null?
-                                    <p className="font-italic mb-0 descripcion">{usuarioPerfil.descripcion}</p> 
+                                    <p className="font-italic mb-0 descripcion" tabindex="0">{usuarioPerfil.descripcion}</p> 
                                     :
                                     usuarioPerfil.username === usuarioRegistrado?
-                                    <p className="font-italic mb-0 descripcion">¡<a id='to-editar' onClick={() => setEditando(true)}>Edita el perfil</a> y añade una descripción!</p> 
+                                    <p className="font-italic mb-0 descripcion">¡<a id='to-editar' onClick={() => setEditando(true)} tabindex="0">Edita el perfil</a> y añade una descripción!</p> 
                                     :
                                     <></>
                                 } 
@@ -54,7 +54,7 @@ console.log(usuarioRegistrado)
                         </div> 
                         
                         <div className="py-4 px-4"> 
-                            <h5 className="mb-0">Anuncios publicados</h5> 
+                            <h5 className="mb-0" tabindex="0">Anuncios publicados</h5> 
                             <div className="p-4 rounded shadow-sm bg-light">
                                 {usuarioPerfil.id !== undefined && <AnunciosUsuario idUsuario={usuarioPerfil.id} idUsuarioRegistrado={idUsuarioRegistrado}/>}
                             </div> 
