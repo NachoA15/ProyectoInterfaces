@@ -1,7 +1,7 @@
 import React from 'react';
 import { ReactSession } from "react-client-session";
 import appServices from '../../services/appServices';
-import swal from 'sweetalert'
+import Swal from 'sweetalert2'
 
 export default function NavbarProfile() {
     return (
@@ -15,6 +15,7 @@ export default function NavbarProfile() {
                         <li className="nav-item"> <a href="/addProduct" className="addProducts nav-link"><button type="button" className="btn btn-outline-light btn-sm subir-anuncio">Subir producto</button></a></li>
                             <li className="nav-item"><a className="nav-link" href="/products">Productos</a></li>
                             <li className="nav-item"> <a className="nav-link" href={"/favourites/" + ReactSession.get("username")} >Mis favoritos</a></li> 
+                            <li className="nav-item"><a className="nav-link" href="/chatList"> Mis chats</a></li> 
                             <li className="nav-item"><a className="nav-link active" href={"/profile/" + ReactSession.get("username")}>Mi perfil</a></li>
                             <li className="nav-item"><a className="nav-link" href="/" onClick={(e) => {
                                 e.preventDefault();
