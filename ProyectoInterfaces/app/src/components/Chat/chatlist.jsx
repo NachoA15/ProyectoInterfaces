@@ -44,7 +44,7 @@ export default function ChatList(){
                             {anuncios.map((anuncio, key) => {
                                     console.log(anuncio.otroId)
                                     return(
-                                <a href={"/chat/" + (anuncio.producto[0].vendedor === myId ? anuncio.otroId :anuncio.producto[0].vendedor) + "/" + anuncio.producto[0].id}>
+                                <a href={"/chat/" + (anuncio.producto[0].vendedor === myId ? anuncio.otroId :myId) + "/" + anuncio.producto[0].id}>
                                 <div class="card" key={key}>
                                 <div class="profile">
                                     <div class="profile-info">
