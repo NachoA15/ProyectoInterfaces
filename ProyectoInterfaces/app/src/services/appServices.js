@@ -14,8 +14,8 @@ const moveToProfile = (username) => {
     window.location.href = "/profile/" + username
 }
 
-const openChat = (idAnuncio) => {
-    window.location.href = "/chat/" + idAnuncio
+const openChat = (idAnuncio, idComprador) => {
+    window.location.href = "/chat/" + idComprador + "/" + idAnuncio
 }
 
 const moveToProducts = () => {

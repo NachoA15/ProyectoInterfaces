@@ -2,8 +2,12 @@ import React from "react";
 import anunciosServices from "../../services/anunciosServices";
 import appServices from "../../services/appServices";
 import Swal from 'sweetalert2'
+import { ReactSession } from "react-client-session";
+
 
 export default function Anuncio({anuncio, anuncios, setAnuncios, idUsuarioRegistrado, favoritos, setFavoritos}) {
+
+    let myId = ReactSession.get("id");
 
     const procesarFavoritos = (idUsuario, idAnuncio) => {
         let element = document.getElementById(idAnuncio);
@@ -90,7 +94,7 @@ export default function Anuncio({anuncio, anuncios, setAnuncios, idUsuarioRegist
                 {idUsuarioRegistrado === anuncio.idUsuario?
                 <button className='button-anuncio elimina' onClick={() => {procesarBorradoAnuncio(anuncio)}}>Eliminar</button>
                 :
-                <button className='button-anuncio contacta' onClick={() => appServices.openChat(anuncio.idAnuncio)}>Contacta</button>}
+                <button className='button-anuncio contacta' onClick={() => appServices.openChat(anuncio.idAnuncio, myId)}>Contacta</button>}
                 <button className='button-anuncio info'>+ Info</button>
             </div>
         </div>

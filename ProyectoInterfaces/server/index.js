@@ -308,42 +308,48 @@ app.get("/getMessages", (req, res) => {
 app.get("/getChats", (req,res) => {
 	let myId = req.query.id;
 	let rutaArchivo = './logChats';
-
+  
 	const archivos = fs.readdirSync(rutaArchivo);
-
+  
 	const archivosFiltrados = archivos.filter(archivo => {
-		const nombreArchivo = path.parse(archivo).name;
-		const idVendedor = nombreArchivo.split('-')[0].replace('chat', '');
-		const idComprador = nombreArchivo.split('-')[1];
-		return idVendedor === myId || idComprador === myId;
-	  });
-
-	  console.log(archivosFiltrados);
-	
-	  const idsProductos = archivosFiltrados.map(archivo => {
-		const idProducto = archivo.split('-')[2].replace('.txt', '');
-		return idProducto;
-	  });
-	  
-	  console.log(idsProductos);
-
-	  const promises = idsProductos.map(producto => {
-		return new Promise((resolve, reject) => {
-		  db.query("SELECT * FROM ANUNCIO WHERE id = " + producto, (error, results) => {
-			if (error) reject(error);
-			else resolve(results);
-		  });
+	  const nombreArchivo = path.parse(archivo).name;
+	  const idVendedor = nombreArchivo.split('-')[0].replace('chat', '');
+	  const idComprador = nombreArchivo.split('-')[1];
+	  return idVendedor === myId || idComprador === myId;
+	});
+  
+	console.log(archivosFiltrados);
+  
+	const productosConOtrosIds = archivosFiltrados.map(archivo => {
+	  const idProducto = archivo.split('-')[2].replace('.txt', '');
+	  const idVendedor = archivo.split('-')[0].replace('chat', '');
+	  const idComprador = archivo.split('-')[1];
+	  const otroId = idVendedor === myId ? idComprador : idVendedor;
+	  return {id: idProducto, otroId: otroId};
+	});
+  
+	console.log(productosConOtrosIds);
+  
+	const promises = productosConOtrosIds.map(producto => {
+	  return new Promise((resolve, reject) => {
+		db.query("SELECT * FROM ANUNCIO WHERE id = " + producto.id, (error, results) => {
+		  if (error) reject(error);
+		  else resolve({producto: results, otroId: producto.otroId});
 		});
 	  });
-	  
-	  Promise.all(promises)
-		.then(results => {
-		  console.log(results);
-		  res.send(results).status(200);
-		})
-		.catch(error => {
-		  console.error(error);
-		  res.send(error).status(500);
-		});
-})
+	});
+  
+	Promise.all(promises)
+	  .then(results => {
+		console.log(results);
+		res.send(results).status(200);
+	  })
+	  .catch(error => {
+		console.error(error);
+		res.send(error).status(500);
+	  });
+  })
+  
+  
+  
 

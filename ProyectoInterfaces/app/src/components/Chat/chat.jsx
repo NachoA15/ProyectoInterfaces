@@ -13,6 +13,8 @@ export default function Chat() {
     let params = useParams();
     let idProduct = params.id;
     let myId = ReactSession.get("id");
+    let otroId = params.idC
+    console.log(myId);
 
     
     const fetchData = async () => {
@@ -34,10 +36,18 @@ export default function Chat() {
     useEffect(() => {
         if (anuncio.length > 0) {
             console.log(anuncio);
-            if (myId < anuncio[0].vendedor) {
-                setRutaArchivo("" + myId+"-" + anuncio[0].vendedor+"-" + anuncio[0].idAnuncio + "");
-            } else {
-                setRutaArchivo("" + anuncio[0].vendedor+"-" + myId+"-" + anuncio[0].idAnuncio + "");
+            if(myId === otroId){
+                if (myId < anuncio[0].vendedor) {
+                    setRutaArchivo("" + myId+"-" + anuncio[0].vendedor+"-" + anuncio[0].idAnuncio + "");
+                } else {
+                    setRutaArchivo("" + anuncio[0].vendedor+"-" + myId+"-" + anuncio[0].idAnuncio + "");
+                }
+            }else{
+                if (otroId < anuncio[0].vendedor) {
+                    setRutaArchivo("" + myId+"-" + anuncio[0].vendedor+"-" + anuncio[0].idAnuncio + "");
+                } else {
+                    setRutaArchivo("" + anuncio[0].vendedor+"-" + otroId+"-" + anuncio[0].idAnuncio + "");
+                }
             }
         }
     }, [anuncio]);
@@ -130,7 +140,7 @@ export default function Chat() {
                                                         <li class="clearfix">
                                                         <div class="message-data">
                                                         </div>
-                                                        <div class="message my-message">{message.replace(anuncio[0].vendedor+":", "")}</div>                                    
+                                                        <div class="message my-message">{message.replace(otroId+":", "")}</div>                                    
                                                     </li> 
                                                     </div>
                                                     )

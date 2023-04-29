@@ -22,6 +22,7 @@ export default function ChatList(){
             console.error(error);
         }
     };
+    console.log(anuncios);
 
     useEffect(() => {
         fetchData();
@@ -41,20 +42,22 @@ export default function ChatList(){
                         <div class="right-card-body">
                         <div class="right-card-body-container">
                             {anuncios.map((anuncio, key) => {
-                                console.log(anuncio[0])
-                                return(
-                            <a href={"/chat/" + anuncio[0].id}>
-                            <div class="card" key={key}>
-                            <div class="profile">
-                                <div class="profile-info">
-                                <span class="name-font">{anuncio[0].nombre + " " + anuncio[0].precio + "€"} </span>
-                                <span class="job-font">{anuncio[0].vendedor}</span>
+                                    console.log(anuncio.otroId)
+                                    return(
+                                <a href={"/chat/" + (anuncio.producto[0].vendedor === myId ? anuncio.otroId :anuncio.producto[0].vendedor) + "/" + anuncio.producto[0].id}>
+                                <div class="card" key={key}>
+                                <div class="profile">
+                                    <div class="profile-info">
+                                    <span class="name-font">{anuncio.producto[0].nombre + " " + anuncio.producto[0].precio + "€"} </span>
+                                    <span class="job-font">{anuncio.producto[0].vendedor}</span>
+                                    </div>
                                 </div>
-                            </div>
-                            </div>
-                            </a>
-                                )
-                            })}
+                                </div>
+                                </a>
+                                    )
+                                })
+                              
+                            }
                             
                         </div>
                         </div>
