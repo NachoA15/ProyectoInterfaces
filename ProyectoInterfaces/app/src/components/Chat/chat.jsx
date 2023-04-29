@@ -4,6 +4,7 @@ import {TextField} from '@mui/material'
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import { ReactSession } from "react-client-session";
+import NavbarChat from './NavBarChat';
 
 export default function Chat() {
     const [messages, setMessages] = useState([]);
@@ -13,8 +14,9 @@ export default function Chat() {
     let params = useParams();
     let idProduct = params.id;
     let myId = ReactSession.get("id");
+    let otroId = params.idC
+    console.log(myId);
 
-    console.log(idProduct);
     
     const fetchData = async () => {
         try {
@@ -34,13 +36,24 @@ export default function Chat() {
     
     useEffect(() => {
         if (anuncio.length > 0) {
-            if (myId < anuncio[0].vendedor) {
-                setRutaArchivo("" + myId+"-" + anuncio[0].username+"-" + anuncio[0].idAnuncio + "");
-            } else {
-                setRutaArchivo("" + anuncio[0].username+"-" + myId+"-" + anuncio[0].idAnuncio + "");
+            console.log(anuncio);
+            if(myId === otroId){
+                if (myId < anuncio[0].vendedor) {
+                    setRutaArchivo("" + myId+"-" + anuncio[0].vendedor+"-" + anuncio[0].idAnuncio + "");
+                } else {
+                    setRutaArchivo("" + anuncio[0].vendedor+"-" + myId+"-" + anuncio[0].idAnuncio + "");
+                }
+            }else{
+                if (otroId < anuncio[0].vendedor) {
+                    setRutaArchivo("" + myId+"-" + anuncio[0].vendedor+"-" + anuncio[0].idAnuncio + "");
+                } else {
+                    setRutaArchivo("" + anuncio[0].vendedor+"-" + otroId+"-" + anuncio[0].idAnuncio + "");
+                }
             }
         }
     }, [anuncio]);
+
+    console.log(rutaArchivo);
     
     useEffect(() => {
         const fetchData = async () => {
@@ -69,6 +82,10 @@ export default function Chat() {
     return(
         <>
 
+        <div id='chatNav'>
+            <NavbarChat />
+        </div>
+
         <div id='sentMessageForm'>
             <form onSubmit={(e) => {
                 const message = document.getElementById('mensaje').value;
@@ -83,7 +100,7 @@ export default function Chat() {
         
         <div class="container-fluid">
             <div class="row clearfix">
-            <div class="col-md-1">
+            <div class="col-md-2">
                 <div class="chat-button">
                      <a href="/products" class="btn btn-dark" style={{height: 40}}>Volver</a>
                 </div>
@@ -98,7 +115,7 @@ export default function Chat() {
                                         </a>
                                         <div class="chat-about">
                                             {() => {
-                                                return(<h6 class="m-b-0">{anuncio[0].nombre +" "+ anuncio[0].precio +"€" +" - " + anuncio[0].username}</h6>)
+                                                return(<h6 class="m-b-0">{anuncio[0].nombre +" "+ anuncio[0].precio +"€" + " - " + anuncio[0].username}</h6>)
                                             }}
                                         </div>
                                     </div>
@@ -128,7 +145,7 @@ export default function Chat() {
                                                         <li class="clearfix">
                                                         <div class="message-data">
                                                         </div>
-                                                        <div class="message my-message">{message.replace(anuncio[0].vendedor+":", "")}</div>                                    
+                                                        <div class="message my-message">{message.replace(otroId+":", "")}</div>                                    
                                                     </li> 
                                                     </div>
                                                     )

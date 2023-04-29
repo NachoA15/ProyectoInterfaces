@@ -62,7 +62,7 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />
   }, 
   {
-    path: '/chat/:id',
+    path: '/chat/:idC/:id',
     element:<Chat/>,
     //errorElement: <ErrorPage />
   },
@@ -72,9 +72,9 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />
   },
   {
-    path: '/chatlist/:id',
+    path: '/chatlist',
     element: <ChatList/>,
-    errorElement: <ErrorPage/>
+    //errorElement: <ErrorPage/>
   }
 
 ])
