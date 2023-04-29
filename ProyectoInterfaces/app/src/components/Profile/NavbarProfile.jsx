@@ -1,7 +1,7 @@
 import React from 'react';
 import { ReactSession } from "react-client-session";
 import appServices from '../../services/appServices';
-import swal from 'sweetalert'
+import Swal from 'sweetalert2';
 
 export default function NavbarProfile() {
     return (

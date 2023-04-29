@@ -62,7 +62,7 @@ export default function Anuncio({anuncio, anuncios, setAnuncios, idUsuarioRegist
 
     return(
         <>
-        <div className='card anuncio'>
+        <div className='card anuncio card-anuncio'>
             <div className='card-header anuncio-header'>
                 Subido por 
                 {idUsuarioRegistrado === anuncio.idUsuario?
