@@ -3,6 +3,7 @@ import '../../assets/css/chatList.css'
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import { ReactSession } from "react-client-session";
+import NavbarChat from './NavBarChat';
 
 export default function ChatList(){
 
@@ -30,6 +31,10 @@ export default function ChatList(){
 
     return(
         <>
+
+<       div id='chatNav'>
+            <NavbarChat />
+        </div>
             <div class="wrapper">
 
                 <div class="right">

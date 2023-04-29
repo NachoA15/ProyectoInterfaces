@@ -14,7 +14,6 @@ export default function IntroPage() {
             <div id='inicio'>
                 <div className='textLeft'>
                     <h1>Un espacio para músicos</h1>
-                    <br/>
                     <p className='intro-text'>Desde comprar el material que buscas o vender el tuyo propio 
                         hasta interactuar con el resto de usuarios. Comparte tus gustos, tu equipo, tu propia música... 
                         ¡Lo que quieras!</p>

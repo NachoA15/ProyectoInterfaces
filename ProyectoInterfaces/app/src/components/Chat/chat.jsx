@@ -4,6 +4,7 @@ import {TextField} from '@mui/material'
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import { ReactSession } from "react-client-session";
+import NavbarChat from './NavBarChat';
 
 export default function Chat() {
     const [messages, setMessages] = useState([]);
@@ -80,6 +81,10 @@ export default function Chat() {
 
     return(
         <>
+
+        <div id='chatNav'>
+            <NavbarChat />
+        </div>
 
         <div id='sentMessageForm'>
             <form onSubmit={(e) => {
