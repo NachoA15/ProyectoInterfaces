@@ -159,7 +159,8 @@ export default function Chat() {
                             <div class="chat-message clearfix">
                                 <div class="input-group mb-0">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="fa fa-send" ></i><TextField 
+                                        <span class="input-group-text"><i class="fa fa-send" ></i><input
+                                        aria-label="Campo de entrada para escribir mensajes"
                                         id="mensaje"
                                         name='nombre de usuario'
                                         variant="standard"

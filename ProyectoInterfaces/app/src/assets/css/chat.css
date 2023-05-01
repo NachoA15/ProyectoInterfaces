@@ -212,4 +212,9 @@ body{
     margin-right: 30px;
     margin-bottom: 20px;
   }
+
+  input {
+    background-color: #efefef; /* Cambiar el color de fondo a gris claro */
+    color: #1A1A1A; /* Cambiar el color del texto a negro */
+  }
   

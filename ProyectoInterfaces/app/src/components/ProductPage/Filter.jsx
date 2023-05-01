@@ -15,7 +15,7 @@ export default function Filter({anuncios, setFiltro, setFiltrando, filtrando}) {
         <>
         <div className="box">
             <form name="search" onSubmit={(e) => e.preventDefault()}>
-                <input id='searchbar' type="text" className="input" name="buscar" placeholder='Buscar...' onChange={() => filtrarAnunciosPorCadena(document.getElementById('searchbar').value)}/>
+                <input id='searchbar' type="text" className="input" name="buscar" placeholder='Buscar...' aria-label="Campo de entrada para buscar productos" onChange={() => filtrarAnunciosPorCadena(document.getElementById('searchbar').value)}/>
             </form>
             <i className="fa fa-search"></i>
         </div>
