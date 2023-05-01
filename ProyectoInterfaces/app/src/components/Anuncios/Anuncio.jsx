@@ -74,15 +74,20 @@ export default function Anuncio({anuncio, anuncios, setAnuncios, idUsuarioRegist
                 :
                 <a href={"/profile/" + anuncio.username}> {anuncio.username}</a>     
                 }
-                <span className="wish-icon favorito" tabindex="0">
+                <span className="wish-icon favorito">
                     {anuncio.idUsuario !== idUsuarioRegistrado && 
                     <i aria-label="marcar como favorito" id={anuncio.idAnuncio} className={findAnuncioEnFavoritos(anuncio.idAnuncio)? "fa fa-heart fa-solid fav-icon" : "fa fa-heart-o"} 
-                         onClick={() => procesarFavoritos(idUsuarioRegistrado, anuncio.idAnuncio)}></i>}
+                         onClick={() => procesarFavoritos(idUsuarioRegistrado, anuncio.idAnuncio)} 
+                         onKeyDown={(event) => {
+                            if (event.code === "Enter" || event.code === "Space") {
+                                procesarFavoritos(idUsuarioRegistrado, anuncio.idAnuncio);
+                            }
+                        }} tabindex="0"></i>}
                 </span>
             </div>
             <div className='card-body anuncio-thumbnail'>
                 <div className='placement-imagen'>
-                    <img src={anuncio.imagen}/>
+                    <img src={anuncio.imagen} alt={anuncio.nombre} tabIndex="0"/>
                 </div>
                 <div className='anuncio-info'>
                     <p className='nombre-anuncio' tabindex="0">{anuncio.nombre}</p>
