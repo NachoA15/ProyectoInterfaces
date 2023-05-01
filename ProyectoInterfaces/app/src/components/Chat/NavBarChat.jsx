@@ -19,7 +19,7 @@ export default function NavbarChat() {
                             <li className="nav-item"> <a href="/addProduct" className="addProducts nav-link"><button type="button" className="btn btn-outline-light btn-sm">Subir producto</button></a></li>
                             <li className="nav-item"><a className="nav-link" href="/products">Productos</a></li>
                             <li className="nav-item"> <a className="nav-link" href={"/favourites/" + usuarioRegistrado} >Mis favoritos</a></li> 
-                            <li className="nav-item"><a className="nav-link active" href="/#"> Mis chats</a></li> 
+                            <li className="nav-item"><a className="nav-link active" href="/chatList"> Mis chats</a></li> 
                             <li className="nav-item"> <a className="nav-link" href={"/profile/" + usuarioRegistrado}>Mi perfil</a></li> 
                             <li className="nav-item"><a className="nav-link" href="/" onClick={(e) => {
                                 e.preventDefault();
