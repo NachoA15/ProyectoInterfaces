@@ -38,13 +38,13 @@ export default function SignUp() {
                     <div className='card bg-light' style={{width: '100%'}}>
                         <div className="card-body">
                             <div className="row text-center">
-                                <h3 className="card-title" >Piezzo</h3>
+                                <h3 className="card-title" tabindex="0" >Piezzo</h3>
                             </div>
                             <div className="row text-center">
-                                <h4 id="registrarTitulo" className="card-title" >Regístrate:</h4>
+                                <h4 id="registrarTitulo" className="card-title" tabindex="0">Regístrate:</h4>
                             </div>
                             <div className="row text-center">
-                                <h6 id="obligatorio" className="card-body">Los campos obligatorios se muestran con un asterisco (*).</h6>
+                                <h6 id="obligatorio" className="card-body" tabindex="0">Los campos obligatorios se muestran con un asterisco (*).</h6>
                             </div>
                             
                             <div className="row text-left">
@@ -191,7 +191,7 @@ export default function SignUp() {
                     <br/>
 
                     <div className='container text-center' style={{ maxWidth: 300}}>
-                        <h6>
+                        <h6 tabindex="0">
                             ¿Ya tienes una cuenta?
                             <a href="/login"> Entrar</a>
                         </h6>

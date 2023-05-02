@@ -45,9 +45,9 @@ export default function infoProductPage() {
 
 
                     <div class="price-area my-4">
-                        <p class="old-price mb-1"><del>$100</del> <span class="old-price-discount text-danger">(20% off)</span></p>
-                        <p class="new-price text-bold mb-1">$80</p>
-                        <p class="text-secondary mb-1">(Additional tax may apply on checkout)</p>
+                        <p class="old-price mb-1"  tabindex="0"><del>$100</del> <span class="old-price-discount text-danger">(20% off)</span></p>
+                        <p class="new-price text-bold mb-1" tabindex="0">$80</p>
+                        <p class="text-secondary mb-1" tabindex="0">(Additional tax may apply on checkout)</p>
 
                     </div>
 

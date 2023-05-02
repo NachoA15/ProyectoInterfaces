@@ -44,7 +44,7 @@ export default function Products() {
         <div className="container-fluid">
             <div className="row">
                 <div className="col-md-12">
-                    <h2><b>Sección de los anuncios</b></h2>
+                    <h2 tabindex="0"><b>Sección de los anuncios</b></h2>
                     <Filter anuncios={anuncios} setFiltro={setFiltro} setFiltrando={setFiltrando} filtrando={filtrando}/>
                     <br/>
                     <br/>

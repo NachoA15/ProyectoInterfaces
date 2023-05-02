@@ -66,8 +66,8 @@ export default function Anuncio({anuncio, anuncios, setAnuncios, idUsuarioRegist
 
     return(
         <>
-        <div className='card anuncio card-anuncio'>
-            <div className='card-header anuncio-header'>
+        <div className='card anuncio'>
+            <div className='card-header anuncio-header' tabindex="0">
                 Subido por 
                 {idUsuarioRegistrado === anuncio.idUsuario?
                 <> ti</>
@@ -76,17 +76,22 @@ export default function Anuncio({anuncio, anuncios, setAnuncios, idUsuarioRegist
                 }
                 <span className="wish-icon favorito">
                     {anuncio.idUsuario !== idUsuarioRegistrado && 
-                    <i id={anuncio.idAnuncio} className={findAnuncioEnFavoritos(anuncio.idAnuncio)? "fa fa-heart fa-solid fav-icon" : "fa fa-heart-o"} 
-                         onClick={() => procesarFavoritos(idUsuarioRegistrado, anuncio.idAnuncio)}></i>}
+                    <i aria-label="marcar como favorito" id={anuncio.idAnuncio} className={findAnuncioEnFavoritos(anuncio.idAnuncio)? "fa fa-heart fa-solid fav-icon" : "fa fa-heart-o"} 
+                         onClick={() => procesarFavoritos(idUsuarioRegistrado, anuncio.idAnuncio)} 
+                         onKeyDown={(event) => {
+                            if (event.code === "Enter" || event.code === "Space") {
+                                procesarFavoritos(idUsuarioRegistrado, anuncio.idAnuncio);
+                            }
+                        }} tabindex="0"></i>}
                 </span>
             </div>
             <div className='card-body anuncio-thumbnail'>
                 <div className='placement-imagen'>
-                    <img src={anuncio.imagen}/>
+                    <img src={anuncio.imagen} alt={anuncio.nombre} tabIndex="0"/>
                 </div>
                 <div className='anuncio-info'>
-                    <p className='nombre-anuncio'>{anuncio.nombre}</p>
-                    <p className='precio-anuncio'><b>{anuncio.precio} €</b></p> <span style={{float: 'right'}}>{anuncio.fecha_subida.toString().substring(0,10)}</span>
+                    <p className='nombre-anuncio' tabindex="0">{anuncio.nombre}</p>
+                    <p className='precio-anuncio' tabindex="0"><b>{anuncio.precio} €</b></p> <span style={{float: 'right'}} tabindex="0">{anuncio.fecha_subida.toString().substring(0,10)}</span>
                 </div>
             </div>
             <div className='card-body prueba'>
