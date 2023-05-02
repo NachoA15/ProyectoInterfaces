@@ -36,14 +36,14 @@ export default function ChatList(){
             <NavbarChat />
         </div>
         <div className="container-fluid full-screen">
-        <div className="col-md-12"><h2><b>Mis Chats</b></h2>
         </div>
-        </div>
-            <div class="wrapper">
+            <div class="wrapper-chats">
+            
                 <div class="right">
                 <div class="right-container">
                     <div class="right-card">
                     <div class="right-card-container">
+                    <div className="col-md-12"><h2><b>Mis Chats</b></h2>
                         <div class="right-card-header">
                         </div>
                         <div class="right-card-body">
@@ -53,8 +53,8 @@ export default function ChatList(){
                                     return(
                                 <a href={"/chat/" + (anuncio.producto[0].vendedor === myId ? anuncio.otroId :myId) + "/" + anuncio.producto[0].id}>
                                 <div class="card" key={key}>
-                                <div class="profile">
-                                    <div class="profile-info">
+                                <div class="perfil">
+                                    <div class="perfil-info">
                                     <span class="job-font" tabIndex="0">Usuario: {anuncio.producto[0].username + " "}</span>
                                     <span class="name-font" tabIndex="0">Anuncio: {anuncio.producto[0].nombre + " " + anuncio.producto[0].precio + "€"} </span>
                                     </div>
@@ -65,7 +65,8 @@ export default function ChatList(){
                                 })
                               
                             }
-                            
+                        </div>
+
                         </div>
                         </div>
                     </div>

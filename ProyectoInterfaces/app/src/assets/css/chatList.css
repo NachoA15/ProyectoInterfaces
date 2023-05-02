@@ -1,10 +1,24 @@
-  /*.right-card {
-    width: 476px;
-    min-height: 650px;
-    background-color: #fff;
-    border-radius: 20px;
-    padding: 32px;
-  }
+  
+ .wrapper-chats {
+  margin-left: 10%; /* En pantallas pequeñas, se reduce el margen izquierdo */
+  margin-right: 10%; /* En pantallas grandes, se aumenta el margen derecho */
+  
+  /* O usar un margen basado en viewport */
+  margin-left: 5vw;
+  margin-right: 5vw;
+}
+
+  
+.right-card {
+  max-width: 476px;
+  min-width: 320px;
+  width: 90%; /* En pantallas pequeñas, ocupa el 90% del ancho disponible */
+  min-height: 650px;
+  background-color: #fff;
+  border-radius: 20px;
+  padding: 32px;
+}
+
 
   .right-card-header {
     display: flex;
@@ -16,20 +30,38 @@
   }
   .name-font {
     font-size: 18px;
+    line-height: 1.2; /* Ajustar el espaciado entre líneas */
     color: #22215b;
     font-weight: bold;
   }
+  
+  /* En pantallas pequeñas, reducir el tamaño de fuente */
+  @media (max-width: 600px) {
+    .name-font {
+      font-size: 16px;
+      line-height: 1.1;
+    }
+  }
+  
   .job-font {
     font-size: 15px;
     font-weight: 300;
     color: #22215b;
   }
-  .profile {
+  .perfil {
     display: flex;
     gap: 16px;
     align-items: center;
   }
-  .profile-info {
+  
+  /* En pantallas pequeñas, reducir la cantidad de espacio entre elementos */
+  @media (max-width: 600px) {
+    .perfil {
+      gap: 8px;
+    }
+  }
+  
+  .perfil-info {
     display: flex;
     flex-direction: column;
     gap: 5px;
@@ -44,9 +76,17 @@
     align-items: center;
     gap: 43px;
   }
+  
+  /* En pantallas pequeñas, ocultar los iconos */
+  @media (max-width: 600px) {
+    .icons {
+      display: none;
+    }
+  }
+  
   .card {
     display: flex;
     align-items: center;
     justify-content: space-between;
   }
-  */
+  
