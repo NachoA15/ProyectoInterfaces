@@ -71,6 +71,10 @@ div.placement-imagen img {
 	transition: transform .5s;
 }
 
+div.card-anuncio {
+	cursor: default;
+}
+
 img:hover {
 	cursor: pointer;
 	transform: scale(1.3);

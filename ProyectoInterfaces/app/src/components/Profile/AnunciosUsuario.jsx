@@ -20,7 +20,7 @@ export default function AnunciosUsuario({idUsuario, idUsuarioRegistrado}) {
                 {anuncios.map((anuncio, key) => {
                     return( 
                         <div className='placement-anuncios' key={key}>
-                            <Anuncio anuncio={anuncio} idUsuarioRegistrado={idUsuarioRegistrado} favoritos={[]}/>
+                            <Anuncio anuncio={anuncio} anuncios={anuncios} setAnuncios={setAnuncios} idUsuarioRegistrado={idUsuarioRegistrado} favoritos={[]}/>
                         </div>
                     );
                 })}

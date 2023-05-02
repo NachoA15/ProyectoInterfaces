@@ -25,8 +25,10 @@ export default function Favourites() {
             <NavbarFavourites />
         </div>
         
-        <div className='favoritos'>
-            {favoritos.length === 0? <FavouriteInfo /> : <FavouriteProducts favoritos={favoritos} setFavoritos={setFavoritos} idUsuarioRegistrado={idUsuarioRegistrado}/>}
+        <div className="container-fluid">
+            <div className='favoritos'>
+                {favoritos.length === 0? <FavouriteInfo /> : <FavouriteProducts favoritos={favoritos} setFavoritos={setFavoritos} idUsuarioRegistrado={idUsuarioRegistrado}/>}
+            </div>
         </div>
         </>
     )

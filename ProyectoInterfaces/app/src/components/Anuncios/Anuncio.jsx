@@ -67,7 +67,7 @@ export default function Anuncio({anuncio, anuncios, setAnuncios, idUsuarioRegist
     return(
         <>
         <div className='card anuncio'>
-            <div className='card-header anuncio-header' tabindex="0">
+            <div className='card-header anuncio-header' tabIndex="0">
                 Subido por 
                 {idUsuarioRegistrado === anuncio.idUsuario?
                 <> ti</>
@@ -82,7 +82,7 @@ export default function Anuncio({anuncio, anuncios, setAnuncios, idUsuarioRegist
                             if (event.code === "Enter" || event.code === "Space") {
                                 procesarFavoritos(idUsuarioRegistrado, anuncio.idAnuncio);
                             }
-                        }} tabindex="0"></i>}
+                        }} tabIndex="0"></i>}
                 </span>
             </div>
             <div className='card-body anuncio-thumbnail'>
@@ -90,8 +90,8 @@ export default function Anuncio({anuncio, anuncios, setAnuncios, idUsuarioRegist
                     <img src={anuncio.imagen} alt={anuncio.nombre} tabIndex="0"/>
                 </div>
                 <div className='anuncio-info'>
-                    <p className='nombre-anuncio' tabindex="0">{anuncio.nombre}</p>
-                    <p className='precio-anuncio' tabindex="0"><b>{anuncio.precio} €</b></p> <span style={{float: 'right'}} tabindex="0">{anuncio.fecha_subida.toString().substring(0,10)}</span>
+                    <p className='nombre-anuncio' tabIndex="0">{anuncio.nombre}</p>
+                    <p className='precio-anuncio' tabIndex="0"><b>{anuncio.precio} €</b></p> <span style={{float: 'right'}} tabIndex="0">{anuncio.fecha_subida.toString().substring(0,10)}</span>
                 </div>
             </div>
             <div className='card-body prueba'>
