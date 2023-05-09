@@ -37,8 +37,6 @@ div.username {
     display: inline-block;
     margin-left: 15px;
     height: fit-content;
-    position: relative;
-    top: 50px;
 }
 
 div.img-edit {
