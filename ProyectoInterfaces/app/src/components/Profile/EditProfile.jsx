@@ -1,9 +1,9 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import {TextField} from '@mui/material'
-import NavbarProfile from "./NavbarProfile";
 import '../../assets/css/editProfile.css'
 import userServices from "../../services/userServices";
+import NavBar from "../NavBar";
 
 export default function EditProfile({usuarioPerfil, setEditando}) {
 
@@ -20,7 +20,7 @@ export default function EditProfile({usuarioPerfil, setEditando}) {
     return(
         <>
         <div id='NavbarProfile'>
-            <NavbarProfile />
+            <NavBar ubicacion={'Mi perfil'}/>
         </div>
         <br/>
         <br/>

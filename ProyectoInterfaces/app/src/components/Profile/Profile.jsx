@@ -1,5 +1,4 @@
 import React from 'react';
-import NavbarProfile from './NavbarProfile';
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { ReactSession } from "react-client-session";

@@ -1,5 +1,4 @@
 import React from 'react';
-import NavbarProducts from './NavBarProductsPage'
 import { useEffect, useState } from 'react';
 import Axios from 'axios';
 import { ReactSession } from "react-client-session";

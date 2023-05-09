@@ -1,5 +1,5 @@
 import React from 'react';
-import NavbarRegistration from './NavBarProductsPage'
+import NavBar from '../NavBar';
 import {FormControl, InputLabel, NativeSelect, Select, TextField} from '@mui/material'
 import userServices from '../../services/userServices';
 import anunciosServices from '../../services/anunciosServices';
@@ -12,7 +12,7 @@ export default function addProduct() {
     return(
         <>
         <div id='productsNav'>
-            <NavbarRegistration />
+            <NavBar />
         </div>
         <br/><br/>
         <div class="container">

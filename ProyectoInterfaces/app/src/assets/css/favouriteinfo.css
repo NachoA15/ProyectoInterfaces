@@ -3,6 +3,17 @@ div#placement-info {
     top: 10%;
 }
 
+img#infoimg {
+    height: 100%;
+    width: 75%;
+    cursor:default;
+    border-radius: 0px;
+}
+
+img#infoimg:hover {
+    transform: none;
+}
+
 p {
     font-size: x-large;
     text-align: justify;

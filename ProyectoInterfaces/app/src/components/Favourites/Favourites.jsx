@@ -1,6 +1,5 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
-import NavbarFavourites from './NavBarFavourites'
 import { ReactSession } from "react-client-session";
 import FavouriteProducts from './FavouriteProducts';
 import FavouriteInfo from './FavouriteInfo';

@@ -4,7 +4,6 @@ import {TextField} from '@mui/material'
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import { ReactSession } from "react-client-session";
-import NavbarChat from './NavBarChat';
 import NavBar from '../NavBar';
 
 export default function Chat() {

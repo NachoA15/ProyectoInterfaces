@@ -1,5 +1,4 @@
 import React from 'react';
-import NavBarProductsPage from './NavBarProductsPage';
 import '../../assets/css/infoProductPage.css'
 
 export default function infoProductPage() {
@@ -9,7 +8,7 @@ export default function infoProductPage() {
         <>
         <div>
             <div id='NavBarProductsPage'>
-                <NavBarProductsPage/>
+                
             </div>
         </div>
         <br></br>

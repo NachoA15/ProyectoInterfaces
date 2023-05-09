@@ -3,7 +3,8 @@ import '../../assets/css/chatList.css'
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import { ReactSession } from "react-client-session";
-import NavbarChat from './NavBarChat';
+import NavBar from '../NavBar';
+
 
 export default function ChatList(){
 
@@ -33,7 +34,7 @@ export default function ChatList(){
         <>
 
 <       div id='chatNav'>
-            <NavbarChat />
+            <NavBar />
         </div>
         <div className="container-fluid full-screen">
         </div>

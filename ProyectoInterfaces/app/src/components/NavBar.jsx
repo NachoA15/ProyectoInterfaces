@@ -18,6 +18,7 @@ export default function NavBar({ubicacion}) {
                             <li className="nav-item"><a className={ubicacion === 'Productos'? 'nav-link active' : 'nav-link'} href="/products">Productos</a></li>
                             <li className="nav-item"> <a className={ubicacion === 'Favoritos'? 'nav-link active' : 'nav-link'} href={"/favourites/" + ReactSession.get("username")}>Mis favoritos</a></li> 
                             <li className="nav-item"><a className={ubicacion === 'Mis chats'? 'nav-link active' : 'nav-link'} href="/chatList"> Mis chats</a></li> 
+                            <li className="nav-item"><a className={ubicacion === 'Mis anuncios'? 'nav-link active' : 'nav-link'} href="/myProducts"> Mis anuncios</a></li> 
                             <li className="nav-item"><a className={ubicacion === 'Mi perfil'? 'nav-link active' : 'nav-link'} href={"/profile/" + ReactSession.get("username")}>Mi perfil</a></li>
                             <li className="nav-item"><a className="nav-link" href="/" onClick={(e) => {
                                 e.preventDefault();

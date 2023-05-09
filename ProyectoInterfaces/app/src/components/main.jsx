@@ -14,6 +14,7 @@ import ErrorPage from './ErrorPage.jsx';
 import Chat from './Chat/chat.jsx';
 import '../assets/css/index.css';
 import Favourites from './Favourites/Favourites.jsx';
+import MyProducts from './MyProducts/MyProducts.jsx';
 import ChatList from './Chat/chatlist.jsx';
 
 ReactSession.setStoreType("localStorage");
@@ -75,6 +76,10 @@ const router = createBrowserRouter([
     path: '/chatlist',
     element: <ChatList/>,
     //errorElement: <ErrorPage/>
+  }, 
+  {
+    path: '/myProducts',
+    element: <MyProducts />
   }
 
 ])
