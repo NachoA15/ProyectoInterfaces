@@ -39,6 +39,7 @@ div.placement-anuncios {
 div.anuncio {
 	width: 320px;
 	height: 470px;
+	cursor: default;
 }
 
 div.anuncio-header {

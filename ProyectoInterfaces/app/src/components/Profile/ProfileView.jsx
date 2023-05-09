@@ -13,12 +13,11 @@ export default function ProfileView({usuarioPerfil, usuarioRegistrado, setEditan
                         <div className="px-4 pt-0 pb-8 cover"> 
                             <div className="media align-items-end profile-head">
                                 <div className='row bgblue'>
-                                    <div className="col-2 profile mr-3">
-                                        <img src={usuarioPerfil.imagen} alt="..." width="240" className="rounded mb-2 img-thumbnail"/>
-                                        {usuarioRegistrado === usuarioPerfil.username && <button className="btn btn-outline-dark btn-sm btn-block" onClick={() => setEditando(true)}>Editar perfil</button>}
+                                    <div className="profile mr-3 img-edit">
+                                        <img id='profile-pic' src={usuarioPerfil.imagen} alt="Tu foto de perfil" className="rounded mb-2"/>
+                                        {usuarioRegistrado === usuarioPerfil.username && <button className="btn btn-outline-dark btn-sm btn-block" onClick={() => setEditando(true)} style={{width: 200}}>Editar perfil</button>}
                                     </div> 
-                                    
-                                    <div className="col media-body mb-5 text-white">
+                                    <div className="col mb-5 text-white username">
                                         <div>
                                             <h4 className="mt-0 mb-0" tabIndex="0">{usuarioPerfil.username}</h4> 
                                             <p aria-label='Localización' className="small mb-4 location" tabIndex="0"><img src={world} alt='' width={20}/> &nbsp;{usuarioPerfil.localizacion}</p> 
