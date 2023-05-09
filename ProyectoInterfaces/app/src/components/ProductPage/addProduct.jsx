@@ -134,12 +134,6 @@ export default function addProduct() {
                                 label='Imagen (URL)'
                                 size='medium'
                               />
-
-                              {/** 
-                               * 
-                              <label for="file_img">Imagen del producto (.jpg/.png):</label> <input id='imagen' type="file" name="file_img"/>
-                              */}
-
                             </div>
                           </div>
                           <div class="col-md-2"></div>

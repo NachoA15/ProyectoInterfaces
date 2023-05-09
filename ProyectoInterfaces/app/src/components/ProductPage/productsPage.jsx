@@ -6,6 +6,7 @@ import { ReactSession } from "react-client-session";
 import anunciosServices from '../../services/anunciosServices';
 import Anuncio from '../Anuncios/Anuncio';
 import Filter from './Filter';
+import NavBar from '../NavBar';
 import '../../assets/css/productsPage.css'
 import '../../assets/css/searchbar.css'
 
@@ -35,7 +36,7 @@ export default function Products() {
     return(
         <>
         <div id='productsNav'>
-            <NavbarProducts />
+            <NavBar ubicacion={'Productos'}/>
         </div>
 
         <br/>
@@ -44,7 +45,7 @@ export default function Products() {
         <div className="container-fluid">
             <div className="row">
                 <div className="col-md-12">
-                    <h2 tabindex="0"><b>Sección de los anuncios</b></h2>
+                    <h2 tabIndex="0"><b>Sección de los anuncios</b></h2>
                     <Filter anuncios={anuncios} setFiltro={setFiltro} setFiltrando={setFiltrando} filtrando={filtrando}/>
                     <br/>
                     <br/>

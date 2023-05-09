@@ -4,6 +4,7 @@ import NavbarFavourites from './NavBarFavourites'
 import { ReactSession } from "react-client-session";
 import FavouriteProducts from './FavouriteProducts';
 import FavouriteInfo from './FavouriteInfo';
+import NavBar from '../NavBar';
 
 import '../../assets/css/productsPage.css'
 import anunciosServices from '../../services/anunciosServices';
@@ -22,7 +23,7 @@ export default function Favourites() {
     return(
         <>
         <div id='productsNav'>
-            <NavbarFavourites />
+            <NavBar ubicacion={'Favoritos'}/>
         </div>
         
         <div className="container-fluid">

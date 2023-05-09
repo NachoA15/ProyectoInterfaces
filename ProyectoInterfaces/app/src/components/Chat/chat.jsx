@@ -5,6 +5,7 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import { ReactSession } from "react-client-session";
 import NavbarChat from './NavBarChat';
+import NavBar from '../NavBar';
 
 export default function Chat() {
     const [messages, setMessages] = useState([]);
@@ -83,7 +84,7 @@ export default function Chat() {
         <>
 
         <div id='chatNav'>
-            <NavbarChat />
+            <NavBar ubicacion={'Mis chats'}/>
         </div>
 
         <div id='sentMessageForm'>

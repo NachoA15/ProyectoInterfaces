@@ -51,8 +51,9 @@ app.post('/addUsuario', (req, res) => {
 	let telefono = req.body.telefono;
 	let valoracion = req.body.valoracion;
 	let localizacion = req.body.localizacion;
+	let imagen = req.body.imagen;
 
-		db.query('INSERT INTO USUARIO (username, password, nombre, correo, telefono, valoracion, localizacion) VALUES (?,?,?,?,?,?,?);', [username,password,nombre,correo,telefono,valoracion,localizacion], (err,a,f) => {
+		db.query('INSERT INTO USUARIO (username, password, nombre, correo, telefono, valoracion, localizacion, imagen) VALUES (?,?,?,?,?,?,?,?);', [username,password,nombre,correo,telefono,valoracion,localizacion,imagen], (err,a,f) => {
 			if (err) {
 				if (err.sqlMessage.endsWith("for key 'usuario.username'")) {
 					res.send('duplicated_username');
@@ -84,15 +85,15 @@ app.post("/getUsuarioByUsername", (req, res) => {
 app.post("/updateUsuario", (req, res) => {
 	let usuarioId = req.body.usuarioId;
 	let username = req.body.username;
+	let imagen = req.body.imagen;
 	let nombre = req.body.nombre;
     let localizacion = req.body.localizacion;
 	let email = req.body.email;
-    
     let telefono = req.body.telefono; 
     let descripcion = req.body.descripcion;
 
 	if(email === ""){
-		db.query("UPDATE USUARIO SET username = '" + username + "', nombre = '" + nombre + "', localizacion = '" + localizacion + "', correo = NULL, telefono = '"
+		db.query("UPDATE USUARIO SET username = '" + username + "', imagen = '" + imagen + "', nombre = '" + nombre + "', localizacion = '" + localizacion + "', correo = NULL, telefono = '"
 		 + telefono + "', descripcion = '" + descripcion + "' WHERE id = " + usuarioId + ";", (err,a,f) => {
 		if (err) {
 			console.log(err.sqlMessage);
@@ -103,7 +104,7 @@ app.post("/updateUsuario", (req, res) => {
 		};
 	})
 	}else{
-		db.query("UPDATE USUARIO SET username = '" + username + "', nombre = '" + nombre + "', localizacion = '" + localizacion + "', correo = '" +
+		db.query("UPDATE USUARIO SET username = '" + username + "', imagen = '" + imagen + "', nombre = '" + nombre + "', localizacion = '" + localizacion + "', correo = '" +
 	email + "', telefono = '" + telefono + "', descripcion = '" + descripcion + "' WHERE id = " + usuarioId + ";", (err,a,f) => {
 		if (err) {
 			console.log(err.sqlMessage);
@@ -124,17 +125,17 @@ app.post("/updateUsuario", (req, res) => {
  */
 
 app.get("/anuncios", (req,res) => {
-	dbQuery("SELECT a.id 'idAnuncio', a.vendedor, a.fecha_subida, a.reservado, a.nombre, a.precio, a.imagen, u.id 'idUsuario', u.username FROM ANUNCIO a JOIN USUARIO u on (a.vendedor = u.id);", req, res);
+	dbQuery("SELECT a.id 'idAnuncio', a.vendedor, a.fecha_subida, a.reservado, a.nombre, a.precio, a.descripcion, a.imagen, u.id 'idUsuario', u.username FROM ANUNCIO a JOIN USUARIO u on (a.vendedor = u.id);", req, res);
 })
 
 app.post("/getAnunciosByUser", (req, res) => {
 	let userId = req.body.user;
-	dbQuery("SELECT a.id 'idAnuncio', a.fecha_subida, a.reservado, a.nombre, a.precio, a.imagen, u.id 'idUsuario', u.username FROM ANUNCIO a JOIN USUARIO u on (a.vendedor = u.id) WHERE a.vendedor = " + userId + ";", req, res);
+	dbQuery("SELECT a.id 'idAnuncio', a.fecha_subida, a.reservado, a.nombre, a.precio, a.descripcion, a.imagen, u.id 'idUsuario', u.username FROM ANUNCIO a JOIN USUARIO u on (a.vendedor = u.id) WHERE a.vendedor = " + userId + ";", req, res);
 })
 
 app.post("/getAnuncioById", (req, res) => {
 	let anuncioId = req.body.anuncio;
-	dbQuery("SELECT a.id 'idAnuncio', a.vendedor, a.fecha_subida, a.reservado, a.nombre, a.precio, a.imagen, u.id 'idUsuario', u.username 'username' FROM ANUNCIO a JOIN USUARIO u on (a.vendedor = u.id) WHERE a.id = " + anuncioId + ";", req, res);
+	dbQuery("SELECT a.id 'idAnuncio', a.vendedor, a.fecha_subida, a.reservado, a.nombre, a.precio, a.descripcion, a.imagen, u.id 'idUsuario', u.username 'username' FROM ANUNCIO a JOIN USUARIO u on (a.vendedor = u.id) WHERE a.id = " + anuncioId + ";", req, res);
 })
 
 app.post("/deleteAnuncio", (req,res) => {

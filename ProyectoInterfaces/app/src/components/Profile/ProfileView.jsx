@@ -14,7 +14,7 @@ export default function ProfileView({usuarioPerfil, usuarioRegistrado, setEditan
                             <div className="media align-items-end profile-head">
                                 <div className='row bgblue'>
                                     <div className="col-2 profile mr-3">
-                                        <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80" alt="..." width="240" className="rounded mb-2 img-thumbnail"/>
+                                        <img src={usuarioPerfil.imagen} alt="..." width="240" className="rounded mb-2 img-thumbnail"/>
                                         {usuarioRegistrado === usuarioPerfil.username && <button className="btn btn-outline-dark btn-sm btn-block" onClick={() => setEditando(true)}>Editar perfil</button>}
                                     </div> 
                                     

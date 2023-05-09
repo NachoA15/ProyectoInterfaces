@@ -3,7 +3,8 @@ import NavbarProfile from './NavbarProfile';
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { ReactSession } from "react-client-session";
-import Axios from 'axios'
+import Axios from 'axios';
+import NavBar from '../NavBar';
 
 import ProfileView from './ProfileView';
 import EditProfile from './EditProfile';
@@ -31,7 +32,7 @@ export default function Profile() {
     return(
         <>
         <div className='container-fluid'>
-            <NavbarProfile />
+            <NavBar ubicacion={'Mi perfil'}/>
             {!editando? <ProfileView usuarioPerfil={usuarioPerfil} usuarioRegistrado={usuarioRegistrado} setEditando={setEditando} idUsuarioRegistrado={idUsuarioRegistrado}/> : <EditProfile usuarioPerfil={usuarioPerfil} setEditando={setEditando}/>}
         </div>
         </>

@@ -18,6 +18,8 @@ export default function SignUp() {
                 const password = document.getElementById('password').value;
                 const confirmedPassword = document.getElementById('confirmarPassword').value;
                 const nombre = document.getElementById('nombreCompleto').value;
+                const imagen = 'https://static.vecteezy.com/system/resources/previews/009/267/561/non_2x/user-icon-design-free-png.png';
+
                 let correo = document.getElementById('correo').value;
 
                 if (correo === "") correo = null;
@@ -27,7 +29,7 @@ export default function SignUp() {
                 
                 if (username !== '' && password !== '' && confirmedPassword !== '') {
                     e.preventDefault();
-                    const usuario = [username,password,confirmedPassword,nombre,correo,telefono,localizacion]
+                    const usuario = [username,password,confirmedPassword,nombre,correo,telefono,localizacion, imagen]
                     userServices.addUsuario(usuario);
                 }
             }}>
@@ -38,13 +40,13 @@ export default function SignUp() {
                     <div className='card bg-light' style={{width: '100%'}}>
                         <div className="card-body">
                             <div className="row text-center">
-                                <h3 className="card-title" tabindex="0" >Piezzo</h3>
+                                <h3 className="card-title" tabIndex="0" >Piezzo</h3>
                             </div>
                             <div className="row text-center">
-                                <h4 id="registrarTitulo" className="card-title" tabindex="0">Regístrate:</h4>
+                                <h4 id="registrarTitulo" className="card-title" tabIndex="0">Regístrate:</h4>
                             </div>
                             <div className="row text-center">
-                                <h6 id="obligatorio" className="card-body" tabindex="0">Los campos obligatorios se muestran con un asterisco (*).</h6>
+                                <h6 id="obligatorio" className="card-body" tabIndex="0">Los campos obligatorios se muestran con un asterisco (*).</h6>
                             </div>
                             
                             <div className="row text-left">
@@ -191,7 +193,7 @@ export default function SignUp() {
                     <br/>
 
                     <div className='container text-center' style={{ maxWidth: 300}}>
-                        <h6 tabindex="0">
+                        <h6 tabIndex="0">
                             ¿Ya tienes una cuenta?
                             <a href="/login"> Entrar</a>
                         </h6>

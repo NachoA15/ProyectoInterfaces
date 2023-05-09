@@ -6,7 +6,6 @@ import { ReactSession } from "react-client-session";
 
 
 export default function Anuncio({anuncio, anuncios, setAnuncios, idUsuarioRegistrado, favoritos, setFavoritos}) {
-
     let myId = ReactSession.get("id");
 
     const procesarFavoritos = (idUsuario, idAnuncio) => {
@@ -87,7 +86,7 @@ export default function Anuncio({anuncio, anuncios, setAnuncios, idUsuarioRegist
             </div>
             <div className='card-body anuncio-thumbnail'>
                 <div className='placement-imagen'>
-                    <img src={anuncio.imagen} alt={anuncio.nombre} tabIndex="0"/>
+                    <img src={anuncio.imagen} alt={anuncio.descripcion === null? anuncio.nombre : anuncio.nombre + '. Descripción, ' + anuncio.descripcion} tabIndex="0"/>
                 </div>
                 <div className='anuncio-info'>
                     <p className='nombre-anuncio' tabIndex="0">{anuncio.nombre}</p>

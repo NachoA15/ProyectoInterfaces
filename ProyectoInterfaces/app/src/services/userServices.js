@@ -12,6 +12,7 @@ const addUsuario = (usuario) => {
             correo: usuario[4],
             telefono: usuario[5],
             localizacion: usuario[6],
+            imagen: usuario[7],
             valoracion: undefined
         }).then((res) => {
             if (res.data === 'duplicated_username') {
@@ -84,11 +85,11 @@ const checkUsuarioLogin = (username, password) => {
     })
 }
 
-const updateUsuario = (usuarioId, username, nombre, localizacion, email, telefono, descripcion) => {
-
+const updateUsuario = (usuarioId, username, imagen, nombre, localizacion, email, telefono, descripcion) => {
     Axios.post("http://localhost:3001/updateUsuario", {
       usuarioId : usuarioId,
       username : username,
+      imagen: imagen,
       nombre : nombre,
       localizacion : localizacion,
       email : email,
