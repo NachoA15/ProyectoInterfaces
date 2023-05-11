@@ -1,6 +1,7 @@
 import React from 'react';
 import world from '../../assets/images/world.png'
 import AnunciosUsuario from './AnunciosUsuario';
+import ComentariosUsuario from './ComentariosUsuario';
 
 export default function ProfileView({usuarioPerfil, usuarioRegistrado, setEditando, idUsuarioRegistrado}) {
 
@@ -56,6 +57,13 @@ export default function ProfileView({usuarioPerfil, usuarioRegistrado, setEditan
                                 {usuarioPerfil.id !== undefined && <AnunciosUsuario idUsuario={usuarioPerfil.id} idUsuarioRegistrado={idUsuarioRegistrado}/>}
                             </div> 
                         </div> 
+
+                        <div className='py-4 px-4'>
+                            <h5 className="mb-0"> Comentarios</h5>
+                            <div className='p-4 rounded shadow-sm bg-light'>
+                                {<ComentariosUsuario idUsuario={usuarioPerfil.id}/>}
+                            </div>
+                        </div>
                     </div> 
                 </div>
             </div>

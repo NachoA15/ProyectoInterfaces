@@ -350,7 +350,16 @@ app.get("/getChats", (req,res) => {
 		res.send(error).status(500);
 	  });
   })
-  
-  
-  
+
+
+/** =========================================================================
+ *  Comentarios
+ *  =========================================================================
+ */
+
+app.get("/comentarios", (req,res) => {
+	dbQuery("SELECT c.id 'idComentario', c.autor 'idAutor', c.fecha_publicacion, c.texto FROM COMENTARIO c;", req, res);
+})
+
+
 

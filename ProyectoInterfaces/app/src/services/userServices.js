@@ -121,8 +121,24 @@ const updateUsuario = (usuarioId, username, imagen, nombre, localizacion, email,
             
         }
     })
-  }
+}
 
-const userServices = {addUsuario, checkUsuarioLogin, updateUsuario};
+const getComentarios = (setComentarios) => {
+    Axios.get("http://127.0.0.1:3001/comentarios")
+    .then((res) => {
+        setComentarios(res.data)
+    })
+}
+
+
+const getComentariosByUser = (usuario) => {
+    Axios.post("http://127.0.0.1:3001/getComentariosByUser", {
+        user: usuario
+    }).then((res) => {
+        setComentarios(res.data)
+    })
+}
+
+const userServices = {addUsuario, checkUsuarioLogin, updateUsuario, getComentarios};
 
 export default userServices;
