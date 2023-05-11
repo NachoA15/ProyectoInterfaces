@@ -28,7 +28,7 @@ export default function Login() {
                     <div className='card bg-light' style={{width:'100%'}}>
                         <div className="card-body">
                             <div className="row text-center">
-                                <h3 className="card-title" tabIndex="0" >Accede a tu cuenta</h3>
+                            <h4 id="registrarTitulo" className="card-title" tabIndex="0">Accede a tu cuenta:</h4>
                             </div>
                             
                             <div className="row text-left">
@@ -66,11 +66,8 @@ export default function Login() {
                                 <div className="col-md-2"></div>
                             </div>
 
-                            <br/>
-                        </div>     
-                    </div>
-
-                    <br/>
+                        </div>    
+                        <br/>
                     <div className='container' style={{ maxWidth: 150 }}>
                         <button type="submit" className="btn btn-outline-primary">Confirmar</button>
                     </div>
@@ -81,7 +78,10 @@ export default function Login() {
                             <a href="/signUp"> Regístrate</a>
                         </h6>
                     </div>
-                    <br/>
+                    <br/> 
+                    </div>
+
+                    
                 </div>
                 
             </form>

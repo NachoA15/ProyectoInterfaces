@@ -182,24 +182,24 @@ export default function SignUp() {
                             <br/>
                         </div> 
                         
-                    </div>
-
-                    <br/>
+                        <br/>
                 
-                    <div className='container' style={{ maxWidth: 150 }}>
-                        <button className="btn btn-outline-primary" type='submit'>Confirmar</button>
+                        <div className='container' style={{ maxWidth: 150 }}>
+                            <button className="btn btn-outline-primary" type='submit'>Confirmar</button>
+                        </div>
+
+                        <br/>
+                        
+                        <div className='container text-center' style={{ maxWidth: 300}}>
+                            <h6 tabIndex="0">
+                                ¿Ya tienes una cuenta?
+                                <a href="/login"> Entrar</a>
+                            </h6>
+                        </div>
+
                     </div>
 
-                    <br/>
-
-                    <div className='container text-center' style={{ maxWidth: 300}}>
-                        <h6 tabIndex="0">
-                            ¿Ya tienes una cuenta?
-                            <a href="/login"> Entrar</a>
-                        </h6>
-                    </div>
-
-                    <br/>
+                    
                     
                 </div>
             </form>

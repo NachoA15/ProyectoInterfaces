@@ -4,6 +4,7 @@ import "../../assets/css/favouriteinfo.css";
 export default function FavouriteInfo() {
 
     const [marcado, setMarcado] = useState(false)
+    const sound = new Audio('/src/assets/audios/favorito.mp3');
 
     const cambiarIcono = () => {
         let element = document.getElementById("prueba");
@@ -14,12 +15,14 @@ export default function FavouriteInfo() {
             element.classList.add("fa-solid");
             element.classList.add("fav-icon");
             setMarcado(true);
+            sound.play();
         } else{
             element.classList.remove("fa-heart");
             element.classList.remove("fa-solid");
             element.classList.remove("fav-icon");
             element.classList.add("fa-heart-o");
             setMarcado(false);
+            sound.play();
         }
     }
 
