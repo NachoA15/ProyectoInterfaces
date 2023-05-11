@@ -131,6 +131,14 @@ const getComentarios = (setComentarios) => {
 }
 
 
+const addComment = (comentario) =>{
+    Axios.post("http://localhost:3001/addComment",{
+        autor: comentario[0],
+        fecha_publicacion: comentario[1],
+        texto: comentario[2]
+    })
+}
+
 const getComentariosByUser = (usuario) => {
     Axios.post("http://127.0.0.1:3001/getComentariosByUser", {
         user: usuario
@@ -139,6 +147,6 @@ const getComentariosByUser = (usuario) => {
     })
 }
 
-const userServices = {addUsuario, checkUsuarioLogin, updateUsuario, getComentarios};
+const userServices = {addUsuario, checkUsuarioLogin, updateUsuario, getComentarios, addComment};
 
 export default userServices;

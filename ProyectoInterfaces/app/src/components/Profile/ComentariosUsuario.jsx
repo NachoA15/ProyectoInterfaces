@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from "react";
 import userServices from "../../services/userServices";
 import "../../assets/css/Comentarios.css"
+import { TextField } from "@mui/material";
+import {ReactSession} from "react-client-session";
 
 export default function ComentariosUsuario({idUsuario}) {
     
     const [comentarios, setComentarios] = useState([]);
+
+    const idUsuarioRegistrado = ReactSession.get("id");
 
     useEffect(() => {
         userServices.getComentarios(setComentarios);
@@ -21,62 +25,57 @@ export default function ComentariosUsuario({idUsuario}) {
                                 <li>
                                     <div class="comment-main-level">
                                         
-                                        {/**Avatar */}
+                                        {/**Avatar 
+                                         * 
                                         <div class="comment-avatar"><img src="http://i9.photobucket.com/albums/a88/creaticode/avatar_1_zps8e1c80cd.jpg" alt="" sizes="small"/></div>
+                                        */}
                                         {/**Contenedor del Comentario */}  
                                         <div class="comment-box">
                                             <div class="comment-head">
-                                                <h6 class="comment-name by-author">{comentario.autor}</h6>
-                                                <span>hace 20 minutos</span>
-                                                <i class="fa fa-reply"></i>
+                                                <h6 class="comment-name by-author">{comentario.idAutor}</h6>
+                                                <span>{comentario.date.toString().substring(0,10)}</span>
                                                 <i class="fa fa-heart"></i>
                                             </div>
                                             <div class="comment-content">
-                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?
+                                                {comentario.text}
                                             </div>
                                         </div>
                                     </div>
-                                    {/**Respuestas de los comentarios */}
-                                    <ul class="comments-list reply-list">
-                                        <li>
-                                            {/**Avatar */} 
-                                            <div class="comment-avatar"><img src="http://i9.photobucket.com/albums/a88/creaticode/avatar_2_zps7de12f8b.jpg" alt=""/></div>
-                                            {/**Contenedor del Comentario */} 
-                                            <div class="comment-box">
-                                                <div class="comment-head">
-                                                    <h6 class="comment-name">{comentario.autor}</h6>
-                                                    <span>hace 10 minutos</span>
-                                                    <i class="fa fa-reply"></i>
-                                                    <i class="fa fa-heart"></i>
-                                                </div>
-                                                <div class="comment-content">
-                                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?
-                                                </div>
-                                            </div>
-                                        </li>
-
-                                        <li>
-                                            {/**Avatar */} 
-                                            <div class="comment-avatar"><img src="http://i9.photobucket.com/albums/a88/creaticode/avatar_1_zps8e1c80cd.jpg" alt=""/></div>
-                                            {/**Contenedor del Comentario */}
-                                            <div class="comment-box">
-                                                <div class="comment-head">
-                                                    <h6 class="comment-name by-author">{comentario.autor} </h6>
-                                                    <span>hace 10 minutos</span>
-                                                    <i class="fa fa-reply"></i>
-                                                    <i class="fa fa-heart"></i>
-                                                </div>
-                                                <div class="comment-content">
-                                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
                                 </li>
                             </ul>
                         </div>
                     );
                 })}
+                
+                <div id="addCommentForm">
+                    <form onSubmit={(e) => {
+                        const autor = idUsuarioRegistrado;
+                        const fecha_publicacion = new Date();
+                        const texto = document.getElementById('autor').value;
+
+                        if(texto !== ''){
+                            e.preventDefault();
+                            const comentario = [autor, fecha_publicacion, texto]
+                            userServices.addComment(comentario)
+                        }
+                    }}>
+    
+                        <br/>
+                        <h5>AÑADIR COMENTARIO</h5>
+                        <div>
+                            <TextField
+                                id="contenido"
+                                label="Añade un comentario..."
+                                multiline
+                            />
+                        </div>
+                        <br/>
+                        <div class='container' style={{ maxWidth: 150 }}>
+                            <button type="submit" class="btn btn-outline-primary">Confirmar</button>
+                        </div>
+                    </form>
+                        
+                </div>
             </div>
         </div>
         </>

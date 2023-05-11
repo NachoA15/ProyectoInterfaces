@@ -358,7 +358,7 @@ app.get("/getChats", (req,res) => {
  */
 
 app.get("/comentarios", (req,res) => {
-	dbQuery("SELECT c.id 'idComentario', c.autor 'idAutor', c.fecha_publicacion, c.texto FROM COMENTARIO c;", req, res);
+	dbQuery("SELECT c.id 'idComentario', c.autor 'idAutor', c.fecha_publicacion 'date', c.texto 'text' FROM COMENTARIO c;", req, res);
 })
 
 
