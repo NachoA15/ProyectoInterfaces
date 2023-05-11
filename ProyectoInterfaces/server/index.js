@@ -173,20 +173,20 @@ app.post('/addProduct', (req, res) => {
     let vendedor = req.body.vendedor;
     let imagen = req.body.imagen;
 
-        db.query('INSERT INTO ANUNCIO (fecha_subida, reservado, nombre, precio, descripcion, vendedor, imagen) VALUES (?,?,?,?,?,?,?);', [fecha_subida.toString().substring(0,10),reservado,nombre,precio,descripcion,vendedor,imagen], (err,a,f) => {
-            if (err) {
-                if (err.sqlMessage.endsWith("for key 'usuario.username'")) {
-                    res.send('duplicated_username');
-                } else if (err.sqlMessage.endsWith("for key 'usuario.correo'")) {
-                    res.send('duplicated_correo');
-                }
-                console.log(err.sqlMessage);
-            }
-            else {
-                console.log('Anuncio ' + nombre + ' insertado exitosamente')
-                res.send('OK');
-            };
-        })
+	db.query('INSERT INTO ANUNCIO (fecha_subida, reservado, nombre, precio, descripcion, vendedor, imagen) VALUES (?,?,?,?,?,?,?);', [fecha_subida.toString().substring(0,10),reservado,nombre,precio,descripcion,vendedor,imagen], (err,a,f) => {
+		if (err) {
+			if (err.sqlMessage.endsWith("for key 'usuario.username'")) {
+				res.send('duplicated_username');
+			} else if (err.sqlMessage.endsWith("for key 'usuario.correo'")) {
+				res.send('duplicated_correo');
+			}
+			console.log(err.sqlMessage);
+		}
+		else {
+			console.log('Anuncio ' + nombre + ' insertado exitosamente')
+			res.send('OK');
+		};
+	})
 })
 
 app.post("/addToFavoritos", (req, res) => {
@@ -359,6 +359,17 @@ app.get("/getChats", (req,res) => {
 
 app.get("/comentarios", (req,res) => {
 	dbQuery("SELECT c.id 'idComentario', c.autor 'idAutor', c.fecha_publicacion 'date', c.texto 'text' FROM COMENTARIO c;", req, res);
+})
+
+app.post("/addComment", (req,res) => {
+	let autor = req.body.autor;
+	let fecha_publicacion = req.body.fecha_publicacion;
+	let texto = req.body.texto;
+	
+	db.query('INSERT INTO COMENTARIO (autor, fecha_publicacion, texto) VALUES (?,?,?);', [autor, fecha_publicacion, texto], (err,a,f) =>{
+		console.log("Comentario de " + autor + " añadido correctamente");
+		res.send('OK');
+	})
 })
 
 

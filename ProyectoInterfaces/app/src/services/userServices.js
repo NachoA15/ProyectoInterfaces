@@ -136,6 +136,14 @@ const addComment = (comentario) =>{
         autor: comentario[0],
         fecha_publicacion: comentario[1],
         texto: comentario[2]
+    }).then((u) => {
+        swal({
+            title:"Comentario añadido correctamente",
+            icon: 'success',
+        }).then(() => {
+            //ReactSession.set("username", u.data[0].username)
+            //appServices.moveToProducts();
+        })
     })
 }
 
