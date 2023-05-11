@@ -366,11 +366,13 @@ app.post("/addComment", (req,res) => {
 	let fecha_publicacion = req.body.fecha_publicacion;
 	let texto = req.body.texto;
 	
-	db.query('INSERT INTO COMENTARIO (autor, fecha_publicacion, texto) VALUES (?,?,?);', [autor, fecha_publicacion, texto], (err,a,f) =>{
-		console.log("Comentario de " + autor + " añadido correctamente");
-		res.send('OK');
+	db.query('INSERT INTO COMENTARIO (autor, fecha_publicacion, texto) VALUES (?,?,?);', [autor,fecha_publicacion.toString().substring(0,10),texto], (err,a,f) =>{
+		if(err){
+			console.log(err.sqlMessage);
+		}else{
+			console.log("Comentario de " + autor + " añadido correctamente");
+			res.send('OK');
+		}
 	})
 })
-
-
 
