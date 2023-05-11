@@ -242,7 +242,7 @@ app.post("/saveChat", (req,res) => {
 	let id = req.body.user;
 	let user;
 
-	console.log(id);
+	//console.log(id);
 	db.query("SELECT * FROM USUARIO WHERE id ="+id+";", (error, results) => {
 		if (error) throw error;
 		user = results;
@@ -292,10 +292,10 @@ app.get("/getMessages", (req, res) => {
 			}else{
 				const messages = data.split("\n"); 
 				
-				console.log(messages);
+				//console.log(messages);
 
 				messages.forEach((linea, index) => {
-					console.log(`Linea ${index+1}: ${linea}`)
+					//console.log(`Linea ${index+1}: ${linea}`)
 				})
 				res.send(messages);
 			}

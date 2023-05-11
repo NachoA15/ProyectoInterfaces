@@ -7,6 +7,7 @@ import { ReactSession } from "react-client-session";
 
 export default function Anuncio({anuncio, anuncios, setAnuncios, idUsuarioRegistrado, favoritos, setFavoritos}) {
     let myId = ReactSession.get("id");
+    const sound = new Audio('/src/assets/audios/favorito.mp3');
 
     const procesarFavoritos = (idUsuario, idAnuncio) => {
         let element = document.getElementById(idAnuncio);
@@ -17,6 +18,8 @@ export default function Anuncio({anuncio, anuncios, setAnuncios, idUsuarioRegist
             element.classList.add("fa-solid");
             element.classList.add("fav-icon");
             anunciosServices.addToFavoritos(idUsuario, idAnuncio);
+            sound.play();
+            
         } else{
             element.classList.remove("fa-heart");
             element.classList.remove("fa-solid");
@@ -24,6 +27,7 @@ export default function Anuncio({anuncio, anuncios, setAnuncios, idUsuarioRegist
             element.classList.add("fa-heart-o");
             anunciosServices.deleteFavorito(idUsuario, idAnuncio);
             setFavoritos(favoritos.filter((anuncio) => anuncio.idAnuncio !== idAnuncio));
+            sound.play();
         }
     }
 
@@ -65,7 +69,7 @@ export default function Anuncio({anuncio, anuncios, setAnuncios, idUsuarioRegist
 
     return(
         <>
-        <div className='card anuncio'>
+        <div className='card anuncio' tabIndex="0" aria-label={anuncio.nombre}>
             <div className='card-header anuncio-header' tabIndex="0">
                 Subido por 
                 {idUsuarioRegistrado === anuncio.idUsuario?

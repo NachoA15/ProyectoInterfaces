@@ -15,7 +15,8 @@ export default function Chat() {
     let idProduct = params.id;
     let myId = ReactSession.get("id");
     let otroId = params.idC
-    console.log(myId);
+    const sound = new Audio('/src/assets/audios/mensaje.mp3');
+    //console.log(myId);
 
     
     const fetchData = async () => {
@@ -23,7 +24,7 @@ export default function Chat() {
             const response = await axios.post('http://127.0.0.1:3001/getAnuncioById', {
                 anuncio: idProduct
             });
-            console.log('RESPUESTA: ' + response.data);
+            //console.log('RESPUESTA: ' + response.data);
             setAnuncio(response.data);
         } catch (error) {
             console.error(error);
@@ -36,7 +37,7 @@ export default function Chat() {
     
     useEffect(() => {
         if (anuncio.length > 0) {
-            console.log(anuncio);
+            //console.log(anuncio);
             if(myId === otroId){
                 if (myId < anuncio[0].vendedor) {
                     setRutaArchivo("" + myId+"-" + anuncio[0].vendedor+"-" + anuncio[0].idAnuncio + "");
@@ -53,7 +54,7 @@ export default function Chat() {
         }
     }, [anuncio]);
 
-    console.log(rutaArchivo);
+    //console.log(rutaArchivo);
     
     useEffect(() => {
         const fetchData = async () => {
@@ -77,7 +78,6 @@ export default function Chat() {
             clearInterval(intervalId);
         };
     }, [rutaArchivo]);
-    
 
     return(
         <>
@@ -89,6 +89,7 @@ export default function Chat() {
         <div id='sentMessageForm'>
             <form onSubmit={(e) => {
                 const message = document.getElementById('mensaje').value;
+                sound.play();
                 axios.post("http://127.0.0.1:3001/saveChat", {
                     message: message,
                     user: myId,
