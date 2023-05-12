@@ -23,6 +23,7 @@
     color: #3f3f3f;
     outline: none;
     transition: .5s;
+    background-color: rgb(231, 231, 231);
 }
 
 .box:hover input{

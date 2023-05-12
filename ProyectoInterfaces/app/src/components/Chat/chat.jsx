@@ -41,7 +41,7 @@ export default function Chat() {
         if (anuncio.length === 0){
             return <></>;
         }else{
-            return (<h6 class="m-b-0">{anuncio[0].nombre +" "+ anuncio[0].precio +"€" + " - " + anuncio[0].username}</h6>);
+            return (<h6 class="m-b-0">{anuncio[0].nombre} ({anuncio[0].precio}€) - <a href={'/profile/' + anuncio[0].username}>{anuncio[0].username}</a></h6>);
         }
     }
     

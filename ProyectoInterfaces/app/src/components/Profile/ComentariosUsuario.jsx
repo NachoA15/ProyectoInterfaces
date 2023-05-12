@@ -21,22 +21,22 @@ export default function ComentariosUsuario({idUsuario}) {
                 {comentarios.map((comentario) => {
                     return(
                         <div className="placement-comentarios">
-                            <ul id="comments-list" class="comments-list">
+                            <ul id="comments-list" className="comments-list">
                                 <li>
-                                    <div class="comment-main-level">
+                                    <div className="comment-main-level">
                                         
                                         {/**Avatar 
                                          * 
                                         <div class="comment-avatar"><img src="http://i9.photobucket.com/albums/a88/creaticode/avatar_1_zps8e1c80cd.jpg" alt="" sizes="small"/></div>
                                         */}
                                         {/**Contenedor del Comentario */}  
-                                        <div class="comment-box">
-                                            <div class="comment-head">
-                                                <h6 class="comment-name by-author">{comentario.idAutor}</h6>
+                                        <div className="comment-box">
+                                            <div className="comment-head">
+                                                <h6 className="comment-name by-author">{comentario.idAutor}</h6>
                                                 <span>{comentario.date.toString().substring(0,10)}</span>
-                                                <i class="fa fa-heart"></i>
+                                                <i className="fa fa-heart"></i>
                                             </div>
-                                            <div class="comment-content">
+                                            <div className="comment-content">
                                                 {comentario.text}
                                             </div>
                                         </div>
@@ -70,8 +70,8 @@ export default function ComentariosUsuario({idUsuario}) {
                             />
                         </div>
                         <br/>
-                        <div class='container' style={{ maxWidth: 150 }}>
-                            <button type="submit" class="btn btn-outline-primary">Confirmar</button>
+                        <div className='container' style={{ maxWidth: 150 }}>
+                            <button type="submit" className="btn btn-outline-primary">Confirmar</button>
                         </div>
                     </form>
                         

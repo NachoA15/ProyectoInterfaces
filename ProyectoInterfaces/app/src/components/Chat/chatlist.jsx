@@ -70,7 +70,7 @@ export default function ChatList(){
         <>
 
 <       div id='chatNav'>
-            <NavBar />
+            <NavBar ubicacion={'Mis chats'}/>
         </div>
         <div className="container-fluid full-screen">
         </div>
