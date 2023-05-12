@@ -43,6 +43,11 @@ app.post('/getUsuarioByUsername', (req, res) => {
 	dbQuery("SELECT * FROM USUARIO WHERE username = '" + username + "';",req, res);
 })
 
+app.post('/getUsuarioById', (req, res) => {
+	let id = req.body.id;
+	dbQuery("SELECT * FROM USUARIO WHERE id = '" + id + "';",req, res);
+})
+
 app.post('/addUsuario', (req, res) => {
 	let username = req.body.username;
 	let password = req.body.password;
@@ -335,7 +340,7 @@ app.get("/getChats", (req,res) => {
 	  return new Promise((resolve, reject) => {
 		db.query("SELECT a.id, a.nombre, a.precio, u.username, a.vendedor FROM ANUNCIO a JOIN USUARIO u ON (a.vendedor = u.id) WHERE a.id = " + producto.id, (error, results) => {
 		  if (error) reject(error);
-		  else resolve({producto: results, otroId: producto.otroId});
+		  else resolve({producto: results, otroId: producto.otroId, otroUsername: pro});
 		});
 	  });
 	});
