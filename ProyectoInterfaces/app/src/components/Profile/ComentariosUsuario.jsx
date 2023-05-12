@@ -51,12 +51,12 @@ export default function ComentariosUsuario({idUsuario}) {
                     <form onSubmit={(e) => {
                         const autor = idUsuarioRegistrado;
                         const fecha_publicacion = new Date();
-                        const texto = document.getElementById('autor').value;
+                        const texto = document.getElementById('contenido').value;
 
                         if(texto !== ''){
                             e.preventDefault();
-                            const comentario = [autor, fecha_publicacion, texto]
-                            userServices.addComment(comentario)
+                            const comentario = [autor, fecha_publicacion, texto];
+                            userServices.addComment(comentario);
                         }
                     }}>
     

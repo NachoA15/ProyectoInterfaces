@@ -32,8 +32,8 @@ export default function addProduct() {
 
                 if(nombre !== '' && precio !== ''){
                   e.preventDefault();
-                  const anuncio = [fecha_subida, reservado, nombre, precio, descripcion, vendedor, imagen]
-                  anunciosServices.addProduct(anuncio)
+                  const anuncio = [fecha_subida, reservado, nombre, precio, descripcion, vendedor, imagen];
+                  anunciosServices.addProduct(anuncio);
                 }
 
               }}>
