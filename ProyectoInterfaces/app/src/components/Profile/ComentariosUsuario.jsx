@@ -67,6 +67,7 @@ export default function ComentariosUsuario({idUsuario}) {
                                 id="contenido"
                                 label="Añade un comentario..."
                                 multiline
+                                fullWidth
                             />
                         </div>
                         <br/>
