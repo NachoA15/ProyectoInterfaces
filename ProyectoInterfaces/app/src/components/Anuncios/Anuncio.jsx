@@ -97,7 +97,7 @@ export default function Anuncio({anuncio, anuncios, setAnuncios, idUsuarioRegist
                     <p className='precio-anuncio' tabIndex="0"><b>{anuncio.precio} €</b></p> <span style={{float: 'right'}} tabIndex="0">{anuncio.fecha_subida.toString().substring(0,10)}</span>
                 </div>
             </div>
-            <div className='card-body prueba'>
+            <div className='card-body' style={{width: '100%'}}>
                 <br/>
                 {idUsuarioRegistrado === anuncio.idUsuario?
                 <button className='button-anuncio elimina' onClick={() => {procesarBorradoAnuncio(anuncio)}}>Eliminar</button>

@@ -44,6 +44,7 @@ div.anuncio {
 
 div.anuncio-header {
 	background-color: rgb(227, 227, 227);
+	width: 100%;
 }
 
 div.anuncio-thumbnail {

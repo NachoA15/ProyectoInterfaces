@@ -34,10 +34,20 @@ export default function Chat() {
     useEffect(() => {
         fetchData();
     }, []);
+
+    console.log(anuncio);
+
+    function mostrarDatos(){
+        if (anuncio.length === 0){
+            return <></>;
+        }else{
+            return (<h6 class="m-b-0">{anuncio[0].nombre} ({anuncio[0].precio}€) - <a href={'/profile/' + anuncio[0].username}>{anuncio[0].username}</a></h6>);
+        }
+    }
     
     useEffect(() => {
         if (anuncio.length > 0) {
-            //console.log(anuncio);
+            console.log(anuncio);
             if(myId === otroId){
                 if (myId < anuncio[0].vendedor) {
                     setRutaArchivo("" + myId+"-" + anuncio[0].vendedor+"-" + anuncio[0].idAnuncio + "");
@@ -115,9 +125,9 @@ export default function Chat() {
                                             
                                         </a>
                                         <div class="chat-about" aria-hidden="true">
-                                            {() => {
-                                                return(<h6 class="m-b-0">{anuncio[0].nombre +" "+ anuncio[0].precio +"€" + " - " + anuncio[0].username}</h6>)
-                                            }}
+                        
+                                           {mostrarDatos()}
+                                            
                                         </div>
                                     </div>
                                     

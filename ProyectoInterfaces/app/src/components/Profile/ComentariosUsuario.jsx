@@ -3,7 +3,6 @@ import userServices from "../../services/userServices";
 import "../../assets/css/Comentarios.css"
 import { TextField } from "@mui/material";
 import {ReactSession} from "react-client-session";
-import { alignProperty } from "@mui/material/styles/cssUtils";
 
 export default function ComentariosUsuario({usuario}) {
     
@@ -22,11 +21,11 @@ export default function ComentariosUsuario({usuario}) {
                 {comentarios.map((comentario) => {
                     return(
                         <div className="placement-comentarios">
-                            <ul id="comments-list" class="comments-list">
+                            <ul id="comments-list" className="comments-list">
                                 <li>
-                                    <div class="comment-box">
-                                        <div class="comment-head">
-                                            <h6 class="comment-name by-author">{comentario.username}</h6>
+                                    <div className="comment-box">
+                                        <div className="comment-head">
+                                            <h6 className="comment-name by-author">{comentario.username}</h6>
                                             <span>{comentario.date.toString().substring(0,10)}</span>
                                             <i class="fa fa-heart"></i>
                                         </div>
@@ -62,11 +61,12 @@ export default function ComentariosUsuario({usuario}) {
                                     id="contenido"
                                     label="Añade un comentario..."
                                     multiline
+                                    fullWidth
                                 />
                             </div>
                             <br/>
-                            <div class='comment-container' style={{ maxWidth: 150, alignItems: "left"}}>
-                                <button type="submit" class="btn btn-outline-primary">Confirmar</button>
+                            <div className='comment-container' style={{ maxWidth: 150, alignItems: "left"}}>
+                                <button type="submit" className="btn btn-outline-primary">Confirmar</button>
                             </div>
                         </form>
                     </div>

@@ -9,8 +9,20 @@ import NavBar from '../NavBar';
 export default function ChatList(){
 
     const [anuncios, setAnuncios] = useState([]);
+    const [usuarios, setUsuarios] = useState([]);
 
     let myId = ReactSession.get("id");
+
+    const fetchDataUser = async () => {
+        try{
+            const response = await axios.get('http://127.0.0.1:3001/usuarios');
+            setUsuarios(response.data);
+        } catch(error) {
+            console.error(error);
+        }
+    };
+    console.log(usuarios);
+    
 
     const fetchData = async () => {
         try{
@@ -27,14 +39,38 @@ export default function ChatList(){
     console.log(anuncios);
 
     useEffect(() => {
+        fetchDataUser();
         fetchData();
+  
     }, []);
+
+    function mostrarUsuario() {
+        if (usuarios.length === 0 || anuncios.length === 0) {
+          return null;
+        } else {
+          let cont = 0;
+          let find = false;
+          while (!find && cont < usuarios.length) {
+            console.log(usuarios);
+            if (usuarios[cont].id === anuncios.otroId) {
+              console.log(usuarios[cont].id);
+              find = true;
+              return (
+                <span className="job-font" tabIndex="0">
+                  Usuario: {usuarios[cont].username + " "}
+                </span>
+              );
+            }
+            cont++;
+          }
+        }
+      }
 
     return(
         <>
 
 <       div id='chatNav'>
-            <NavBar />
+            <NavBar ubicacion={'Mis chats'}/>
         </div>
         <div className="container-fluid full-screen">
         </div>
@@ -55,10 +91,35 @@ export default function ChatList(){
                                 <a href={"/chat/" + (anuncio.producto[0].vendedor === myId ? anuncio.otroId :myId) + "/" + anuncio.producto[0].id}>
                                 <div class="card" key={key}>
                                 <div class="perfil">
-                                    <div class="perfil-info">
-                                    <span class="job-font" tabIndex="0">Usuario: {anuncio.producto[0].username + " "}</span>
-                                    <span class="name-font" tabIndex="0">Anuncio: {anuncio.producto[0].nombre + " " + anuncio.producto[0].precio + "€"} </span>
-                                    </div>
+                                <div class="perfil-info">
+                                {
+                                    (usuarios.length === 0) ? null : (
+                                    <>
+                                        {
+                                        (() => {
+                                            let cont = 0;
+                                            let find = false;
+                                            while (cont < usuarios.length) {
+                                            console.log(usuarios);
+                                            console.log(usuarios[cont].id);
+                                            console.log(anuncio.otroId);
+                                            if (usuarios[cont].id === anuncio.otroId) {
+                                                console.log(usuarios[cont].id);
+                                                return (
+                                                <span className="job-font" tabIndex="0">
+                                                    Usuario: {usuarios[cont].username + " "}
+                                                </span>
+                                                );
+                                            }
+                                            cont++;
+                                            }
+                                        })()
+                                        }
+                                    </>
+                                    )
+                                }
+                                <span class="name-font" tabIndex="0">Anuncio: {anuncio.producto[0].nombre + " " + anuncio.producto[0].precio + "€"} </span>
+                                </div>
                                 </div>
                                 </div>
                                 </a>

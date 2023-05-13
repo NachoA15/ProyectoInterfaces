@@ -7,7 +7,7 @@ export default function ProfileView({usuarioPerfil, usuarioRegistrado, setEditan
 
     return(
         <>      
-        <div className='profile-placement full-screen'>
+        <div className='profile-placement'>
             <div className="row py-5 px-4"> 
                 <div className="col mx-auto">
                     <div className="bg-white shadow rounded overflow-hidden"> 

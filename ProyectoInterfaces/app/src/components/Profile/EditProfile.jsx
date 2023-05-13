@@ -30,14 +30,16 @@ export default function EditProfile({usuarioPerfil, setEditando}) {
             <form onSubmit={(e) => {
             e.preventDefault();
             const username = document.getElementById('usuario').value;
-            const imagen = document.getElementById('imagen').value;
+            let imagen = document.getElementById('imagen').value;
             const nombre = document.getElementById('nombre').value;
             const localizacion = document.getElementById('localizacion').value;
             const email = document.getElementById('email').value;
             const telefono = document.getElementById('telefono').value;
             const descripcion = document.getElementById('descripcion').value;
-            
-            
+
+            if (imagen === null || imagen === undefined || imagen === '' || imagen === ' ') {
+                imagen = 'https://static.vecteezy.com/system/resources/previews/009/267/561/non_2x/user-icon-design-free-png.png';
+            }
             
             userServices.updateUsuario(usuarioPerfil.id, username, imagen, nombre, localizacion, email, telefono, descripcion);
             }}>

@@ -11,6 +11,7 @@
   "dependencies": {
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
+    "@massimo-cassandro/modal-alert": "^1.0.7",
     "@mui/material": "^5.11.12",
     "@sweetalert/with-react": "^0.1.1",
     "axios": "^0.24.0",

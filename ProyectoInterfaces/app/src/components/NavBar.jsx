@@ -2,7 +2,8 @@ import React from "react";
 import { useState } from "react";
 import { ReactSession } from "react-client-session";
 import appServices from "../services/appServices";
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
+//import mAlert from '@massimo-cassandro/modal-alert';
 
 export default function NavBar({ubicacion}) {
     
@@ -36,7 +37,6 @@ export default function NavBar({ubicacion}) {
                                         appServices.moveToMainPage();
                                     }
                                 })
-                                
                             }}>Cerrar sesión</a></li>
                         </ul>
                     </div>
