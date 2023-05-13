@@ -70,7 +70,7 @@ export default function ChatList(){
         <>
 
 <       div id='chatNav'>
-            <NavBar ubicacion={'Mis chats'}/>
+            <NavBar />
         </div>
         <div className="container-fluid full-screen">
         </div>
@@ -98,7 +98,6 @@ export default function ChatList(){
                                         {
                                         (() => {
                                             let cont = 0;
-                                            let find = false;
                                             while (cont < usuarios.length) {
                                             console.log(usuarios);
                                             console.log(usuarios[cont].id);

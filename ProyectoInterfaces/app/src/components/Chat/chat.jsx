@@ -44,6 +44,12 @@ export default function Chat() {
             return (<h6 class="m-b-0">{anuncio[0].nombre} ({anuncio[0].precio}€) - <a href={'/profile/' + anuncio[0].username}>{anuncio[0].username}</a></h6>);
         }
     }
+
+    function mostrarIdVendedor(){
+        if (anuncio.length !== 0){
+            return anuncio[0].vendedor;
+        }
+    }
     
     useEffect(() => {
         if (anuncio.length > 0) {
@@ -56,7 +62,7 @@ export default function Chat() {
                 }
             }else{
                 if (otroId < anuncio[0].vendedor) {
-                    setRutaArchivo("" + myId+"-" + anuncio[0].vendedor+"-" + anuncio[0].idAnuncio + "");
+                    setRutaArchivo("" + otroId+"-" + anuncio[0].vendedor+"-" + anuncio[0].idAnuncio + "");
                 } else {
                     setRutaArchivo("" + anuncio[0].vendedor+"-" + otroId+"-" + anuncio[0].idAnuncio + "");
                 }
@@ -146,6 +152,7 @@ export default function Chat() {
                                                 <div class="message-data text-right">
                                                     
                                                 </div>
+                                                            {console.log(myId)}
                                                 <div class="message other-message float-right"> {message.replace(myId+":","")} </div>
                                             </li>
                                             </div>
@@ -156,7 +163,8 @@ export default function Chat() {
                                                         <li class="clearfix">
                                                         <div class="message-data">
                                                         </div>
-                                                        <div class="message my-message">{message.replace(otroId+":", "")}</div>                                    
+                                                        {console.log(mostrarIdVendedor())}
+                                                        <div class="message my-message">{message.replace(((myId==otroId) ? mostrarIdVendedor() : otroId)+":", "")}</div>                                    
                                                     </li> 
                                                     </div>
                                                     )
