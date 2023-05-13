@@ -65,6 +65,7 @@ export default function ChatList(){
           }
         }
       }
+      let idBueno = 0;
 
     return(
         <>
@@ -93,31 +94,25 @@ export default function ChatList(){
                                 <div class="perfil">
                                 <div class="perfil-info">
                                 {
+                                    
                                     (usuarios.length === 0) ? null : (
                                     <>
                                         {
-                                        (() => {
-                                            let cont = 0;
-                                            while (cont < usuarios.length) {
-                                            console.log(usuarios);
-                                            console.log(usuarios[cont].id);
-                                            console.log(anuncio.otroId);
-                                            if (usuarios[cont].id === anuncio.otroId) {
-                                                console.log(usuarios[cont].id);
-                                                return (
-                                                <span className="job-font" tabIndex="0">
-                                                    Usuario: {usuarios[cont].username + " "}
-                                                </span>
-                                                );
+                                        usuarios.forEach((usuario, key) => {
+                                            console.log(usuario.id);
+                                            if(usuario.id == anuncio.otroId){
+                                                console.log("entra aqui");
+                                                idBueno = usuario.username;
                                             }
-                                            cont++;
-                                            }
-                                        })()
+                                        })
                                         }
                                     </>
                                     )
                                 }
                                 <span class="name-font" tabIndex="0">Anuncio: {anuncio.producto[0].nombre + " " + anuncio.producto[0].precio + "€"} </span>
+                                <span className="job-font" tabIndex="0">
+                                Usuario: {idBueno+ " "}
+                                </span>
                                 </div>
                                 </div>
                                 </div>
