@@ -3,15 +3,16 @@ import userServices from "../../services/userServices";
 import "../../assets/css/Comentarios.css"
 import { TextField } from "@mui/material";
 import {ReactSession} from "react-client-session";
+import { alignProperty } from "@mui/material/styles/cssUtils";
 
-export default function ComentariosUsuario({idUsuario}) {
+export default function ComentariosUsuario({usuario}) {
     
-    const [comentarios, setComentarios] = useState([]);
-
     const idUsuarioRegistrado = ReactSession.get("id");
 
+    const [comentarios, setComentarios] = useState([]);
+
     useEffect(() => {
-        userServices.getComentarios(setComentarios);
+        userServices.getComentariosByUser(usuario.id, setComentarios);
     }, []);
 
     return(
@@ -23,22 +24,14 @@ export default function ComentariosUsuario({idUsuario}) {
                         <div className="placement-comentarios">
                             <ul id="comments-list" class="comments-list">
                                 <li>
-                                    <div class="comment-main-level">
-                                        
-                                        {/**Avatar 
-                                         * 
-                                        <div class="comment-avatar"><img src="http://i9.photobucket.com/albums/a88/creaticode/avatar_1_zps8e1c80cd.jpg" alt="" sizes="small"/></div>
-                                        */}
-                                        {/**Contenedor del Comentario */}  
-                                        <div class="comment-box">
-                                            <div class="comment-head">
-                                                <h6 class="comment-name by-author">{comentario.idAutor}</h6>
-                                                <span>{comentario.date.toString().substring(0,10)}</span>
-                                                <i class="fa fa-heart"></i>
-                                            </div>
-                                            <div class="comment-content">
-                                                {comentario.text}
-                                            </div>
+                                    <div class="comment-box">
+                                        <div class="comment-head">
+                                            <h6 class="comment-name by-author">{comentario.username}</h6>
+                                            <span>{comentario.date.toString().substring(0,10)}</span>
+                                            <i class="fa fa-heart"></i>
+                                        </div>
+                                        <div class="comment-content">
+                                            {comentario.text}
                                         </div>
                                     </div>
                                 </li>
@@ -47,35 +40,37 @@ export default function ComentariosUsuario({idUsuario}) {
                     );
                 })}
                 
-                <div id="addCommentForm">
-                    <form onSubmit={(e) => {
-                        const autor = idUsuarioRegistrado;
-                        const fecha_publicacion = new Date();
-                        const texto = document.getElementById('contenido').value;
+                {usuario.id !== idUsuarioRegistrado &&
+                    <div id="addCommentForm">
+                        <form onSubmit={(e) => {
+                            const idUsuario = usuario.id;
+                            const autor = idUsuarioRegistrado;
+                            const fecha_publicacion = new Date();
+                            const texto = document.getElementById('contenido').value;
+                            const username = usuario.username;
 
-                        if(texto !== ''){
-                            e.preventDefault();
-                            const comentario = [autor, fecha_publicacion, texto];
-                            userServices.addComment(comentario);
-                        }
-                    }}>
-    
-                        <br/>
-                        <h5>AÑADIR COMENTARIO</h5>
-                        <div>
-                            <TextField
-                                id="contenido"
-                                label="Añade un comentario..."
-                                multiline
-                            />
-                        </div>
-                        <br/>
-                        <div class='container' style={{ maxWidth: 150 }}>
-                            <button type="submit" class="btn btn-outline-primary">Confirmar</button>
-                        </div>
-                    </form>
-                        
-                </div>
+                            if(texto !== ''){
+                                e.preventDefault();
+                                const comentario = [idUsuario, autor, fecha_publicacion, texto, username];
+                                userServices.addComment(comentario);
+                            }
+                        }}>
+        
+                            <br/>
+                            <div style={{width: 800}}>
+                                <TextField
+                                    id="contenido"
+                                    label="Añade un comentario..."
+                                    multiline
+                                />
+                            </div>
+                            <br/>
+                            <div class='comment-container' style={{ maxWidth: 150, alignItems: "left"}}>
+                                <button type="submit" class="btn btn-outline-primary">Confirmar</button>
+                            </div>
+                        </form>
+                    </div>
+                }
             </div>
         </div>
         </>

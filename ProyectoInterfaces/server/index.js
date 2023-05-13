@@ -358,15 +358,21 @@ app.get("/getChats", (req,res) => {
  */
 
 app.get("/comentarios", (req,res) => {
-	dbQuery("SELECT c.id 'idComentario', c.autor 'idAutor', c.fecha_publicacion 'date', c.texto 'text' FROM COMENTARIO c;", req, res);
+	dbQuery("SELECT c.id 'idComentario', c.autor 'idAutor', c.fecha_publicacion 'date', c.texto 'text', u.username FROM COMENTARIO c JOIN USUARIO u on (c.autor = u.id);", req, res);
+})
+
+app.post("/getComentariosByUser", (req,res) => {
+	let usuario = req.body.user;
+	dbQuery("SELECT c.usuario 'idUsuario', c.autor 'idAutor', c.fecha_publicacion 'date', c.texto 'text', u.username FROM COMENTARIO c JOIN USUARIO u ON (c.autor = u.id) WHERE c.usuario = '" + usuario + "'; ", req, res);
 })
 
 app.post("/addComment", (req,res) => {
+	let usuario = req.body.usuario;
 	let autor = req.body.autor;
 	let fecha_publicacion = req.body.fecha_publicacion;
 	let texto = req.body.texto;
 	
-	db.query('INSERT INTO COMENTARIO (autor, fecha_publicacion, texto) VALUES (?,?,?);', [autor,fecha_publicacion.toString().substring(0,10),texto], (err,a,f) =>{
+	db.query('INSERT INTO COMENTARIO (usuario, autor, fecha_publicacion, texto) VALUES (?,?,?,?);', [usuario, autor, fecha_publicacion.toString().substring(0,10), texto], (err,a,f) =>{
 		if(err){
 			console.log(err.sqlMessage);
 		}else{

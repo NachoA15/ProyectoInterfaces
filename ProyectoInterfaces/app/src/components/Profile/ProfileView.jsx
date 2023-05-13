@@ -61,7 +61,7 @@ export default function ProfileView({usuarioPerfil, usuarioRegistrado, setEditan
                         <div className='py-4 px-4'>
                             <h5 className="mb-0"> Comentarios</h5>
                             <div className='p-4 rounded shadow-sm bg-light'>
-                                {<ComentariosUsuario idUsuario={usuarioPerfil.id}/>}
+                                {usuarioPerfil.id !== undefined && <ComentariosUsuario usuario={usuarioPerfil}/>}
                             </div>
                         </div>
                     </div> 

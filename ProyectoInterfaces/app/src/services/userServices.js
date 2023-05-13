@@ -130,24 +130,7 @@ const getComentarios = (setComentarios) => {
     })
 }
 
-
-const addComment = (comentario) =>{
-    Axios.post("http://localhost:3001/addComment",{
-        autor: comentario[0],
-        fecha_publicacion: comentario[1],
-        texto: comentario[2]
-    }).then((u) => {
-        swal({
-            title:"Comentario añadido correctamente",
-            icon: 'success',
-        }).then(() => {
-            //ReactSession.set("username", u.data[0].username)
-            //appServices.moveToProducts();
-        })
-    })
-}
-
-const getComentariosByUser = (usuario) => {
+const getComentariosByUser = (usuario, setComentarios) => {
     Axios.post("http://127.0.0.1:3001/getComentariosByUser", {
         user: usuario
     }).then((res) => {
@@ -155,6 +138,23 @@ const getComentariosByUser = (usuario) => {
     })
 }
 
-const userServices = {addUsuario, checkUsuarioLogin, updateUsuario, getComentarios, addComment};
+const addComment = (comentario) =>{
+    Axios.post("http://localhost:3001/addComment",{
+        usuario: comentario[0],    
+        autor: comentario[1],
+        fecha_publicacion: comentario[2],
+        texto: comentario[3]
+    }).then(() => {
+        swal({
+            title:"Comentario añadido correctamente",
+            icon: 'success',
+        }).then(() => {
+            appServices.moveToProfile(comentario[4]);
+        })
+    })
+}
+
+
+const userServices = {addUsuario, checkUsuarioLogin, updateUsuario, getComentariosByUser, addComment};
 
 export default userServices;

@@ -25,41 +25,6 @@
 /**
 * Lineas / Detalles
 -----------------------*/
-.comments-list:before {
-   content: '';
-   width: 2px;
-   height: 100%;
-   background: #c7cacb;
-   position: absolute;
-   left: 32px;
-   top: 0;
-}
-
-.comments-list:after {
-   content: '';
-   position: absolute;
-   background: #c7cacb;
-   bottom: 0;
-   left: 27px;
-   width: 7px;
-   height: 7px;
-   border: 3px solid #dee1e3;
-   -webkit-border-radius: 50%;
-   -moz-border-radius: 50%;
-   border-radius: 50%;
-}
-
-.reply-list:before, .reply-list:after {display: none;}
-.reply-list li:before {
-   content: '';
-   width: 60px;
-   height: 2px;
-   background: #c7cacb;
-   position: absolute;
-   top: 25px;
-   left: -55px;
-}
-
 
 .comments-list li {
    margin-bottom: 15px;
@@ -75,47 +40,7 @@
    width: 0;
 }
 
-.reply-list {
-   padding-left: 88px;
-   clear: both;
-   margin-top: 15px;
-}
-/**
-* Avatar
----------------------------*/
-.comments-list .comment-avatar {
-   width: 65px;
-   height: 65px;
-   position: relative;
-   z-index: 99;
-   float: left;
-   border: 3px solid #FFF;
-   -webkit-border-radius: 4px;
-   -moz-border-radius: 4px;
-   border-radius: 4px;
-   -webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.2);
-   -moz-box-shadow: 0 1px 2px rgba(0,0,0,0.2);
-   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
-   overflow: hidden;
-}
 
-.comments-list .comment-avatar img {
-   width: 100%;
-   height: 100%;
-}
-
-.reply-list .comment-avatar {
-   width: 50px;
-   height: 50px;
-}
-
-.comment-main-level:after {
-   content: '';
-   width: 0;
-   height: 0;
-   display: block;
-   clear: both;
-}
 /**
 * Caja del Comentario
 ---------------------------*/
@@ -148,9 +73,6 @@
    left: -12px;
 }
 
-.reply-list .comment-box {
-   width: 610px;
-}
 .comment-box .comment-head {
    background: #FCFCFC;
    padding: 10px 12px;
