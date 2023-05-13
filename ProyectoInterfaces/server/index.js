@@ -340,7 +340,7 @@ app.get("/getChats", (req,res) => {
 	  return new Promise((resolve, reject) => {
 		db.query("SELECT a.id, a.nombre, a.precio, u.username, a.vendedor FROM ANUNCIO a JOIN USUARIO u ON (a.vendedor = u.id) WHERE a.id = " + producto.id, (error, results) => {
 		  if (error) reject(error);
-		  else resolve({producto: results, otroId: producto.otroId, otroUsername: pro});
+		  else resolve({producto: results, otroId: producto.otroId});
 		});
 	  });
 	});
