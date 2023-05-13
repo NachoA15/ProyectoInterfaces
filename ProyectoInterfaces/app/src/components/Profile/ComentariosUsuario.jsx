@@ -27,7 +27,6 @@ export default function ComentariosUsuario({usuario}) {
                                         <div className="comment-head">
                                             <h6 className="comment-name by-author">{comentario.username}</h6>
                                             <span>{comentario.date.toString().substring(0,10)}</span>
-                                            <i class="fa fa-heart"></i>
                                         </div>
                                         <div class="comment-content">
                                             {comentario.text}
