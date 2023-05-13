@@ -17,16 +17,18 @@ const addUsuario = (usuario) => {
             valoracion: undefined
         }).then((res) => {
             if (res.data === 'duplicated_username') {
-                swal({
-                    title: 'Nombre de usuario duplicado',
-                    text: 'Ya existe un usuario con el mismo nombre. Por favor, cámbielo e inténtelo de nuevo.',
+                Swal.fire({
                     icon: 'info',
+                    html:
+                    '<h3>Nombre de usuario duplicado</h3>' + 
+                    'Ya existe otro usuario con el mismo username. Por favor, cámbielo e inténtelo de nuevo.',
                 })
             } else if (res.data === 'duplicated_correo') {
-                swal({
-                    title: 'Correo duplicado',
-                    text: 'Ya existe un usuario con el mismo correo. Por favor, cámbielo e inténtelo de nuevo.',
+                Swal.fire({
                     icon: 'info',
+                    html:
+                    '<h3>Correo duplicado</h3>' + 
+                    'Ya existe otro usuario con el mismo correo. Por favor, cámbielo e inténtelo de nuevo.',
                 })
             } else {
                 swal({
@@ -57,10 +59,11 @@ const addUsuario = (usuario) => {
         })
 
     } else {
-        swal({
-            title: 'Upsss!!',
-            text: 'Las contraseñas no coinciden. Por favor, inténtelo de nuevo.',
-            icon: 'error'
+        Swal.fire({
+            icon: 'error',
+            html:
+            '<h3>Upsss!!</h3>' + 
+            'Las contraseñas no coinciden. Por favor, inténtelo de nuevo.',
         })
     }
 };
@@ -72,11 +75,14 @@ const checkUsuarioLogin = (username, password) => {
     }).then((u) => {
         console.log(u.data)
         if (u.data.length <= 0) {
-            swal({
-                title: 'El usuario no existe.',
-                text: 'El usuario introducido no se ha encontrado. Por favor, pruebe otra vez o cree una cuenta si no tiene una.',
-                icon: 'error'
-            })  
+            Swal.fire({
+                icon: 'error',
+                html:
+                '<h3>El usuario no existe</h3>' + 
+                'El usuario introducido no se ha encontrado. Por favor, pruebe otra vez o cree una cuenta si no tiene una.',
+                confirmButtonText: 'Vale',
+                confirmButtonColor: '#00afe9'   
+            })
         } else {
             ReactSession.set("username", u.data[0].username);
             ReactSession.set("id", u.data[0].id);
@@ -88,7 +94,7 @@ const checkUsuarioLogin = (username, password) => {
 
 const updateUsuario = (usuarioId, username, imagen, nombre, localizacion, email, telefono, descripcion) => {
 
-    if (imagen === null || imagen === undefined || imagen === '' || imagen === ' ') {
+    if (imagen === null || imagen === undefined || imagen === '' || String(imagen).startsWith(' ')) {
         imagen = 'https://static.vecteezy.com/system/resources/previews/009/267/561/non_2x/user-icon-design-free-png.png';
     }
 
@@ -153,7 +159,7 @@ const updateUsuario = (usuarioId, username, imagen, nombre, localizacion, email,
             icon: 'info',
             html:
             '<h3>No se puede editar el perfil.</h3>' + 
-            'La descripción no puede comenzar con un espacio. Por favor, cámbielo e inténtelo de nuevo.',
+            'La descripción no puede comenzar con un espacio. Por favor, cámbiela e inténtelo de nuevo.',
             confirmButtonColor: '#00afe9'
         })
     } else {

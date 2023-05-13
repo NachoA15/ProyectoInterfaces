@@ -16,6 +16,7 @@ import '../assets/css/index.css';
 import Favourites from './Favourites/Favourites.jsx';
 import MyProducts from './MyProducts/MyProducts.jsx';
 import ChatList from './Chat/chatlist.jsx';
+import Product from './ProductPage/Product.jsx';
 
 ReactSession.setStoreType("localStorage");
 
@@ -80,6 +81,10 @@ const router = createBrowserRouter([
   {
     path: '/myProducts',
     element: <MyProducts />
+  },
+  {
+    path: '/product/:idAnuncio',
+    element: <Product />
   }
 
 ])

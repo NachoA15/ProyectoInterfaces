@@ -19,6 +19,9 @@ export default function MyProducts() {
             <NavBar ubicacion={'Mis anuncios'}/>
         </div>
 
+        <br/>
+        <br/>
+
         <div className="container-fluid">
             {anuncios.length === 0? <MyProductsInfo /> : <ViewMyProducts anuncios={anuncios} setAnuncios={setAnuncios} idUsuarioRegistrado={idUsuarioRegistrado}/>}
         </div>

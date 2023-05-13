@@ -31,7 +31,7 @@ export default function Profile() {
     return(
         <>
         <div className='container-fluid'>
-            <NavBar ubicacion={'Mi perfil'}/>
+            <NavBar ubicacion={usuarioRegistrado === username? 'Mi perfil' : ''}/>
             {!editando? <ProfileView usuarioPerfil={usuarioPerfil} usuarioRegistrado={usuarioRegistrado} setEditando={setEditando} idUsuarioRegistrado={idUsuarioRegistrado}/> : <EditProfile usuarioPerfil={usuarioPerfil} setEditando={setEditando}/>}
         </div>
         </>

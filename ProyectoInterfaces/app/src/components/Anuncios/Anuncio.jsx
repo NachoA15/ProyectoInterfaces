@@ -1,7 +1,7 @@
 import React from "react";
 import anunciosServices from "../../services/anunciosServices";
 import appServices from "../../services/appServices";
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
 import { ReactSession } from "react-client-session";
 
 
@@ -40,33 +40,6 @@ export default function Anuncio({anuncio, anuncios, setAnuncios, idUsuarioRegist
         return i < favoritos.length;
     }
 
-    const procesarBorradoAnuncio = (anuncio) => {
-        Swal.fire({
-            icon: 'warning',
-            html:
-                '<h3>¿Está seguro de que quiere borrar el anuncio?</h3>' + 
-                'Va a borrar el anuncio "' + anuncio.nombre + '". Esta acción no se puede deshacer.',
-            width: 650,
-            showCancelButton: true,
-            showDenyButton: true,
-            showConfirmButton: false,
-            cancelButtonText: 'Cancelar',
-            denyButtonText: 'Eliminar'
-        }).then((result) => {
-            if (result.isDenied) {
-                setAnuncios(anuncios.filter((a) => a.idAnuncio !== anuncio.idAnuncio));
-                anunciosServices.deleteAnuncio(anuncio.idAnuncio);
-                Swal.fire({
-                    icon: 'success',
-                    html:
-                    '<h3>Anuncio eliminado con éxito.</h3>' + 
-                    'El anuncio "' + anuncio.nombre + '" se ha eliminado satisfactoriamente.',
-                    confirmButtonColor: '#00afe9'
-                });
-            }
-        })
-    }
-
     return(
         <>
         <div className='card anuncio' tabIndex="0" aria-label={anuncio.nombre}>
@@ -88,9 +61,10 @@ export default function Anuncio({anuncio, anuncios, setAnuncios, idUsuarioRegist
                         }} tabIndex="0"></i>}
                 </span>
             </div>
-            <div className='card-body anuncio-thumbnail'>
+            <div className='card-body anuncio-thumbnail' style={{width: '100%'}}>
                 <div className='placement-imagen'>
-                    <img src={anuncio.imagen} alt={anuncio.descripcion === null? anuncio.nombre : anuncio.nombre + '. Descripción, ' + anuncio.descripcion} tabIndex="0"/>
+                    <img src={anuncio.imagen} alt={anuncio.descripcion === null? anuncio.nombre + '. Este anuncio no tiene descripción.' : anuncio.nombre + '. Descripción: ' + anuncio.descripcion} 
+                    tabIndex="0" onClick={() => appServices.moveToProductPage(anuncio.idAnuncio)}/>
                 </div>
                 <div className='anuncio-info'>
                     <p className='nombre-anuncio' tabIndex="0">{anuncio.nombre}</p>
@@ -100,10 +74,10 @@ export default function Anuncio({anuncio, anuncios, setAnuncios, idUsuarioRegist
             <div className='card-body' style={{width: '100%'}}>
                 <br/>
                 {idUsuarioRegistrado === anuncio.idUsuario?
-                <button className='button-anuncio elimina' onClick={() => {procesarBorradoAnuncio(anuncio)}}>Eliminar</button>
+                <button className='button-anuncio elimina' onClick={() => {anunciosServices.processDeleteAnuncio(anuncio, anuncios, setAnuncios, 'products')}}>Eliminar</button>
                 :
                 <button className='button-anuncio contacta' onClick={() => appServices.openChat(anuncio.idAnuncio, myId)}>Contacta</button>}
-                <button className='button-anuncio info'>+ Info</button>
+                <button className='button-anuncio info' onClick={() => appServices.moveToProductPage(anuncio.idAnuncio)}>+ Info</button>
             </div>
         </div>
         </>
