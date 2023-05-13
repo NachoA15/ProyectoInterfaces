@@ -74,6 +74,33 @@ app.post('/addUsuario', (req, res) => {
 		})
 })
 
+app.post("/updateUsuario", (req, res) => {
+	let usuarioId = req.body.usuarioId;
+	let username = req.body.username;
+	let imagen = req.body.imagen;
+	let nombre = req.body.nombre;
+    let localizacion = req.body.localizacion;
+	let email = req.body.email;
+    let telefono = req.body.telefono; 
+    let descripcion = req.body.descripcion;
+
+	db.query("UPDATE USUARIO SET username = ?, imagen = ?, nombre = ?, localizacion = ?, correo = ?, telefono = ?, descripcion = ? WHERE id = ?;",
+	[username, imagen, nombre, localizacion, email, telefono, descripcion, usuarioId], (err, r, f) => {
+		if (err) {
+			if (err.sqlMessage.endsWith("for key 'usuario.username'")) {
+				res.send('duplicated_username');
+			} else if (err.sqlMessage.endsWith("for key 'usuario.correo'")) {
+				res.send('duplicated_correo');
+			}
+			console.log(err.sqlMessage);			
+		}
+		else {
+			console.log('Actualizado usuario ' + usuarioId + ' exitosamente')
+			res.send('OK')
+		}
+	})	
+})
+
 app.post("/getUsuario", (req, res) => {
 	let username = req.body.username;
 	let password = req.body.password;
@@ -85,43 +112,6 @@ app.post("/getUsuarioByUsername", (req, res) => {
 	let username = req.body.username;
 
 	dbQuery("SELECT * FROM USUARIO WHERE username = '" + username + "';", req, res);
-})
-
-app.post("/updateUsuario", (req, res) => {
-	let usuarioId = req.body.usuarioId;
-	let username = req.body.username;
-	let imagen = req.body.imagen;
-	let nombre = req.body.nombre;
-    let localizacion = req.body.localizacion;
-	let email = req.body.email;
-    let telefono = req.body.telefono; 
-    let descripcion = req.body.descripcion;
-
-	if(email === ""){
-		db.query("UPDATE USUARIO SET username = '" + username + "', imagen = '" + imagen + "', nombre = '" + nombre + "', localizacion = '" + localizacion + "', correo = NULL, telefono = '"
-		 + telefono + "', descripcion = '" + descripcion + "' WHERE id = " + usuarioId + ";", (err,a,f) => {
-		if (err) {
-			console.log(err.sqlMessage);
-		}
-		else {
-			console.log('Actualizado usuario ' + usuarioId + ' exitosamente')
-			res.send('OK');
-		};
-	})
-	}else{
-		db.query("UPDATE USUARIO SET username = '" + username + "', imagen = '" + imagen + "', nombre = '" + nombre + "', localizacion = '" + localizacion + "', correo = '" +
-	email + "', telefono = '" + telefono + "', descripcion = '" + descripcion + "' WHERE id = " + usuarioId + ";", (err,a,f) => {
-		if (err) {
-			console.log(err.sqlMessage);
-		}
-		else {
-			console.log('Actualizado usuario ' + usuarioId + ' exitosamente')
-			res.send('OK');
-		};
-	})
-	}
-
-	
 })
 
 /** =========================================================================

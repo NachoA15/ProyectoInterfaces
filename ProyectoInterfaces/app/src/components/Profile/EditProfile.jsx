@@ -4,6 +4,7 @@ import {TextField} from '@mui/material'
 import '../../assets/css/editProfile.css'
 import userServices from "../../services/userServices";
 import NavBar from "../NavBar";
+import Swal from "sweetalert2";
 
 export default function EditProfile({usuarioPerfil, setEditando}) {
 
@@ -35,13 +36,10 @@ export default function EditProfile({usuarioPerfil, setEditando}) {
             const localizacion = document.getElementById('localizacion').value;
             const email = document.getElementById('email').value;
             const telefono = document.getElementById('telefono').value;
-            const descripcion = document.getElementById('descripcion').value;
+            let descripcion = document.getElementById('descripcion').value;
 
-            if (imagen === null || imagen === undefined || imagen === '' || imagen === ' ') {
-                imagen = 'https://static.vecteezy.com/system/resources/previews/009/267/561/non_2x/user-icon-design-free-png.png';
-            }
-            
             userServices.updateUsuario(usuarioPerfil.id, username, imagen, nombre, localizacion, email, telefono, descripcion);
+            
             }}>
 
             <div className="container mt-4 mb-4 p-3 d-flex justify-content-center"> 
@@ -73,7 +71,7 @@ export default function EditProfile({usuarioPerfil, setEditando}) {
                             <span><TextField id="telefono" name="teléfono" label="Número de Teléfono" variant="standard" size="small" defaultValue={usuarioPerfil.telefono}/></span>
                         </div> 
                         <br/>
-                         <div class="col-md-8">
+                         <div className="col-md-8" style={{width: '100%'}}>
                             <div>
                               <TextField
                                 id='descripcion'
