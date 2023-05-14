@@ -28,12 +28,8 @@ export default function ProfileView({usuarioPerfil, usuarioRegistrado, setEditan
                         </div> 
                         
                         <div className="bg-light p-4 d-flex justify-content-end text-center"> 
-                            <ul className="list-inline mb-0"> 
-                                <li className="list-inline-item"> 
-                                    <h5 className="font-weight-bold mb-0 d-block" tabIndex="0">5</h5>
-                                    <small className="text-muted" tabIndex="0">Valoración</small> 
-                                </li> 
-                            </ul> 
+                            <br/>
+                            <br/>
                         </div> 
                         
                         { (usuarioPerfil.nombre !== null || usuarioPerfil.correo != null || usuarioPerfil.telefono !== null) &&
