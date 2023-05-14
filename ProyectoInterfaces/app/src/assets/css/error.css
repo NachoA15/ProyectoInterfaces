@@ -1,0 +1,9 @@
+img#error {
+    border-radius: 0px;
+    width: 100%;
+    cursor: default;
+}
+
+img#error:hover {
+    transform: none;
+}

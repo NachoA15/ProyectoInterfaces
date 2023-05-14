@@ -19,6 +19,14 @@ const getFavoritos = (idUsuario, setAnuncios) => {
     })
 }
 
+const getIdFavoritos = (idUsuario, setFavoritos) => {
+    Axios.post("http://127.0.0.1:3001/getIdFavoritos", {
+        user: idUsuario
+    }).then((res) => {
+        setFavoritos(res.data)
+    })
+}
+
 const addToFavoritos = (userId, anuncioId) => {
     Axios.post("http://localhost:3001/addToFavoritos", {
         user: userId,
@@ -152,6 +160,6 @@ const getAnuncioById = (idAnuncio, setAnuncio) => {
     })
 }
 
-const anunciosServices = {getAnuncios, getFavoritos, getAnunciosByUser, addToFavoritos, deleteFavorito, proccessAddingProduct, processDeleteAnuncio, deleteAnuncio, getAnuncioById}
+const anunciosServices = {getAnuncios, getFavoritos, getIdFavoritos, getAnunciosByUser, addToFavoritos, deleteFavorito, proccessAddingProduct, processDeleteAnuncio, deleteAnuncio, getAnuncioById}
 
 export default anunciosServices;

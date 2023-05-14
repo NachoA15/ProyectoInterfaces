@@ -23,11 +23,7 @@ export default function Products() {
     }, []);
 
     useEffect(() => {
-        Axios.post("http://127.0.0.1:3001/getIdFavoritos", {
-            user: idUsuarioRegistrado
-        }).then((res) => {
-            setFavoritos(res.data)
-        })
+        anunciosServices.getIdFavoritos(idUsuarioRegistrado, setFavoritos);
     }, []);
 
     let resultados = filtrando? filtro : anuncios;

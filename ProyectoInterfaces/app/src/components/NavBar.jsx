@@ -3,7 +3,6 @@ import { useState } from "react";
 import { ReactSession } from "react-client-session";
 import appServices from "../services/appServices";
 import Swal from 'sweetalert2';
-//import mAlert from '@massimo-cassandro/modal-alert';
 
 export default function NavBar({ubicacion}) {
     

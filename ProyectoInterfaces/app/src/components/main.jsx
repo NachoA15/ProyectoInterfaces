@@ -38,7 +38,7 @@ const router = createBrowserRouter([
   {
     path: '/products',
     element: <Products/>,
-    //errorElement: <ErrorPage />
+    errorElement: <ErrorPage />
   },
   {
     path: '/addProduct',
@@ -61,7 +61,7 @@ const router = createBrowserRouter([
   {
     path: '/chat/:idC/:id',
     element:<Chat/>,
-    //errorElement: <ErrorPage />
+    errorElement: <ErrorPage />
   },
   {
     path: '/favourites/:username',
@@ -71,15 +71,17 @@ const router = createBrowserRouter([
   {
     path: '/chatlist',
     element: <ChatList/>,
-    //errorElement: <ErrorPage/>
+    errorElement: <ErrorPage/>
   }, 
   {
     path: '/myProducts',
-    element: <MyProducts />
+    element: <MyProducts />,
+    errorElement: <ErrorPage/>
   },
   {
     path: '/product/:idAnuncio',
-    element: <Product />
+    element: <Product />,
+    //errorElement: <ErrorPage/>
   }
 
 ])

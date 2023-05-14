@@ -7,7 +7,7 @@ export default function ViewMyProducts({anuncios, setAnuncios, idUsuarioRegistra
         <div className="container-fluid full-screen">
             <div className="row">
                 <div className="col-md-12">
-                    <h2 tabindex="0"><b>Mis anuncios</b></h2>
+                    <h2 tabIndex="0"><b>Mis anuncios</b></h2>
                         <div className="item active">
                             <div className="row">
                                 {anuncios.map((anuncio, key) => {
