@@ -144,7 +144,32 @@ app.post("/deleteAnuncio", (req,res) => {
 			res.send('OK');
 		};
 	})
-})
+	function deleteFilesWithAnuncioId(anuncioId) {
+		const fs = require('fs');
+		const path = require('path');
+		const directory = '/logChats';
+		fs.readdir(directory, (err, files) => {
+			if (err) {
+			  console.log(err);
+			  return;
+			}
+		  
+			files.forEach(file => {
+			  if (file.includes(anuncioId) && file.endsWith('.txt')) {
+				const filePath = path.join(directory, file);
+				fs.unlink(filePath, (err) => {
+				  if (err) {
+					console.log(err);
+				  } else {
+					console.log('Deleted file: ' + filePath);
+				  }
+				});
+			  }
+			});
+		  });
+		}
+	deleteFilesWithAnuncioId(anuncioId);
+	});
 
 app.post("/deleteFromFavoritos", (req, res) => {
 	let anuncioId = req.body.anuncio;

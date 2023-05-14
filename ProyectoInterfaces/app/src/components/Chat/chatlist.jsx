@@ -88,7 +88,11 @@ export default function ChatList(){
                         <div class="right-card-body-container">
                             {anuncios.map((anuncio, key) => {
                                     console.log(anuncio.otroId)
-                                    return(
+                                   if(anuncio.producto.length === 0){
+                                    return(<></>);
+                                   }else{
+
+                                   return(
                                 <a href={"/chat/" + (anuncio.producto[0].vendedor === myId ? anuncio.otroId :myId) + "/" + anuncio.producto[0].id}>
                                 <div class="card" key={key}>
                                 <div class="perfil">
@@ -118,6 +122,7 @@ export default function ChatList(){
                                 </div>
                                 </a>
                                     )
+                            }
                                 })
                               
                             }
