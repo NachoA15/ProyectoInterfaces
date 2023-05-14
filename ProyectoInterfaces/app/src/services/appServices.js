@@ -22,6 +22,10 @@ const moveToProducts = () => {
     window.location.href = "/products"
 }
 
-const appServices = {moveToMainPage, moveToSignUp, moveToLogin, moveToProfile, openChat, moveToProducts}
+const moveToProductPage = (idAnuncio) => {
+    window.location.href = "/product/" + idAnuncio;
+}
+
+const appServices = {moveToMainPage, moveToSignUp, moveToLogin, moveToProfile, openChat, moveToProducts, moveToProductPage}
 
 export default appServices

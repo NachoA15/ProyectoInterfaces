@@ -24,6 +24,9 @@ export default function Favourites() {
         <div id='productsNav'>
             <NavBar ubicacion={'Favoritos'}/>
         </div>
+
+        <br/>
+        <br/>
         
         <div className="container-fluid">
             <div className='favoritos'>

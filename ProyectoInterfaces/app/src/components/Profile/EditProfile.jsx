@@ -29,17 +29,16 @@ export default function EditProfile({usuarioPerfil, setEditando}) {
             <h2><b>Editar perfil</b></h2>
 
             <form onSubmit={(e) => {
-            e.preventDefault();
-            const username = document.getElementById('usuario').value;
-            let imagen = document.getElementById('imagen').value;
-            const nombre = document.getElementById('nombre').value;
-            const localizacion = document.getElementById('localizacion').value;
-            const email = document.getElementById('email').value;
-            const telefono = document.getElementById('telefono').value;
-            let descripcion = document.getElementById('descripcion').value;
+                e.preventDefault();
+                const username = document.getElementById('usuario').value;
+                let imagen = document.getElementById('imagen').value;
+                const nombre = document.getElementById('nombre').value;
+                const localizacion = document.getElementById('localizacion').value;
+                const email = document.getElementById('email').value;
+                const telefono = document.getElementById('telefono').value;
+                let descripcion = document.getElementById('descripcion').value;
 
-            userServices.updateUsuario(usuarioPerfil.id, username, imagen, nombre, localizacion, email, telefono, descripcion);
-            
+                userServices.updateUsuario(usuarioPerfil.id, username, imagen, nombre, localizacion, email, telefono, descripcion);       
             }}>
 
             <div className="container mt-4 mb-4 p-3 d-flex justify-content-center"> 

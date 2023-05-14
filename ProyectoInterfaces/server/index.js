@@ -168,7 +168,9 @@ app.post('/addProduct', (req, res) => {
     let vendedor = req.body.vendedor;
     let imagen = req.body.imagen;
 
-	db.query('INSERT INTO ANUNCIO (fecha_subida, reservado, nombre, precio, descripcion, vendedor, imagen) VALUES (?,?,?,?,?,?,?);', [fecha_subida.toString().substring(0,10),reservado,nombre,precio,descripcion,vendedor,imagen], (err,a,f) => {
+	console.log(fecha_subida);
+
+	db.query('INSERT INTO ANUNCIO (fecha_subida, reservado, nombre, precio, descripcion, vendedor, imagen) VALUES (?,?,?,?,?,?,?);', [fecha_subida.toString().substring(0,17),reservado,nombre,precio,descripcion,vendedor,imagen], (err,a,f) => {
 		if (err) {
 			if (err.sqlMessage.endsWith("for key 'usuario.username'")) {
 				res.send('duplicated_username');
@@ -367,7 +369,7 @@ app.post("/addComment", (req,res) => {
 	let fecha_publicacion = req.body.fecha_publicacion;
 	let texto = req.body.texto;
 	
-	db.query('INSERT INTO COMENTARIO (usuario, autor, fecha_publicacion, texto) VALUES (?,?,?,?);', [usuario, autor, fecha_publicacion.toString().substring(0,10), texto], (err,a,f) =>{
+	db.query('INSERT INTO COMENTARIO (usuario, autor, fecha_publicacion, texto) VALUES (?,?,?,?);', [usuario, autor, fecha_publicacion.toString().substring(0,17), texto], (err,a,f) =>{
 		if(err){
 			console.log(err.sqlMessage);
 		}else{

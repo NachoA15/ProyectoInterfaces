@@ -177,14 +177,14 @@ export default function Chat() {
                             </div>
                             <div class="chat-message clearfix">
                                 <div class="input-group mb-0">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="fa fa-send" ></i><input
+                                    <div class="input-group-prepend" style={{width: '100%'}}>
+                                        <span class="input-group-text"><input
                                         aria-label="Campo de entrada para escribir mensajes"
                                         id="mensaje"
                                         name='nombre de usuario'
                                         variant="standard"
                                         size="small" 
-                                        /> </span>
+                                        /><i class="fa fa-paper-plane fa-solid fav-icon"/></span>
                                     </div>
                                                                      
                                 </div>

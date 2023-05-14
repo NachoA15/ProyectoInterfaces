@@ -10,11 +10,11 @@ export default function IntroPage() {
         <div id='navbarLocation'>
             <NavbarIntroPage />
         </div>
-        <div className='full-screen'>
+        <div>
             <div id='inicio'>
                 <div className='textLeft'>
-                    <h1 tabindex="0">Un espacio para músicos</h1>
-                    <p className='intro-text' tabindex="0">Desde comprar el material que buscas o vender el tuyo propio 
+                    <h1 tabIndex="0">Un espacio para músicos</h1>
+                    <p className='intro-text' tabIndex="0">Desde comprar el material que buscas o vender el tuyo propio 
                         hasta interactuar con el resto de usuarios. Comparte tus gustos, tu equipo, tu propia música... 
                         ¡Lo que quieras!</p>
                     <div id='intro-buttons-section'>
@@ -27,19 +27,19 @@ export default function IntroPage() {
             </div>
             <div id='anuncios'>
                 <div className='textRight'>
-                    <h1 tabindex="0">Amplía tu arsenal</h1>
+                    <h1 tabIndex="0">Amplía tu arsenal</h1>
                     <br/>
-                    <p className='intro-text' tabindex="0">Busca y compra equipo que te interese de otros usuarios a través de los anuncios.
+                    <p className='intro-text' tabIndex="0">Busca y compra equipo que te interese de otros usuarios a través de los anuncios.
                         ¡Tu también puedes vender el tuyo!</p>
                     <br/>
-                    <p className='intro-text' tabindex="0">Busca según diferentes filtros y añade los anuncios que te llamen la atención a 
+                    <p className='intro-text' tabIndex="0">Busca según diferentes filtros y añade los anuncios que te llamen la atención a 
                         una lista de seguimiento. Ya sabes, para tenerlos a mano...
                     </p>
                 </div>
             </div>
             <div id='interactua'>
                 <div className='textLeft'>
-                    <h1 tabindex="0">Interactúa con otros músicos</h1>
+                    <h1 tabIndex="0">Interactúa con otros músicos</h1>
                     <br/>
                     <p className='intro-text' tabindex="0">Valora a otros usuarios y visita los perfiles de otras personas.</p>
                     <p className='intro-text' tabindex="0">Personaliza tu perfil con cualquier cosa sobre ti que quieras
@@ -49,9 +49,9 @@ export default function IntroPage() {
             </div>
             <div id='sobre-nosotros'>
                 <div className='textRight'>
-                    <h1 tabindex="0">Sobre nosotros</h1>
+                    <h1 tabIndex="0">Sobre nosotros</h1>
                     <br/>
-                    <p className='intro-text' tabindex="0">Somos un equipo de estudiantes de Ingeniería del Software de la Universidad de Málaga
+                    <p className='intro-text' tabindex="0">Somos un equipo de estudiantes de Ingeniería de Software de la Universidad de Málaga
                         a los que, como tú, nos apasiona el mundo de la música.</p>
                 </div>
             </div>

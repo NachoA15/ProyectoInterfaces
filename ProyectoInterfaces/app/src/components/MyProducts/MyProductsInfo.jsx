@@ -8,7 +8,7 @@ export default function MyProductsInfo() {
             <div className="row">
                 <div id="placement-info">
                     <h2 tabIndex="0"><b>No tienes ningún anuncio subido</b></h2>
-                    <div className="item-active">
+                    <div className="item active">
                         <div className="row">
                             <div className="col-1"/>
                             <div className="col">
@@ -24,7 +24,7 @@ export default function MyProductsInfo() {
                                 uno de tus anuncios también desaparecerá de aquí.</p>
                             </div>
                             <div className="col-1"/>
-                            <div className="col">
+                            <div style={{width: '680px'}}>
                                 <img id="infoimg" src={ampWithGuitar}/>
                             </div>
                         </div>

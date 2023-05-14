@@ -15,9 +15,9 @@ export default function addProduct() {
             <NavBar />
         </div>
         <br/><br/>
-        <div class="container">
+        <div className="container">
 
-          <section class="panel panel-default">
+          <section className="panel panel-default">
 
             <div id="addProductForm">
 
@@ -32,23 +32,27 @@ export default function addProduct() {
 
                 if(nombre !== '' && precio !== ''){
                   e.preventDefault();
+
                   const anuncio = [fecha_subida, reservado, nombre, precio, descripcion, vendedor, imagen];
-                  anunciosServices.addProduct(anuncio);
+                  
+                  anunciosServices.proccessAddingProduct(anuncio);
                 }
 
               }}>
                 <br/>
-                <div class='container center' style={{ maxWidth: 450 }}>
-                  <div class='card bg-light'>
-                    <div class="card-body">
-                      <div class="row text-center">
-                        <h3 class="card-title" tabindex="0">Introduzca la información del producto:</h3>
-                        <h6 tabindex="0">Los campos obligatorios se muestran con un asterisco (*)</h6>
+                <div className='container center' style={{ maxWidth: 450 }}>
+                  <div className='card bg-light'>
+                    <div className="card-body">
+                      <div className="row text-center">
+                        <h3 className="card-title" tabIndex="0">Introduzca la información del producto:</h3>
+                        <h6 tabIndex="0">Los campos obligatorios se muestran con un asterisco (*)</h6>
                       </div>
+
                       <br/>
-                      <div class="row text-left">
-                        <div class="col-md-2"></div>
-                        <div class="col-md-8">
+
+                      <div className="row text-left">
+                        <div className="col-md-2"></div>
+                        <div className="col-md-8">
                           <div>
                             <TextField
                               required
@@ -59,57 +63,14 @@ export default function addProduct() {
                             />         
                           </div>
                         </div>
-                        <div class="col-md-2"></div>
+                        <div className="col-md-2"></div>
                         </div>
+
                         <br/>
-                        <div class="row text-left">
-                          <div class="col-md-2"></div>
-                          <div class="col-md-8">
-                            <div>
-                              <TextField
-                                id="descripcion"
-                                label="Descripción del producto"
-                                variant="standard"
-                                size="small"
-                                multiline
-                                maxRows={5}
-                              />
-                            </div>
-                          </div>
-                          <div class="col-md-2"></div>
-                        </div>
-                        <br/>
-                        {/**
-                         * 
-                         * 
-                         <div class="row text-left">
-                            <div class="col-md-2"></div>
-                            <div class="col-md-8">
-                             <div>
-                               <FormControl size="small">
-                                 <InputLabel variant="standard" id="categoria"> Categoria </InputLabel>
-                                 <NativeSelect
-                                   id="categoria"
-                                   label="Categoria"
-                                   variant="standard"  
-                                 >
-                                   <option value="viento">Viento</option>
-                                   <option value="cuerda">Cuerda</option>
-                                   <option value="percusion">Percusión</option>
-                                   <option value="teclado">Teclado</option>
-                                   <option value="accesorios">Accesorios</option>
-                                   <option value="equipo">Equipo de Sonido</option>
-                                 </NativeSelect>
-                               </FormControl>
-                             </div>
-                           </div>
-                         </div>
-                         <br/>
-                         * 
-                         */}
-                        <div class="row text-left">
-                          <div class="col-md-2"></div>
-                          <div class="col-md-8">
+
+                        <div className="row text-left">
+                          <div className="col-md-2"></div>
+                          <div className="col-md-8">
                             <div>
                               <TextField
                                 required
@@ -121,27 +82,49 @@ export default function addProduct() {
                               />
                             </div>
                           </div>
-                          <div class="col-md-2"></div>
+                          <div className="col-md-2"></div>
                         </div>
+
                         <br/>
       
-                        <div class="row text-left">
-                          <div class="col-md-2"></div>
-                          <div class="col-md-8">
+                        <div className="row text-left">
+                          <div className="col-md-2"></div>
+                          <div className="col-md-8">
                             <div>
                               <TextField
+                                required
                                 id='imagen'
                                 label='Imagen (URL)'
+                                variant="standard"
                                 size='medium'
                               />
                             </div>
                           </div>
-                          <div class="col-md-2"></div>
+                          <div className="col-md-2"></div>
                         </div>
+
+                        <br/>
+
+                        <div className="row text-left">
+                          <div className="col-md-2"></div>
+                          <div className="col-md-8">
+                            <div>
+                              <TextField
+                                id="descripcion"
+                                label="Descripción del producto"
+                                size="small"
+                                multiline
+                                rows={5}
+                              />
+                            </div>
+                          </div>
+                          <div className="col-md-2"></div>
+                        </div>
+
                         <br/>
                         
-                        <div class='container' style={{ maxWidth: 150 }}>
-                          <button type="submit" class="btn btn-outline-primary">Confirmar</button>
+                        <div className='container' style={{ maxWidth: 150 }}>
+                          <button type="submit" className="btn btn-outline-primary">Confirmar</button>
                         </div>
 
                     </div>                        

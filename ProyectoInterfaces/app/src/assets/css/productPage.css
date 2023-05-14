@@ -1,0 +1,13 @@
+div.card-anuncio {
+	cursor: default;
+    width: 100%;
+}
+
+img#product-image {
+    position: relative;
+    border: 1px solid black;
+    cursor: default;
+    margin: 60px;
+    width: 80%;
+    border-radius: 10px;
+}
