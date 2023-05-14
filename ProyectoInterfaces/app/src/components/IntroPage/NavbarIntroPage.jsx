@@ -8,7 +8,6 @@ export default function NavbarIntroPage() {
 
         activeLink.setAttribute("class", "nav-link");   
         link.setAttribute("class", "nav-link active");
-
     }
 
     return (

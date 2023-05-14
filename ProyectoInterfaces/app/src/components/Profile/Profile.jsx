@@ -2,7 +2,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { ReactSession } from "react-client-session";
-import Axios from 'axios';
+import userServices from '../../services/userServices';
 import NavBar from '../NavBar';
 
 import ProfileView from './ProfileView';
@@ -21,11 +21,7 @@ export default function Profile() {
     let username = params.username;
 
     useEffect(() => {
-        Axios.post("http://localhost:3001/getUsuarioByUsername", {
-            username: username
-        }).then((u) => {
-            setUsuarioPerfil(u.data[0]);
-        })
+        userServices.getUsuarioByUsername(username, setUsuarioPerfil);
     }, [])
 
     return(

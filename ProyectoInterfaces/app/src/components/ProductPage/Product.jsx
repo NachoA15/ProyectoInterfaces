@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
 import anunciosServices from "../../services/anunciosServices";
+import appServices from "../../services/appServices";
 import { useParams } from "react-router-dom";
 import NavBar from "../NavBar";
 import '../../assets/css/productPage.css'
@@ -50,11 +51,14 @@ export default function Product() {
                             </div>	
                             <div className="buttons d-flex flex-row mt-5 gap-3" >
                                 {producto !== null && idUsuarioRegistrado === producto.idUsuario?
-                                <button className="btn btn-outline-dark" onClick={() => anunciosServices.processDeleteAnuncio(producto,null,null,'product')}>Eliminar anuncio</button>	
+                                <button className="btn card-button" onClick={() => anunciosServices.processDeleteAnuncio(producto,null,null,'product')}>Eliminar anuncio</button>	
                                 :
-                                <button className="btn btn-outline-dark" onClick={() => appServices.openChat(producto.idAnuncio, idUsuarioRegistrado)}>Contacta</button>	
+                                <button className="btn card-button" onClick={() => appServices.openChat(producto.idAnuncio, idUsuarioRegistrado)}>Contacta</button>	
                                 }	
                             </div>	
+                            <br/>
+                            <br/>
+                            <button className="btn card-button" onClick={() => appServices.moveToProducts()}>Ir a productos</button>
                         </div>
                     </div>	
                 </div>	

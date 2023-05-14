@@ -234,7 +234,15 @@ const addComment = (comentario) =>{
     })
 }
 
+const getUsuarioByUsername = (username, setUsuarioPerfil) => {
+    Axios.post("http://localhost:3001/getUsuarioByUsername", {
+        username: username
+    }).then((u) => {
+        setUsuarioPerfil(u.data[0]);
+    })
+}
 
-const userServices = {addUsuario, checkUsuarioLogin, updateUsuario, getComentariosByUser, addComment};
+
+const userServices = {addUsuario, checkUsuarioLogin, updateUsuario, getComentariosByUser, addComment, getUsuarioByUsername};
 
 export default userServices;

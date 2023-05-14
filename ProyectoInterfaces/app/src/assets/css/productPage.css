@@ -11,3 +11,16 @@ img#product-image {
     width: 80%;
     border-radius: 10px;
 }
+
+button.card-button {
+    color: white;
+    background-color: black;
+    border-radius: 15px;
+    width: 200px;
+}
+
+button.card-button:hover {
+    background-color: white;
+    color: black;
+    transform: translateY(-2px);
+}
