@@ -21,7 +21,6 @@ export default function ProfileView({usuarioPerfil, usuarioRegistrado, setEditan
                                     <div className="col mb-5 text-white username">
                                         <div>
                                             <h4 className="mt-0 mb-0" tabIndex="0">{usuarioPerfil.username}</h4> 
-                                            <p aria-label='Localización' className="small mb-4 location" tabIndex="0"><img src={world} alt='' width={20}/> &nbsp;{usuarioPerfil.localizacion}</p> 
                                         </div>
                                     </div> 
                                 </div> 
@@ -41,6 +40,7 @@ export default function ProfileView({usuarioPerfil, usuarioRegistrado, setEditan
                             <div className="px-4 py-3"> 
                                 <h5 className="mb-0" tabIndex="0">Información personal</h5> 
                                 <div className="p-4 rounded shadow-sm bg-light">
+                                    <p aria-label='Localización' className="font-italic mb-0  descripcion" tabIndex="0"><img src={world} alt='' width={20}/> &nbsp;{usuarioPerfil.localizacion}</p> 
                                     {usuarioPerfil.nombre !== null && <p className="font-italic mb-0 descripcion" tabIndex={0}>Nombre: {usuarioPerfil.nombre}</p>}
                                     {usuarioPerfil.correo !== null && <p className="font-italic mb-0 descripcion" tabIndex={0}>Correo: {usuarioPerfil.correo}</p>}
                                     {usuarioPerfil.telefono !== null && <p className="font-italic mb-0 descripcion" tabIndex={0}>Teléfono: {usuarioPerfil.telefono}</p>}
