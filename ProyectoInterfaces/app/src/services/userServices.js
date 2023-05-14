@@ -31,29 +31,14 @@ const addUsuario = (usuario) => {
                     'Ya existe otro usuario con el mismo correo. Por favor, cámbielo e inténtelo de nuevo.',
                 })
             } else {
-                swal({
-                    title: 'Usuario creado con éxito',
-                    text: '¡Ahora puedes iniciar sesión con tu cuenta!',
+                Swal.fire({
                     icon: 'success',
-                    buttons: {
-                        login: {
-                            text: "Ve al login",
-                            value: "login",
-                        },
-                        volver: {
-                            text: "Volver a la página principal",
-                        }
-                    }
-                }).then((value) => {
-
-                    switch (value) {
-                        case "login":
-                            appServices.moveToLogin();
-                            break;
-
-                        default:
-                            appServices.moveToMainPage();
-                    }
+                    html:
+                    '<h3>Usuario creado con éxito</h3>' + 
+                    '¡Ahora puedes iniciar sesión con tu cuenta!',
+                    confirmButtonText: "Ir al login"
+                }).then(() => {
+                    appServices.moveToLogin();
                 })
             }
         })
