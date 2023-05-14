@@ -39,12 +39,12 @@ div#sobre-nosotros {
 }
 
 div.textLeft {
-    position: relative;
-    float: left;
-    left: 2%;
-    top: 5%;
-    width: 35%;
-    text-align: center;
+        position: relative;
+        float: left;
+        left: 2%;
+        top: 5%;
+        width: 35%;
+        text-align: center;
 }
 
 div.textRight {
@@ -105,7 +105,7 @@ div#intro-buttons-section {
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  width: 60%;
+  width: 20vw;
   will-change: transform;
 }
 

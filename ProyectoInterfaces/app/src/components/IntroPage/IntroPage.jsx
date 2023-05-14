@@ -41,10 +41,9 @@ export default function IntroPage() {
                 <div className='textLeft'>
                     <h1 tabindex="0">Interactúa con otros músicos</h1>
                     <br/>
-                    <p className='intro-text' tabindex="0">Comenta en los anuncios y participa en discusiones sobre instrumentos, equipo, 
-                        experiencias personales... </p>
+                    <p className='intro-text' tabindex="0">Valora a otros usuarios y visita los perfiles de otras personas.</p>
                     <p className='intro-text' tabindex="0">Personaliza tu perfil con cualquier cosa sobre ti que quieras
-                        compartir con el resto. También puedes visitar el perfil de otros usuarios.</p>
+                        compartir con el resto.</p>
                     <p className='intro-text' tabindex="0">¡Conecta con gente que comparte tu misma pasión!</p>
                 </div>
             </div>
@@ -52,7 +51,7 @@ export default function IntroPage() {
                 <div className='textRight'>
                     <h1 tabindex="0">Sobre nosotros</h1>
                     <br/>
-                    <p className='intro-text' tabindex="0">Somos un equipo de estudiantes de Ingeniería de Software de la Universidad de Málaga
+                    <p className='intro-text' tabindex="0">Somos un equipo de estudiantes de Ingeniería del Software de la Universidad de Málaga
                         a los que, como tú, nos apasiona el mundo de la música.</p>
                 </div>
             </div>
