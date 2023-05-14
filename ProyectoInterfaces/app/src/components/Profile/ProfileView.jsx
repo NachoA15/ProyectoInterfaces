@@ -37,6 +37,17 @@ export default function ProfileView({usuarioPerfil, usuarioRegistrado, setEditan
                             </ul> 
                         </div> 
                         
+                        { (usuarioPerfil.nombre !== null || usuarioPerfil.correo != null || usuarioPerfil.telefono !== null) &&
+                            <div className="px-4 py-3"> 
+                                <h5 className="mb-0" tabIndex="0">Información personal</h5> 
+                                <div className="p-4 rounded shadow-sm bg-light">
+                                    {usuarioPerfil.nombre !== null && <p className="font-italic mb-0 descripcion" tabIndex={0}>Nombre: {usuarioPerfil.nombre}</p>}
+                                    {usuarioPerfil.correo !== null && <p className="font-italic mb-0 descripcion" tabIndex={0}>Correo: {usuarioPerfil.correo}</p>}
+                                    {usuarioPerfil.telefono !== null && <p className="font-italic mb-0 descripcion" tabIndex={0}>Teléfono: {usuarioPerfil.telefono}</p>}
+                                </div> 
+                            </div> 
+                        }
+
                         <div className="px-4 py-3"> 
                             <h5 className="mb-0" tabIndex="0">Sobre mí</h5> 
                             <div className="p-4 rounded shadow-sm bg-light">

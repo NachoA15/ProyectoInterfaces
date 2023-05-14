@@ -25,7 +25,7 @@ export default function ComentariosUsuario({usuario}) {
                                 <li>
                                     <div className="comment-box">
                                         <div className="comment-head">
-                                            <h6 className="comment-name by-author">{comentario.username}</h6>
+                                            <h6 className="comment-name by-author"><a href={'/profile/' + comentario.username}>{comentario.username}</a></h6>
                                             <span>{comentario.date.toString().substring(0,10)}</span>
                                         </div>
                                         <div class="comment-content">
